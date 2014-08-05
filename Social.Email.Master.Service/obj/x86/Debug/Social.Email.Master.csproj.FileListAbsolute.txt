@@ -1,0 +1,4 @@
+C:\_SOURCECODE\SocialNetwork\Social.Email.Master\Social.Email.Master\bin\Debug\Social.Email.Master.exe
+C:\_SOURCECODE\SocialNetwork\Social.Email.Master\Social.Email.Master\bin\Debug\Social.Email.Master.pdb
+C:\_SOURCECODE\SocialNetwork\Social.Email.Master\Social.Email.Master\obj\x86\Debug\Social.Email.Master.exe
+C:\_SOURCECODE\SocialNetwork\Social.Email.Master\Social.Email.Master\obj\x86\Debug\Social.Email.Master.pdb

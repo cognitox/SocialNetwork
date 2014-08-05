@@ -1,0 +1,8 @@
+C:\_SOURCECODE\SocialNetwork\Solutions\Social.Database\bin\Debug\Social.Database.dll
+C:\_SOURCECODE\SocialNetwork\Solutions\Social.Database\bin\Debug\Social.Database.pdb
+C:\_SOURCECODE\SocialNetwork\Solutions\Social.Database\obj\Debug\Social.Database.dll
+C:\_SOURCECODE\SocialNetwork\Solutions\Social.Database\obj\Debug\Social.Database.pdb
+C:\_SOURCECODE\SocialNetwork\Social.Database\bin\Debug\Social.Database.dll
+C:\_SOURCECODE\SocialNetwork\Social.Database\bin\Debug\Social.Database.pdb
+C:\_SOURCECODE\SocialNetwork\Social.Database\obj\Debug\Social.Database.dll
+C:\_SOURCECODE\SocialNetwork\Social.Database\obj\Debug\Social.Database.pdb

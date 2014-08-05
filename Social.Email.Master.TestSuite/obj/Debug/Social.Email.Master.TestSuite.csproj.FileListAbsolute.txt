@@ -1,0 +1,4 @@
+C:\_SOURCECODE\SocialNetwork\Social.Email.Master.TestSuite\bin\Debug\Social.Email.Master.TestSuite.dll
+C:\_SOURCECODE\SocialNetwork\Social.Email.Master.TestSuite\bin\Debug\Social.Email.Master.TestSuite.pdb
+C:\_SOURCECODE\SocialNetwork\Social.Email.Master.TestSuite\obj\Debug\Social.Email.Master.TestSuite.dll
+C:\_SOURCECODE\SocialNetwork\Social.Email.Master.TestSuite\obj\Debug\Social.Email.Master.TestSuite.pdb
