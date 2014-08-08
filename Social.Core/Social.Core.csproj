@@ -41,13 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\DBTrackedFactory.cs" />
+    <Compile Include="MasterServiceTasks\BaseSchedulerTask.cs" />
     <Compile Include="MasterServiceTasks\ParseEmailedCommitmentsTask.cs" />
     <Compile Include="MasterServiceTasks\Response\Interface\ITaskRuntimeResponse.cs" />
     <Compile Include="MasterServiceTasks\Response\TaskRuntimeResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MasterServiceTasks\Interface\ISchedulerTask.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\Interface\IEmailService.cs" />
     <Compile Include="Services\Interface\ISchedulerService.cs" />
     <Compile Include="Services\SchedulerService.cs" />
+    <Compile Include="Services\TESTOBJ.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Social.Common\Social.Common.csproj">

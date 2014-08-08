@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Social.Logging.Responses.Interface;
 
-namespace Social.Email.Master.Jobs
+namespace Social.Email.Master.Scheduler.Interface
 {
-    public interface IJob
+    public interface IEventBase
     {
         String Name { get; }
         ILogResponse Execute();       

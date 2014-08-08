@@ -6,8 +6,8 @@ using Social.Logging.Responses.Interface;
 
 namespace Social.Email.Master.Service.Response.Interface
 {
-    public interface IJobRuntimeResponse 
+    public interface IEventScheduler 
     {
-        ILogResponse TaskResponse { get; set; }
+        ILogResponse ActionResponse { get; set; }
     }
 }

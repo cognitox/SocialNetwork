@@ -9,14 +9,14 @@ using Social.Core.MasterServiceTasks.Response.Interface;
 
 namespace Social.Email.Master.Service.Response
 {
-    public class JobRuntimeResponse : LogResponse, IJobRuntimeResponse
+    public class EventSchedulerResponse : LogResponse, IEventScheduler
     {
-        public JobRuntimeResponse()
+        public EventSchedulerResponse()
         {
             base.IsSuccessful = true;
-            TaskResponse = new LogResponse();
+            ActionResponse = new LogResponse();
         }
-        public ILogResponse TaskResponse { get; set; }
+        public ILogResponse ActionResponse { get; set; }
         
     }
 }

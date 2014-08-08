@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Social.Email.Master.Jobs.Interface
+namespace Social.Email.Master.Scheduler.Interface
 {
-    public interface ITaskSchedulerJob
+    public interface IEventScheduler
     {
 
     }

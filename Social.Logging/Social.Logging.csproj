@@ -54,6 +54,7 @@
     <Compile Include="Responses\LogResponse.cs" />
     <Compile Include="Logger\Interface\IServiceLogger.cs" />
     <Compile Include="Logger\ServiceLogger.cs" />
+    <Compile Include="Tasks\BaseLoggable.cs" />
     <Compile Include="Tasks\ILoggable.cs" />
   </ItemGroup>
   <ItemGroup />

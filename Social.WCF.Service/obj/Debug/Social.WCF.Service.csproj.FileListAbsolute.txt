@@ -6,3 +6,4 @@ C:\_SOURCECODE\SocialNetwork\Social.WCF.Service\bin\Social.WCF.Service.dll
 C:\_SOURCECODE\SocialNetwork\Social.WCF.Service\bin\Social.WCF.Service.pdb
 C:\_SOURCECODE\SocialNetwork\Social.WCF.Service\obj\Debug\Social.WCF.Service.dll
 C:\_SOURCECODE\SocialNetwork\Social.WCF.Service\obj\Debug\Social.WCF.Service.pdb
+C:\_SOURCECODE\SocialNetwork\Social.WCF.Service\obj\Debug\Social.WCF.Service.csprojResolveAssemblyReference.cache

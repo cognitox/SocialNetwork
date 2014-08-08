@@ -6,10 +6,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
-using Social.Email.Master.Jobs.Interface;
 using Social.Logging.LoggingUnit;
 using Social.Core.Services;
-using Social.Email.Master.Jobs;
+using Social.Email.Master.Scheduler.Interface;
+using Social.Email.Master.Scheduler;
 
 namespace Social.Email.Master
 {
@@ -22,8 +22,11 @@ namespace Social.Email.Master
 
         protected override void OnStart(string[] args)
         {
-            IJob taskSchedulerJob = new TaskSchedulerJob(new LoggingUnit(), new SchedulerService());
-            taskSchedulerJob.Execute();
+
+            IEventBase eventScheduler = new EventScheduler(new LoggingUnit(), new SchedulerService());
+            eventScheduler.Execute();
+
+
         }
 
         protected override void OnStop()

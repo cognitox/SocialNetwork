@@ -13,6 +13,6 @@ namespace Social.Core.MasterServiceTasks.Interface
     {
         Int32 ExecInterval { get; set; }
         TimeIntervalEnum TimeInterval { get; set; }
-        ILogResponse Execute();
+        ILogResponse Execute(Object locker);
     }
 }

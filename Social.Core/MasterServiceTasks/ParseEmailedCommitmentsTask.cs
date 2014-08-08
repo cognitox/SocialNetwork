@@ -8,15 +8,23 @@ using Social.Logging.Responses.Interface;
 using Social.Common.Enumerations;
 using Social.Logging.Tasks;
 using Social.Logging.LoggingUnit.Interface;
+using Social.Core.Services;
+using Social.Logging.LoggingUnit;
 
 namespace Social.Core.MasterServiceTasks
 {
-    public class ParseEmailedCommitmentsTask : ISchedulerTask, ILoggable
+    public class ParseEmailedCommitmentsTask : BaseSchedulerTask
     {
-
-        public int ExecInterval { get; set; }
-        public TimeIntervalEnum TimeInterval { get; set; }
         private readonly ILoggingUnit _loggingUnit;
+
+        public ParseEmailedCommitmentsTask()
+        {
+            _loggingUnit = new LoggingUnit();
+            //ILoggable
+            Name = @"Parse Email Task";
+            Objective = @"This task parses the configured 
+                          email for commitments to create";
+        }
 
         public ParseEmailedCommitmentsTask(ILoggingUnit loggingUnit)
         {
@@ -25,22 +33,23 @@ namespace Social.Core.MasterServiceTasks
             TimeInterval = TimeIntervalEnum.Milliseconds;
         }
 
-        public string Name
-        {
-            get { return @"Parse Email Task"; }
-        }
-
-        public string Objective
-        {
-            get { return @"This task parses the configured email for commitments to create"; }
-        }
-
-        public ILogResponse Execute()
+        public override ILogResponse Execute(Object locker)
         {
             _loggingUnit.LogMessage(this, @"Beginning execution");
             var response = new TaskRuntimeResponse();
             try
             {
+                //test
+                lock (locker)
+                {
+                    TESTOBJ.Count++;
+                    var i = TESTOBJ.Count.ToString();
+                    Console.WriteLine(String.Format(@"Count is :: {0} ",i));
+                    if (TESTOBJ.Count <= 1)
+                    {
+                        TESTOBJ.Count--;
+                    }
+                }
 
             }
             catch (Exception exception)
@@ -50,11 +59,13 @@ namespace Social.Core.MasterServiceTasks
                                                 , DateTime.Now);
                 response.ExceptionThrown = exception;
                 _loggingUnit.LogError(this);
-                _loggingUnit.LogError(response as ILogResponse);
+                ILogResponse logResponse = response;
+                _loggingUnit.LogError(logResponse);
             }
 
             _loggingUnit.LogMessage(this, @"Successfully executed");
-            return (response as ILogResponse);
+            ILogResponse returnResponse = response;
+            return (returnResponse);
         }
 
     }
