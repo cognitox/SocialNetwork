@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!--Google Fonts-->
-    <link href="http://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap Core CSS -->
     <link href="Content/css/bootstrap.min.css" rel="stylesheet">
@@ -39,8 +39,18 @@
 <body id="page-top" class="index">
     @RenderBody()
 
+    <style type="text/css">
+        .header-circle {
+            background: #86AADA;
+            border-radius: 75px;
+            padding-left: 23px;
+            white-space: nowrap;
+            box-shadow: 0 0 10px 10px #032550;
+            position: absolute;
+        }
+    </style>
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top hide">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -50,12 +60,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a style="font-family: 'Quicksand' , sans-serif !important;" class="navbar-brand page-scroll" href="#page-top">Relationship Capital</a>
+                <div style="left: 94px; top: 19px;width: 35px;  height: 35px;opacity: 0.9;  filter: alpha(opacity=70);" class="header-circle"></div>
+                <div style="left: 275px; top: 19px;width: 35px;  height: 35px;opacity: .80;  filter: alpha(opacity=70);" class="header-circle"></div>
+                <a style="font-family: 'Quicksand' , sans-serif !important; font-weight:bold; color:#FFFFFF;position: absolute;" class="navbar-brand page-scroll" href="#page-top">Relationship Capital</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right navItemSelector hide">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
@@ -89,32 +101,99 @@
             background: white;
             height: 50px;
         }
+
+        .slogan {
+            /*font-family: 'Quicksand', sans-serif !important;
+            font-size: 28px;
+            color: #3071a9;
+            background: white;
+            opacity: 0.8;
+            filter: alpha(opacity=80);
+            border-radius: 0px 0px 30px 30px;
+            margin-top: 3px;
+            padding: 0px 0px 0px 0px;
+            width: 30%;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 23px;
+            box-shadow: 0px 0px 56px 35px white;
+            white-space: nowrap;
+            min-width: 342px;*/
+            font-family: 'Quicksand', sans-serif !important;
+            font-size: 28px;
+            /*color: #3071a9;*/
+            color: #FFFFFF;
+            border-radius: 0px 0px 30px 30px;
+            margin-top: 3px;
+            padding: 0px 0px 0px 0px;
+            width: 30%;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 23px;
+            white-space: nowrap;
+            min-width: 342px;
+            position: absolute;
+        }
+
+        .slogan-circle {
+            /*background: white;
+            opacity: 0.7;
+            filter: alpha(opacity=70);
+            border-radius: 75px;
+            padding-left: 23px;
+            white-space: nowrap;
+            width: 150px;
+            height: 150px;
+            box-shadow: 0 0 10px 10px;
+            position: absolute;*/
+            /*
+                Normal White
+
+                background: rgb(224, 224, 224);
+            border-radius: 75px;
+            padding-left: 23px;
+            white-space: nowrap;
+            box-shadow: 0 0 10px 10px;
+            position: absolute;*/
+            background: #507CB4;
+            border-radius: 75px;
+            padding-left: 23px;
+            white-space: nowrap;
+            box-shadow: 0 0 10px 10px #0E294B;
+            position: absolute;
+        }
     </style>
 
     @*<nav class="navbar navbar-default navbar-fixed-top white-top">
-        <div class="container">
-            <div style="margin-top: -25px;" class="navbar-header">
-                <a style="font-weight: bold;font-family: 'Quicksand' , sans-serif !important;" class="navbar-brand page-scroll" href="#page-top">Relationship Capital</a>
+            <div class="container">
+                <div style="margin-top: -25px;" class="navbar-header">
+                    <a style="font-weight: bold;font-family: 'Quicksand' , sans-serif !important;" class="navbar-brand page-scroll" href="#page-top">Relationship Capital</a>
+                </div>
             </div>
-        </div>
-        <!-- /.container-fluid -->
-    </nav>*@
+            <!-- /.container-fluid -->
+        </nav>*@
 
     <!-- Header -->
     <header>
         <div class="container">
-            @*<div style="font-family: 'Quicksand' , sans-serif !important;
-                font-size: 26px;
-                color: #3071a9;
-                background: white;
-                opacity: 0.9;
-                filter: alpha(opacity=90);
-                border-radius: 4px;
-                float: right;
-                margin-top: 57px;
-                padding: 10px;
-                width: 380px;
-                font-weight: bold;" class="slogan">Relationship Capital</div>*@
+
+            <div style="left: 0px; top: 20px;width: 100px;  height: 100px;opacity: 0.3;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 61px; top: -8px;width: 75px;  height: 75px;opacity: 0.7;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 61px; top: 57px;width: 100px;  height: 100px;opacity: 0.6;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 153px; width: 120px;  height: 120px;opacity: 0.7;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 408px; top: -64px;width: 110px;  height: 110px;opacity: 0.7;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 245px; top: 33px;width: 105px;  height: 105px;opacity: 0.7;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 200px; top: 65px;width: 120px;  height: 120px;opacity: 0.7;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 292px; top: -60px;width: 120px;  height: 120px;opacity: 0.7;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 300px; top: 73px;width: 90px;  height: 90px;opacity: 0.7;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 98px; top: -65px;width: 120px;  height: 120px;opacity: 0.8;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 173px; top: 2px;width: 120px;  height: 120px;opacity: 0.7;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 332px; top: -4px;width: 90px;  height: 90px;opacity: 0.8;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 60px; top: 184px;width: 40px;  height: 40px;opacity: 0.6;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+            <div style="left: 235px; top: -78px;width: 120px;  height: 120px;opacity: 0.7;  filter: alpha(opacity=70);" class="slogan-circle"></div>
+
+
+            @*<div class="slogan">Relationship Capital</div>*@
             <style type="text/css">
                 .main-slogan {
                     margin-top: -65px;

@@ -11,7 +11,8 @@
 var cbpAnimatedHeader = (function() {
 
 	var docElem = document.documentElement,
-		header = document.querySelector( '.navbar-default' ),
+		header = document.querySelector('.navbar-default'),
+        navItems = document.querySelector('.navItemSelector'),
 		didScroll = false,
 		changeHeaderOn = 300;
 
@@ -28,13 +29,12 @@ var cbpAnimatedHeader = (function() {
 		var sy = scrollY();
 		if ( sy >= changeHeaderOn ) {
 		    classie.add(header, 'navbar-shrink');
-		    classie.remove(header, 'hide');
-		    $('.white-top').hide();
+		    classie.remove(navItems, 'hide');
 		}
 		else {
 		    classie.remove(header, 'navbar-shrink');
-		    classie.add(header, 'hide');
-		    $('.white-top').show();
+		    classie.add(navItems, 'hide');
+
 		}
 		didScroll = false;
 	}

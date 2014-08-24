@@ -232,7 +232,7 @@ h6 {
 
 @media(min-width:768px) {
     .navbar-default {
-        padding: 25px 0;
+        padding: 10px 0;
         border: 0;
         background-color: transparent;
         -webkit-transition: padding .3s;
