@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22F3426A-A4A3-4F7C-9132-2F1127E5FD9E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Social.Core</RootNamespace>
+    <AssemblyName>Social.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\Solutions\packages\Ninject.3.2.2.0\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="S22.Imap">
+      <HintPath>..\Solutions\packages\S22.Imap.3.6.0.0\lib\net40\S22.Imap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Agents\CommandChains\Base\Invoker.cs" />
+    <Compile Include="Agents\CommandChains\ProcessInboxChain.cs" />
+    <Compile Include="Agents\Commands\Args\CommandArgs.cs" />
+    <Compile Include="Agents\Commands\Args\EmailCommandArgs.cs" />
+    <Compile Include="Agents\Commands\Base\Command.cs" />
+    <Compile Include="Agents\Commands\Base\EmailCommand.cs" />
+    <Compile Include="Agents\Commands\Base\Interface\ICommand.cs" />
+    <Compile Include="Agents\Commands\Base\Reciever.cs" />
+    <Compile Include="Agents\Commands\Email\CertifyIMAPServerCommand.cs" />
+    <Compile Include="Agents\Commands\Email\CertifyEmailCommand.cs" />
+    <Compile Include="Agents\Commands\Email\CreateEmailDirectoryCommand.cs" />
+    <Compile Include="Agents\Commands\Email\MoveTargetEmailsToDirectoryCommand.cs" />
+    <Compile Include="Dependancies\ServiceModule.cs" />
+    <Compile Include="Models\Email\ParsableEmailAccount.cs" />
+    <Compile Include="Models\Server\Base\BaseEmailServer.cs" />
+    <Compile Include="Models\Server\IMAPServer.cs" />
+    <Compile Include="Models\Server\POP3Server.cs" />
+    <Compile Include="Models\Server\SMTPServer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\Interface\IEmailService.cs" />
+    <Compile Include="Services\Interface\IServerService.cs" />
+    <Compile Include="Services\ServerService.cs" />
+    <Compile Include="UnitOfService\Interface\IUnitOfService.cs" />
+    <Compile Include="UnitOfService\UnitOfService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Social.Common\Social.Common.csproj">
+      <Project>{ACDBB97D-5AB2-4B6A-BC0E-1078634B92DD}</Project>
+      <Name>Social.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Social.Data\Social.Data.csproj">
+      <Project>{5330d755-72b8-4c28-9693-adce67d4caac}</Project>
+      <Name>Social.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Social.Logging\Social.Logging.csproj">
+      <Project>{F964907E-4511-4015-93F5-48F0486CB500}</Project>
+      <Name>Social.Logging</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

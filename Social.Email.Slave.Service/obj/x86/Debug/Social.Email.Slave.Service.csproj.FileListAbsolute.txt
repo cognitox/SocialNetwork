@@ -1,4 +1,0 @@
-C:\_SOURCECODE\SocialNetwork\Social.Email.Slave.Service\bin\Debug\Social.Email.Slave.Service.exe
-C:\_SOURCECODE\SocialNetwork\Social.Email.Slave.Service\bin\Debug\Social.Email.Slave.Service.pdb
-C:\_SOURCECODE\SocialNetwork\Social.Email.Slave.Service\obj\x86\Debug\Social.Email.Slave.Service.exe
-C:\_SOURCECODE\SocialNetwork\Social.Email.Slave.Service\obj\x86\Debug\Social.Email.Slave.Service.pdb

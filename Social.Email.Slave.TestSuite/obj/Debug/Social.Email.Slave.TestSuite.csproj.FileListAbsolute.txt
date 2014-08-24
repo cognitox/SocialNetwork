@@ -1,4 +1,0 @@
-C:\_SOURCECODE\SocialNetwork\Social.Email.Slave.TestSuite\bin\Debug\Social.Email.Slave.TestSuite.dll
-C:\_SOURCECODE\SocialNetwork\Social.Email.Slave.TestSuite\bin\Debug\Social.Email.Slave.TestSuite.pdb
-C:\_SOURCECODE\SocialNetwork\Social.Email.Slave.TestSuite\obj\Debug\Social.Email.Slave.TestSuite.dll
-C:\_SOURCECODE\SocialNetwork\Social.Email.Slave.TestSuite\obj\Debug\Social.Email.Slave.TestSuite.pdb
