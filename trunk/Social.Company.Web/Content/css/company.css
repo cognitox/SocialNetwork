@@ -1128,7 +1128,8 @@ body {
 /* LOGO & COMPANY NAME*/
 
 .header-circle {
-    background: #86AADA;
+    /*background: #86AADA;*/
+    background: #A32B2B;
     border-radius: 75px;
     padding-left: 23px;
     white-space: nowrap;
@@ -1136,6 +1137,7 @@ body {
     position: absolute;
 }
 
+.top-logo-short,
 .top-logo-fixed {
     font-family: 'Quicksand', sans-serif !important;
     font-weight: bold;
@@ -1187,11 +1189,21 @@ body {
 
 /*Nav Showing*/
 .navbar-shrink .R-embelish {
-    display: none;
+    left: 129px;
+    top: 20px;
+    height: 30px;
+    width: 30px;
+    background: #428bca !important;
+    box-shadow:none !important;
 }
 
 .navbar-shrink .C-embelish {
-    display: none;
+    left: 96px;
+    top: 20px;
+    height: 30px;
+    width: 30px;
+    background: #428bca !important;
+    box-shadow:none !important;
 }
 
 .navbar-shrink .top-logo-fixed {
@@ -1201,11 +1213,21 @@ body {
 
 @media(max-width:768px) {
     .R-embelish {
-        display: none;
+        left: 129px;
+        top: 20px;
+        height: 30px;
+        width: 30px;
+        background: #428bca !important;
+        box-shadow:none !important;
     }
 
     .C-embelish {
-        display: none;
+        left: 96px;
+        top: 20px;
+        height: 30px;
+        width: 30px;
+        background: #428bca !important;
+        box-shadow:none !important;
     }
 }
 
