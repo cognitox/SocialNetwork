@@ -206,8 +206,8 @@
     <Content Include="Content\img\about\2.jpg" />
     <Content Include="Content\img\about\3.jpg" />
     <Content Include="Content\img\about\4.jpg" />
-    <Content Include="Content\img\header-bg.jpg" />
     <Content Include="Content\img\header-bg3.jpg" />
+    <Content Include="Content\img\header-bg.jpg" />
     <Content Include="Content\img\header-bg2.jpg" />
     <Content Include="Content\img\header-bg1.jpg" />
     <Content Include="Content\img\header-bg6.jpg" />

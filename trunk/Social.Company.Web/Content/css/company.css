@@ -176,14 +176,15 @@ h6 {
 
     .navbar-default .navbar-brand {
         font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
-        color: #2E598F;
+        /*color: #2E598F;*/
+        color: #ffffff;
     }
 
         .navbar-default .navbar-brand:hover,
         .navbar-default .navbar-brand:focus,
         .navbar-default .navbar-brand:active,
         .navbar-default .navbar-brand.active {
-            color: #0C2141;
+            color: #8EAAD6;
         }
 
     .navbar-default .navbar-collapse {
@@ -298,9 +299,7 @@ header {
 
 @media(min-width:768px) {
     header .intro-text {
-        /*padding-top: 300px;
-        padding-bottom: 200px;*/
-        padding-top: 170px;
+        padding-top: 220px;
         padding-bottom: 500px;
     }
 
@@ -1092,7 +1091,7 @@ body {
     }
 }
 
-/*Login form*/
+/*LOGIN FORM*/
 .intro-text .login-form {
     background: white;
     opacity: 0.9;
@@ -1122,5 +1121,97 @@ body {
 
 .intro-text .login-terms {
     padding-top: 20px;
-    clear:both;
+    clear: both;
+}
+
+
+/* LOGO & COMPANY NAME*/
+
+.header-circle {
+    background: #86AADA;
+    border-radius: 75px;
+    padding-left: 23px;
+    white-space: nowrap;
+    box-shadow: 0 0 10px 10px #032550;
+    position: absolute;
+}
+
+.top-logo-fixed {
+    font-family: 'Quicksand', sans-serif !important;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+
+
+.slogan-circle { /* BLUE LOGO CIRCLES */
+    background: #507CB4;
+    border-radius: 75px;
+    padding-left: 23px;
+    white-space: nowrap;
+    box-shadow: 0 0 10px 10px #0E294B;
+    position: absolute;
+}
+
+@media(min-width:768px) {
+    /*FIX THE LOGO IN POS*/
+    .top-logo-fixed {
+        position: absolute;
+        left: 124px;
+    }
+    /*HIDE NAVIGATION ITEMS*/
+    .customHide {
+        display: none !important;
+    }
+}
+
+/*Logo Letter Highlight R & C*/
+.let-ack-circle {
+    width: 35px;
+    height: 35px;
+    opacity: 0.9;
+    filter: alpha(opacity=70);
+    transition: all .3s;
+}
+
+/*Nav not showing*/
+.R-embelish {
+    left: 114px;
+    top: 19px;
+}
+
+.C-embelish {
+    left: 294px;
+    top: 19px;
+}
+
+/*Nav Showing*/
+.navbar-shrink .R-embelish {
+    display: none;
+}
+
+.navbar-shrink .C-embelish {
+    display: none;
+}
+
+.navbar-shrink .top-logo-fixed {
+    position: initial;
+}
+
+
+@media(max-width:768px) {
+    .R-embelish {
+        display: none;
+    }
+
+    .C-embelish {
+        display: none;
+    }
+}
+
+/*Move login form down, when full span*/
+@media(max-width:1200px) {
+    header .intro-text {
+        padding-top: 350px;
+    }
 }
