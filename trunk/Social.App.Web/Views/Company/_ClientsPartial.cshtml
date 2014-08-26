@@ -1,0 +1,13 @@
+﻿@model Social.App.Web.Models.Company.ViewModels.CompanyClientsViewModel
+
+
+<div class="row">
+    @foreach (var image in Model.ClientImages)
+    {
+        <div class="col-md-3 col-sm-6">
+            <a href="@image.ClientWebsiteURL">
+                <img src="@image.ImageURL" class="img-responsive img-centered" alt="">
+            </a>
+        </div>
+    }
+</div>

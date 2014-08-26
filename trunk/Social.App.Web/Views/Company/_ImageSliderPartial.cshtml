@@ -1,0 +1,31 @@
+﻿@model Social.App.Web.Models.Company.ViewModels.CompanyImageSliderViewModel
+
+<!-- Indicators -->
+<ol class="carousel-indicators">
+    @for (var i = 0; i < Model.Images.Count(); i++)
+    {
+        <li data-target="#myCarousel" data-slide-to="@i" class="@( i == 0? "active": "" )"></li>
+    }
+</ol>
+<!-- Wrapper for Slides -->
+<div class="carousel-inner" style="position: absolute;">
+    @foreach (var image in Model.Images)
+    {
+        <div class="item @( image == Model.Images[0] ? "active": "" ) ">
+            <!-- Set the first background image using inline CSS below. -->
+            <div class="fill" style="background-image:url('@image.ImageURL');"></div>
+            <div class="carousel-caption">
+                <h2>@image.Caption</h2>
+            </div>
+        </div>
+    }
+
+</div>
+<!-- Custom image slider -->
+<script type="text/javascript">
+    $('.carousel').carousel({
+        interval: @Model.SlideIntervalMS,
+        pause: ''
+
+    });
+</script>

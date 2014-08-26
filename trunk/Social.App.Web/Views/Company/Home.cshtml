@@ -1,0 +1,36 @@
+﻿@model Social.App.Web.Models.Company.ViewModels.CompanyHomeViewModel
+
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+
+@section ImageSlider {
+    @Html.Action("_ImageSliderPartial")
+}
+
+@section LoginForm {
+    @Html.Action("_LoginPartial")
+}
+
+@section Instructions {
+    @Html.Action("_InstructionsPartial")
+}
+
+@section Company {
+    @Html.Action("_CompanyPartial")
+}
+
+@section Team {
+    @Html.Action("_TeamPartial")
+}
+
+@section Clients {
+    @Html.Action("_ClientsPartial")
+}
+
+@section ContactForm {
+    @Html.Action("_ContactPartial")
+}
+
+

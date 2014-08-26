@@ -1,0 +1,38 @@
+﻿@model Social.App.Web.Models.Company.ViewModels.CompanyTimeLineViewModel
+
+@{ var faceLeft = true; }
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h2 class="section-heading">@Model.SectionName</h2>
+        <h3 class="section-subheading text-muted">@Model.SubHeading</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <ul class="timeline">
+            @foreach (var moment in Model.TimeLineMoments)
+            {
+                <li class="@( !faceLeft ? "timeline-inverted" : "" )">
+                    <div class="timeline-image">
+                        <img class="img-circle img-responsive" src="@moment.ImageSourceURL" alt="">
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>@moment.DateOrEventHeader</h4>
+                            <h4 class="subheading">@moment.SubHeading</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">@moment.Body</p>
+                        </div>
+                    </div>
+                </li>
+                faceLeft = !faceLeft;
+            }
+            <li class="@( !faceLeft ? "timeline-inverted" : "" )" >
+                <div class="timeline-image">
+                    <h4>Be Part <br>Of Our <br>Story!</h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

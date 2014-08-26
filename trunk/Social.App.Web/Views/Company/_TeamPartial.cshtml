@@ -1,0 +1,37 @@
+﻿@model Social.App.Web.Models.Company.ViewModels.CompanyTeamViewModel
+
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h2 class="section-heading">@Model.SectionName</h2>
+        <h3 class="section-subheading text-muted">@Model.SubHeading</h3>
+    </div>
+</div>
+<div class="row">
+    @foreach (var member in Model.TeamMembers)
+    {
+        <div class="col-sm-4">
+            <div class="team-member">
+                <img src="@member.PersonImageURL" class="img-responsive img-circle" alt="">
+                <h4>@member.PersonName</h4>
+                <p class="text-muted">@member.PositionTitle</p>
+                <ul class="list-inline social-buttons">
+                    <li>
+                        <a href="@member.TwitterURL"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="@member.FacebookURL"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="@member.LinkedInURL"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 text-center">
+        <p class="large text-muted">@Model.TeamMissionStatement</p>
+    </div>
+</div>

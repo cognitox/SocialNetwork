@@ -1237,3 +1237,91 @@ body {
         padding-top: 350px;
     }
 }
+
+
+/* Landing Page information nodes*/
+.main-slogan {
+    margin-top: -20px;
+}
+
+.cred-circle {
+    /*border-radius: 50%;*/
+    height: 115px;
+    width: 115px;
+}
+
+.pane {
+    height: 125px;
+    margin-bottom: 10px;
+}
+
+.sub-pane {
+    background: white;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    color: #84000E;
+    border-radius: 4px;
+}
+
+.sub-pane-left {
+    padding-top: 25px;
+    background: white;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    color: #84000E;
+    border-radius: 4px;
+    width: 370px;
+    height: 110px;
+    float: left;
+}
+
+.sub-pane-right {
+    padding-top: 25px;
+    background: white;
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+    color: #84000E;
+    border-radius: 4px;
+    width: 370px;
+    height: 110px;
+    float: right;
+}
+
+
+/* IMAGE SLIDER CSS */
+/*!
+        * Start Bootstrap - Full Slider HTML Template (http://startbootstrap.com)
+        * Code licensed under the Apache License v2.0.
+        * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+        */
+
+html,
+body {
+    height: 100%;
+}
+
+.carousel,
+.item,
+.active {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+
+/* Background images are set within the HTML using inline CSS, not here */
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+footer {
+    margin: 50px 0;
+}
