@@ -1194,7 +1194,7 @@ body {
     height: 30px;
     width: 30px;
     background: #428bca !important;
-    box-shadow:none !important;
+    box-shadow: none !important;
 }
 
 .navbar-shrink .C-embelish {
@@ -1203,7 +1203,7 @@ body {
     height: 30px;
     width: 30px;
     background: #428bca !important;
-    box-shadow:none !important;
+    box-shadow: none !important;
 }
 
 .navbar-shrink .top-logo-fixed {
@@ -1213,21 +1213,21 @@ body {
 
 @media(max-width:768px) {
     .R-embelish {
-        left: 129px;
-        top: 20px;
+        left: 138px !important;
+        top: 11px !important;
         height: 30px;
         width: 30px;
         background: #428bca !important;
-        box-shadow:none !important;
+        box-shadow: none !important;
     }
 
     .C-embelish {
-        left: 96px;
-        top: 20px;
+        left: 108px !important;
+        top: 11px !important;
         height: 30px;
         width: 30px;
         background: #428bca !important;
-        box-shadow:none !important;
+        box-shadow: none !important;
     }
 }
 

@@ -14,6 +14,7 @@
     <meta name="author" content="">
     <!--Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <!-- Bootstrap Core CSS -->
     <link href="Content/css/bootstrap.min.css" rel="stylesheet">
@@ -34,9 +35,15 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+
 </head>
 
 <body id="page-top" class="index">
+
+
+
+
+
     @RenderBody()
 
     <!-- Navigation -->
@@ -50,11 +57,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                
+
                 <div class="header-circle let-ack-circle R-embelish"></div>
                 <div class="header-circle let-ack-circle C-embelish"></div>
                 <a class="navbar-brand page-scroll top-logo-fixed" style="color:#fff;" href="#page-top">Relationship Capital</a>
-                <a class="navbar-brand page-scroll top-logo-short hide" style="position:absolute;color:#fff;" href="#page-top">R&nbsp;&nbsp;&nbsp;C</a>
+                <a class="navbar-brand page-scroll top-logo-short hide" style="position:absolute;color:#fff;left: 104px;" href="#page-top">R&nbsp;&nbsp;&nbsp;C</a>
 
             </div>
 
@@ -83,7 +90,43 @@
         <!-- /.container-fluid -->
     </nav>
     <!-- Header -->
-    <header style="min-height: 900px;">
+    <!-- Full Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide" style="min-height: 900px;">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner" style="position: absolute;">
+            <div class="item active">
+                <!-- Set the first background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('../../Content/img/header-bg.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 1</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the second background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('../../Content/img/header-bg1.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 2</h2>
+                </div>
+            </div>
+            <div class="item">
+                <!-- Set the third background image using inline CSS below. -->
+                <div class="fill" style="background-image:url('../../Content/img/header-bg4.jpg');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div>
+            </div>
+        </div>
+
+
         <div class="container">
 
             <div style="left: 0px; top: 20px;width: 100px;  height: 100px;opacity: 0.3;  filter: alpha(opacity=70);" class="slogan-circle"></div>
@@ -101,8 +144,79 @@
             <div style="left: 60px; top: 184px;width: 40px;  height: 40px;opacity: 0.6;  filter: alpha(opacity=70);" class="slogan-circle"></div>
             <div style="left: 235px; top: -78px;width: 120px;  height: 120px;opacity: 0.7;  filter: alpha(opacity=70);" class="slogan-circle"></div>
 
+            <style type="text/css">
+                .main-slogan {
+                    margin-top: -20px;
+                }
+
+                .cred-circle {
+                    /*border-radius: 50%;*/
+                    height: 115px;
+                    width: 115px;
+                }
+
+                .pane {
+                    height: 125px;
+                    margin-bottom: 10px;
+                }
+
+                .sub-pane {
+                    background: white;
+                    opacity: 0.9;
+                    filter: alpha(opacity=90);
+                    color: #84000E;
+                    border-radius: 4px;
+                }
+
+                .sub-pane-left {
+                    padding-top: 25px;
+                    background: white;
+                    opacity: 0.9;
+                    filter: alpha(opacity=90);
+                    color: #84000E;
+                    border-radius: 4px;
+                    width: 370px;
+                    height: 110px;
+                    float: left;
+                }
+
+                .sub-pane-right {
+                    padding-top: 25px;
+                    background: white;
+                    opacity: 0.9;
+                    filter: alpha(opacity=90);
+                    color: #84000E;
+                    border-radius: 4px;
+                    width: 370px;
+                    height: 110px;
+                    float: right;
+                }
+            </style>
             <div class="intro-text">
-                <div class="col-lg-4 col-lg-offset-8 login-form">
+                <div class="col-lg-6 main-slogan">
+                    <div class="pane">
+                        <div style="margin-right: 25px;" class="cred-circle pull-left"></div>
+                        <div class="sub-pane-left">
+                            <h4>Create a Commitment</h4>
+                            'CC' in <i>rc@relsocial.com</i>
+                        </div>
+                    </div>
+                    <div class="pane">
+                        <div style="margin-right: 28px; margin-left: 12px; padding-top: 9px;" class="cred-circle pull-right"></div>
+                        <div class="sub-pane-right">
+                            <h4>Award/Debit RC based on</h4>
+                            Quality, Fulfillment, Success
+                        </div>
+                    </div>
+                    <div class="pane">
+                        <div class="cred-circle pull-left" style="margin-top: -49px; width: 184px; height: 188px;"></div>
+                        <div class="sub-pane-left" style="width: 329px;">
+                            <h4>Establish a Tangible Credibility!</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-lg-offset-2 login-form">
                     <div class="page-header">
                         Log In / Sign Up
                         <ul class="list-inline social-buttons">
@@ -141,6 +255,16 @@
                 </div>
             </div>
         </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+
     </header>
 
     <!-- Services Section -->
@@ -160,7 +284,9 @@
                     </span>
                     <h4 class="service-heading">Workflow Integration</h4>
                     <iframe width="300" height="200" src="//www.youtube.com/embed/upzZ2oawiZI" frameborder="0" allowfullscreen></iframe>
-                    <p class="text-muted">Everyone has a different workflow, you don't need to change yours to start using relationship capital.</p>
+                    <p class="text-muted">
+                        Everyone has a different workflow, you don't need to change yours to start using relationship capital.
+                    </p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -169,7 +295,9 @@
                     </span>
                     <h4 class="service-heading">Measure &amp; Rate</h4>
                     <iframe width="300" height="200" src="//www.youtube.com/embed/upzZ2oawiZI" frameborder="0" allowfullscreen></iframe>
-                    <p class="text-muted">Not all commitments are measured in the same way, not all commitments are of equal importance, In this video tutorial we will show you how to earn and measure your relationship capital.</p>
+                    <p class="text-muted">
+                        Not all commitments are measured in the same way, not all commitments are of equal importance, In this video tutorial we will show you how to earn and measure your relationship capital.
+                    </p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
@@ -481,155 +609,53 @@
     <!-- Custom Theme JavaScript -->
     <script src="Content/js/company.js"></script>
 
+    <script type="text/javascript">
+        $('.carousel').carousel({
+            interval: 4000
+        });
+    </script>
+    <style type="text/css">
+        /*!
+        * Start Bootstrap - Full Slider HTML Template (http://startbootstrap.com)
+        * Code licensed under the Apache License v2.0.
+        * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+        */
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        .carousel,
+        .item,
+        .active {
+            height: 100%;
+        }
+
+        .carousel-inner {
+            height: 100%;
+        }
+
+        /* Background images are set within the HTML using inline CSS, not here */
+
+        .fill {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+        }
+
+        footer {
+            margin: 50px 0;
+        }
+    </style>
+
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-@*@RenderSection("YourCustomRegionName", false)
-
-    <!-- ovverride predifined base regions in the layout -->
-        @section DoctypeTag
-        {
-            <!DOCTYPE html>
-        }
-
-        @section HtmlTag
-        {
-    <!--[if lte IE 7]><html class="ie7"><![endif]-->
-    <!--[if IE 8]><html class="ie8"><![endif]-->
-    <!--[if IE 9]><html class="ie9"><![endif]-->
-    <!--[if !IE]><!-->
-            <html>
-    <!--<![endif]-->
-        }
-
-        @section Styles {
-            @RenderSection("Styles", false)
-        }
-
-
-        @section HeadScripts {
-            @RenderSection("HeadScripts", false)
-        }
-
-        @section Scripts {
-            @RenderSection("Scripts", false)
-        }
-
-    <!-- add attributes to the body tag -->
-        @section BodyAttributes
-        {
-            class="custom-body"
-        }
-
-    <!-- If you want to override the whole body tag (as in the example above), do not forget to call Html.RenderBodyAttributes() helper method for adding CMS mandatory body attributes: -->
-        @using BetterCms.Module.Root.Mvc.Helpers
-
-        @section BodyTag {
-    <!--[if lte IE 8]>
-    <body class="ie8 fixed-nav faded"@Html.RenderBodyAttributes()><![endif]-->
-    <!--[if IE 9]>
-    <body class="ie9 fixed-nav faded"@Html.RenderBodyAttributes()><![endif]-->
-    <!--[if !IE]><!-->
-            <body class="fixed-nav faded" @Html.RenderBodyAttributes()>
-    <!--<![endif]-->
-        }
-
-    <!-- Access page data -->
-        <h1>@ViewBag.Title</h1>
-        <p>Current page ID is @ViewBag.pageId</p>
-
-    <!-- Can user manage this content -->
-        @model BetterCms.Module.Root.ViewModels.Cms.RenderPageViewModel
-
-        <h1>@Model.Title</h1>
-        <p>Current page Id is @Model.Id</p>
-        <p>@Model.CanManageContent ? "User can manage content" : "User can't manage content"</p>
-
-    <!-- Get more info from the page -->
-        @using BetterCms.Module.Blog.Helpers.Extensions
-        @using BetterCms.Module.Pages.Helpers.Extensions
-
-                PageViewModel: @Model.GetPageModel()<br />
-                MainImageViewModel: @Model.GetPageMainImageModel()<br />
-                SecondaryImageViewModel: @Model.GetPageSecondaryImageModel()<br />
-                FeaturedImageViewModel: @Model.GetPageFeaturedImageModel()<br />
-                CategoryViewModel: @Model.GetPageCategoryModel()<br />
-                Tags: @Model.GetPageTagsList()<br />
-
-                IsBlogPost: @Model.IsBlogPost()<br />
-                IsBlogPostActive: @Model.IsBlogPostActive()<br />
-                BlogPostViewModel: @Model.GetBlogPostModel()<br />
-                BlogPostAuthorViewModel: @Model.GetBlogPostAuthorModel()<br />
-
-    <!-- Options -->
-                @model BetterCms.Module.Root.ViewModels.Cms.RenderPageViewModel
-
-                @foreach (var option in Model.Options)
-                {
-                    <text>
-                        @option.Key: @option.Value
-                    </text>
-                }
-
-    <!--
-
-                Options can be managed for:
-
-    Templates. This can be done in template edit form, in Site Settings -> Templates.
-    Server control widgets. This can be done in the server control edit form, in Site Settings -> Widgets, when editing server control widget.
-    HTML widgets. This can be done in the widget edit form, in Site Settings -> Widgets, when editing HTML widget.
-    Options edit form looks like that:
-
-    Image properties
-
-    Each option contains fields: Option name (required, unique), Type (required, Text by default) and Default value (optional, format depends on Type).
-
-    Available types: Text, Integer, Boolean, Float, Date, JS Include URL, CSS Include URL. Depending on type, different controls are shown (6), and different validations are executed.
-
-    JS Include URL and CSS Include URL are used for adding JavaScript / CSS ULRs. When page is rendered, CSS scripts are included in the head of HTML page and JavaScript includes are rendered at the bottom of the body.
-
-    To add new option, press add new button (1).
-
-    To enter edit mode, press edit icon (2). To save or cancel edit mode, choose one of buttons (3).
-
-    To delete and option, press delete button (4). Systematic options cannot be deleted (there is no delete button) (5).
-
-
-            -->
-    <!--
-        Additional Options
-
-        When designing the layout (writing CSS) for CMS pages, please keep in mind that:
-
-    when content editor is not logged in, after each content in a region there is an element generated by the CMS:
-    <div class="clearfix"></div>
-    when user is logged in with editor rights (CMS control panel is visible) all regions will look like following example:
-    <div class="bcms-region-start"></div>
-    <div class="bcms-content-start"></div>
-    <p>SOME CONTENT!</p>
-    <div class="bcms-content-end clearfix"></div>
-    <div class="bcms-content-start"></div>
-    <p>SOME CONTENT!</p>
-    <div class="bcms-content-end clearfix"></div>
-    <div class="bcms-region-end"></div>
-
-
-    -->
-*@
-
 
 
 
