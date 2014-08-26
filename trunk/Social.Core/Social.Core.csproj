@@ -34,9 +34,6 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject">
-      <HintPath>..\Solutions\packages\Ninject.3.2.2.0\lib\net40\Ninject.dll</HintPath>
-    </Reference>
     <Reference Include="S22.Imap">
       <HintPath>..\Solutions\packages\S22.Imap.3.6.0.0\lib\net40\S22.Imap.dll</HintPath>
     </Reference>
@@ -61,7 +58,6 @@
     <Compile Include="Agents\Commands\Email\CertifyEmailCommand.cs" />
     <Compile Include="Agents\Commands\Email\CreateEmailDirectoryCommand.cs" />
     <Compile Include="Agents\Commands\Email\MoveTargetEmailsToDirectoryCommand.cs" />
-    <Compile Include="Dependancies\ServiceModule.cs" />
     <Compile Include="Models\Email\ParsableEmailAccount.cs" />
     <Compile Include="Models\Server\Base\BaseEmailServer.cs" />
     <Compile Include="Models\Server\IMAPServer.cs" />

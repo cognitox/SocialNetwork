@@ -40,6 +40,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\Solutions\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Solutions\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Solutions\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Solutions\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -62,10 +78,6 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="EntityFramework">
       <HintPath>..\Solutions\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\Solutions\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -113,6 +125,9 @@
     <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\Solutions\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\Solutions\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
     <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -176,12 +191,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\AuthConfig.cs" />
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="App_Inject\NinjectBindings.cs" />
+    <Compile Include="App_Start\AuthConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Start\FilterConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Start\RouteConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App_Start\WebApiConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Application\BaseController.cs" />
+    <Compile Include="Controllers\Application\ProfileController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -189,6 +217,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Application\BaseApplicationViewModel.cs" />
+    <Compile Include="Models\Application\LoginForm.cs" />
+    <Compile Include="Models\Application\ViewModels\ProfileFooterPartialViewModel.cs" />
+    <Compile Include="Models\Application\ViewModels\ProfileHomeViewModel.cs" />
+    <Compile Include="Models\Application\ViewModels\ProfileMainContentPartialViewModel.cs" />
+    <Compile Include="Models\Application\ViewModels\ProfileSideNavigationPartialViewModel.cs" />
+    <Compile Include="Models\Application\ViewModels\ProfileTopNavigationPartialViewModel.cs" />
     <Compile Include="Models\Company\ClientImage.cs" />
     <Compile Include="Models\Company\Forms\ContactFormViewModel.cs" />
     <Compile Include="Models\Company\SlidingImage.cs" />
@@ -207,13 +242,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Application\css\bootstrap.min.css" />
+    <Content Include="Content\Application\css\styles.css" />
+    <Content Include="Content\Company\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Application\js\bootstrap.min.js" />
+    <Content Include="Content\Application\js\scripts.js" />
     <Content Include="Content\Company\css\bootstrap.css" />
     <Content Include="Content\Company\css\bootstrap.min.css" />
     <Content Include="Content\Company\css\company.css" />
     <Content Include="Content\Company\font-awesome-4.1.0\css\font-awesome.css" />
     <Content Include="Content\Company\font-awesome-4.1.0\css\font-awesome.min.css" />
     <Content Include="Content\Company\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
-    <Content Include="Content\Company\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Application\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Company\img\about\1.jpg" />
     <Content Include="Content\Company\img\about\2.jpg" />
     <Content Include="Content\Company\img\about\3.jpg" />
@@ -264,9 +304,9 @@
     <Content Include="Content\Company\less\agency.less" />
     <Content Include="Content\Company\less\mixins.less" />
     <Content Include="Content\Company\less\variables.less" />
-    <Content Include="Content\Company\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\Company\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\Company\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\Application\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Application\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Application\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Company\font-awesome-4.1.0\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\Company\font-awesome-4.1.0\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\Company\font-awesome-4.1.0\fonts\fontawesome-webfont.woff" />
@@ -297,6 +337,9 @@
     <Content Include="Content\Company\font-awesome-4.1.0\scss\_stacked.scss" />
     <Content Include="Content\Company\font-awesome-4.1.0\scss\_variables.scss" />
     <Content Include="Content\Company\font-awesome-4.1.0\scss\font-awesome.scss" />
+    <Content Include="Content\Company\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\Company\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\Company\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -351,12 +394,28 @@
     <Content Include="Views\Company\_InstructionsPartial.cshtml" />
     <Content Include="Views\Company\_ClientsPartial.cshtml" />
     <Content Include="Views\Company\_ImageSliderPartial.cshtml" />
+    <Content Include="Views\Shared\_AppLayout.cshtml" />
+    <Content Include="Views\Profile\Home.cshtml" />
+    <Content Include="Views\Profile\_SideNavigationPartial.cshtml" />
+    <Content Include="Views\Profile\_TopNavigationPartial.cshtml" />
+    <Content Include="Views\Profile\_MainContentPartial.cshtml" />
+    <Content Include="Views\Profile\_FooterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Social.Common\Social.Common.csproj">
+      <Project>{acdbb97d-5ab2-4b6a-bc0e-1078634b92dd}</Project>
+      <Name>Social.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Social.Core\Social.Core.csproj">
+      <Project>{22f3426a-a4a3-4f7c-9132-2f1127e5fd9e}</Project>
+      <Name>Social.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

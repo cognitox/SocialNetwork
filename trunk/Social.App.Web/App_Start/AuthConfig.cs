@@ -27,6 +27,7 @@ namespace Social.App.Web
             //    appSecret: "");
 
             //OAuthWebSecurity.RegisterGoogleClient();
+
         }
     }
 }
