@@ -22,7 +22,7 @@ namespace Social.App.Web.Controllers.Application
         public ActionResult AuthenticateUser(LoginForm formModel)
         {
             //TODO Refactor this into the .net facebook, twitter, linkedin support
-            return RedirectToAction("Home","Profile");
+            return RedirectToAction("Home", "Profile");
         }
 
         public ActionResult Home()
@@ -33,29 +33,106 @@ namespace Social.App.Web.Controllers.Application
 
         public ActionResult _SideNavigationPartial()
         {
-            var viewModel = new ProfileSideNavigationPartialViewModel();
+            var viewModel = new ProfileSideNavigationViewModel()
+            {
+                CompanyName = @"",
+                CompanySideText = @"Company Side Text",
+                NavItems = new List<SideBarNavigationElement>()
+                {
+                    new SideBarNavigationElement(){
+                        Name = @"Featured",
+                        URL = @"#",
+                        Glyphicon = @"glyphicon-list-alt",
+                        IsActive = true
+                    },
+                    new SideBarNavigationElement(){
+                        Name = @"Stories",
+                        URL = @"#",
+                        Glyphicon = @"glyphicon-list",
+                        IsActive = false
+                    },
+                    new SideBarNavigationElement(){
+                        Name = @"Saved",
+                        URL = @"#",
+                        Glyphicon = @"glyphicon-paperclip",
+                        IsActive = false
+                    },
+                    new SideBarNavigationElement(){
+                        Name = @"Refresh",
+                        URL = @"#",
+                        Glyphicon = @"glyphicon-refresh",
+                        IsActive = false
+                    }
+                }
+            };
             return PartialView(viewModel);
         }
 
         public ActionResult _TopNavigationPartial()
         {
-            var viewModel = new ProfileTopNavigationPartialViewModel();
+            var viewModel = new ProfileTopNavigationViewModel()
+            {
+                NavBarBrandLogo = @"b",
+                SearchText = @"",
+                NavigationItems = new List<TopNavigationElement>()
+                {
+                    new TopNavigationElement(){
+                        Name = @"Home",
+                        Glyphicon = @"glyphicon-home",
+                        URL = @"#"
+                    },
+                    new TopNavigationElement(){
+                        Name = @"Home",
+                        Glyphicon = @"glyphicon-home",
+                        URL = @"#"
+                    },
+                    new TopNavigationElement(){
+                        Name = @"Home",
+                        Glyphicon = @"glyphicon-home",
+                        URL = @"#"
+                    },
+                    new TopNavigationElement(){
+                        Name = @"Home",
+                        Glyphicon = @"glyphicon-home",
+                        URL = @"#"
+                    },
+                    new TopNavigationElement(){
+                        Name = @"Home",
+                        Glyphicon = @"glyphicon-home",
+                        URL = @"#"
+                    }
+                }
+            };
             return PartialView(viewModel);
         }
 
         public ActionResult _MainContentPartial()
         {
-            var viewModel = new ProfileMainContentPartialViewModel();
+            var viewModel = new ProfileMainContentViewModel();
             return PartialView(viewModel);
         }
 
         public ActionResult _FooterPartial()
         {
-            var viewModel = new ProfileFooterPartialViewModel();
+            var viewModel = new ProfileFooterViewModel()
+            {
+                Copyright = String.Format("©Copyright {0}", @DateTime.Now.Year),
+                CopyrightURL = @"\",
+                FooterText = @"Footer TEXT",
+                FacebookHandle = new FacebookHandle()
+                {
+                    URL = @""
+                },
+                GoogleHandle = new GoogleHandle()
+                {
+                    URL = @""
+                },
+                TwitterHandle = new TwitterHandle()
+                {
+                    URL = @""
+                }
+            };
             return PartialView(viewModel);
         }
-
-
-
     }
 }

@@ -218,12 +218,17 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Application\BaseApplicationViewModel.cs" />
+    <Compile Include="Models\Application\FacebookHandle.cs" />
+    <Compile Include="Models\Application\GoogleHandle.cs" />
     <Compile Include="Models\Application\LoginForm.cs" />
-    <Compile Include="Models\Application\ViewModels\ProfileFooterPartialViewModel.cs" />
+    <Compile Include="Models\Application\SideBarNavigationElement.cs" />
+    <Compile Include="Models\Application\TopNavigationElement.cs" />
+    <Compile Include="Models\Application\TwitterHandle.cs" />
+    <Compile Include="Models\Application\ViewModels\ProfileFooterViewModel.cs" />
     <Compile Include="Models\Application\ViewModels\ProfileHomeViewModel.cs" />
-    <Compile Include="Models\Application\ViewModels\ProfileMainContentPartialViewModel.cs" />
-    <Compile Include="Models\Application\ViewModels\ProfileSideNavigationPartialViewModel.cs" />
-    <Compile Include="Models\Application\ViewModels\ProfileTopNavigationPartialViewModel.cs" />
+    <Compile Include="Models\Application\ViewModels\ProfileMainContentViewModel.cs" />
+    <Compile Include="Models\Application\ViewModels\ProfileSideNavigationViewModel.cs" />
+    <Compile Include="Models\Application\ViewModels\ProfileTopNavigationViewModel.cs" />
     <Compile Include="Models\Company\ClientImage.cs" />
     <Compile Include="Models\Company\Forms\ContactFormViewModel.cs" />
     <Compile Include="Models\Company\SlidingImage.cs" />

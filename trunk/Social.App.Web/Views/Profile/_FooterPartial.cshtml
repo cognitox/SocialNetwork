@@ -1,26 +1,29 @@
-﻿@model Social.App.Web.Models.Application.ViewModels.ProfileFooterPartialViewModel
+﻿@model Social.App.Web.Models.Application.ViewModels.ProfileFooterViewModel
 
 <div class="row">
     <div class="col-sm-6">
-        <a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>
+        @if (null != Model.TwitterHandle)
+        {
+            <a href="@Model.TwitterHandle.URL">Twitter</a>
+            <small class="text-muted">|</small>
+        }
+        @if (null != Model.FacebookHandle)
+        {
+            <a href="@Model.FacebookHandle.URL">Facebook</a>
+            <small class="text-muted">|</small>
+        }
+        @if (null != Model.FacebookHandle)
+        {
+            <a href="@Model.GoogleHandle.URL">Google+</a>
+        }
     </div>
 </div>
-
 <div class="row" id="footer">
+    <div class="col-sm-6"></div>
     <div class="col-sm-6">
-
-    </div>
-    <div class="col-sm-6">
-        <p>
-            <a href="#" class="pull-right">©Copyright @DateTime.Now.Year</a>
-        </p>
+        <p><a href="@Model.CopyrightURL" class="pull-right">@Model.Copyright</a></p>
     </div>
 </div>
-
 <hr>
-
-<h4 class="text-center">
-    Footer
-</h4>
-
+    <h4 class="text-center">@Model.FooterText</h4>
 <hr>

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Social.App.Web.Models.Application.ViewModels
 {
-    public class ProfileSideNavigationPartialViewModel
+    public class ProfileMainContentViewModel
     {
     }
 }
