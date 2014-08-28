@@ -4,9 +4,6 @@ GO
 USE SDBO_App;
 GO
 
-
-
-
 /***************************************************************************************/
 -- CREATE GROUP ACCOUNT PAYMENT PLANS
 /***************************************************************************************/
@@ -96,8 +93,6 @@ GO
 ALTER TABLE dbo.[GroupAccount]
 	ADD CONSTRAINT FK_GroupAccount_PaymentPlanGroupAccountID FOREIGN KEY (PaymentPlanGroupAccountID) REFERENCES PaymentPlanGroupAccount(PaymentPlanGroupAccountID);
 GO
-
-
 
 /***************************************************************************************/
 -- CREATE Group Account Status Type ID
@@ -397,39 +392,123 @@ GO
 USE [SDBO_App]
 GO
 
+DECLARE @GroupAccountID UNIQUEIDENTIFIER = (SELECT TOP 1 GroupAccountID FROM GroupAccount WHERE Name = 'DePaul University')
+DECLARE @GroupAccountSettingsID UNIQUEIDENTIFIER = (SELECT TOP 1 GroupAccountSettingsID FROM GroupAccountSettings WHERE Section = 'Account.Settings' AND Name = 'Enable Notifications')
+DECLARE @GroupAccountSettingsTypeID UNIQUEIDENTIFIER = (SELECT TOP 1 GroupAccountSettingsTypeID FROM GroupAccountSettings WHERE Section = 'Account.Settings' AND Name = 'Enable Notifications')
+
+
 INSERT INTO [dbo].[GroupAccountGroupAccountSettingsLink]
-           ([GroupAccountGroupAccountSettingsLinkID]
-           ,[GroupAccountID]
+           ([GroupAccountID]
            ,[GroupAccountSettingsID]
            ,[GroupAccountSettingsTypeID]
            ,[Value])
      VALUES
-           (<GroupAccountGroupAccountSettingsLinkID, uniqueidentifier,>
-           ,<GroupAccountID, uniqueidentifier,>
-           ,<GroupAccountSettingsID, uniqueidentifier,>
-           ,<GroupAccountSettingsTypeID, uniqueidentifier,>
-           ,<Value, varchar(500),>)
+           (@GroupAccountID
+           ,@GroupAccountSettingsID
+           ,@GroupAccountSettingsTypeID
+           ,'True')
+GO
+
+
+USE [SDBO_App]
+GO
+
+DECLARE @GroupAccountID UNIQUEIDENTIFIER = (SELECT TOP 1 GroupAccountID FROM GroupAccount WHERE Name = 'DePaul University')
+DECLARE @GroupAccountSettingsID UNIQUEIDENTIFIER = (SELECT TOP 1 GroupAccountSettingsID FROM GroupAccountSettings WHERE Section = 'Account.Settings.Notifications' AND Name = 'Notify recipients upon account creation')
+DECLARE @GroupAccountSettingsTypeID UNIQUEIDENTIFIER = (SELECT TOP 1 GroupAccountSettingsTypeID FROM GroupAccountSettings WHERE Section = 'Account.Settings.Notifications' AND Name = 'Notify recipients upon account creation')
+
+
+INSERT INTO [dbo].[GroupAccountGroupAccountSettingsLink]
+           ([GroupAccountID]
+           ,[GroupAccountSettingsID]
+           ,[GroupAccountSettingsTypeID]
+           ,[Value])
+     VALUES
+           (@GroupAccountID
+           ,@GroupAccountSettingsID
+           ,@GroupAccountSettingsTypeID
+           ,'True')
+GO
+
+/***************************************************************************************/
+
+
+
+
+
+
+/***************************************************************************************/
+-- Group Account Roles
+/***************************************************************************************/
+/*
+Holds all of the group level account settings, based off of sections
+*/
+CREATE TABLE dbo.[GroupAccountRole]
+(
+	GroupAccountRoleID UNIQUEIDENTIFIER PRIMARY KEY,
+	[Role] VARCHAR(500)
+)
+
+GO
+
+-- ADD PRIMARY KEY
+ALTER TABLE dbo.[GroupAccountRole]
+    ADD CONSTRAINT DF_GroupAccountRole_GroupAccountRoleID DEFAULT NEWSEQUENTIALID() FOR GroupAccountRoleID
+GO
+
+-- Populate
+USE [SDBO_App]
+GO
+
+INSERT INTO [dbo].[GroupAccountRole] ([Role]) VALUES ('Administrator')
+INSERT INTO [dbo].[GroupAccountRole] ([Role]) VALUES ('User')
 GO
 
 
 
-
 /***************************************************************************************/
 
 
-
-
 /***************************************************************************************/
--- 
+-- Account Group Account Link
 /***************************************************************************************/
 
+/*
+Holds all of the group level account settings, based off of sections
+*/
+CREATE TABLE dbo.[AccountGroupAccountLink]
+(
+	AccountGroupAccountLinkID UNIQUEIDENTIFIER PRIMARY KEY,
+	GroupAccountID UNIQUEIDENTIFIER NOT NULL,
+	GroupAccountRoleID UNIQUEIDENTIFIER NOT NULL,
+	AccountID UNIQUEIDENTIFIER NOT NULL
+)
+
+GO
+
+-- ADD PRIMARY KEY
+ALTER TABLE dbo.[AccountGroupAccountLink]
+    ADD CONSTRAINT DF_AccountGroupAccountLink_AccountGroupAccountLinkID DEFAULT NEWSEQUENTIALID() FOR AccountGroupAccountLinkID
+GO
+
+-- ADD FORIEGN KEY CONSTRAINT
+ALTER TABLE dbo.[AccountGroupAccountLink]
+	ADD CONSTRAINT FK_AccountGroupAccountLink_GroupAccountID FOREIGN KEY (GroupAccountID) REFERENCES GroupAccount(GroupAccountID);
+GO
+ALTER TABLE dbo.[AccountGroupAccountLink]
+	ADD CONSTRAINT FK_AccountGroupAccountLink_GroupAccountRoleID FOREIGN KEY (GroupAccountRoleID) REFERENCES GroupAccountRole(GroupAccountRoleID);
+GO
+
+/*
+
+TODO
 
 
 
-
-
-
-
+ALTER TABLE dbo.[AccountGroupAccountLink]
+	ADD CONSTRAINT FK_AccountGroupAccountLink_AccountID FOREIGN KEY (AccountID) REFERENCES Account(AccountID);
+GO
+*/
 
 
 
@@ -532,6 +611,19 @@ SELECT * FROM GroupAccountSettings;
 -- Get group account settings and type, with default value
 SELECT gas.Name, gast.[Type], gas.DefaultValue FROM GroupAccountSettings gas
 LEFT JOIN GroupAccountSettingsType gast ON gas.GroupAccountSettingsTypeID = gast.GroupAccountSettingsTypeID
+
+-- Get account settings for the current group account
+-- This Query gets all of the account settings for the current account id
+SELECT gas.Name, 
+	   gast.[Type], 
+	   ISNULL(gagasl.Value, gas.DefaultValue) AS 'Value'
+	   FROM GroupAccountSettings gas
+LEFT JOIN GroupAccountSettingsType gast ON gas.GroupAccountSettingsTypeID = gast.GroupAccountSettingsTypeID
+LEFT JOIN GroupAccountGroupAccountSettingsLink gagasl ON gas.GroupAccountSettingsID = gagasl.GroupAccountSettingsID
+WHERE gagasl.GroupAccountID = (SELECT TOP 1 GroupAccountID FROM GroupAccount WHERE Name = 'DePaul University')
+
+
+SELECT * FROM GroupAccountGroupAccountSettingsLink;
 
 
 
