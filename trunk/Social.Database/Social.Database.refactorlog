@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="65cfeb0b-53c7-4a03-add1-7291dfd5c9a4" ChangeDateTime="08/28/2014 17:57:15">
+    <Property Name="ElementName" Value="[dbo].[AccountGroupAccountLink].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[AccountGroupAccountLink]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AccountGroupAccountLinkID" />
+  </Operation>
+</Operations>

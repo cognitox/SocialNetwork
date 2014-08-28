@@ -7,6 +7,6 @@ namespace Social.Company.Web.App_Injection
 {
     public class Registrar
     {
-        public void 
+        
     }
 }

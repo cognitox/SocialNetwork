@@ -345,6 +345,8 @@
     <Content Include="Content\Company\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Company\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Company\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Properties\PublishProfiles\rcdev - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\rcdev - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
