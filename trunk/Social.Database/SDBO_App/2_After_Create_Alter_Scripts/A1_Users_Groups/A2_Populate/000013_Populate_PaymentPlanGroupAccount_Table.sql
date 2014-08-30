@@ -20,5 +20,6 @@
 **************************************************************/
 
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+INSERT INTO [dbo].[PaymentPlanGroupAccount] ([Name]) VALUES ('Beta Demo Plan')
+GO
 

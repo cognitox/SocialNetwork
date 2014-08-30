@@ -20,5 +20,9 @@
 **************************************************************/
 
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+INSERT INTO [dbo].[GroupAccountStatusType] ([Type]) VALUES ('Active')
+INSERT INTO [dbo].[GroupAccountStatusType] ([Type]) VALUES ('Pending')
+INSERT INTO [dbo].[GroupAccountStatusType] ([Type]) VALUES ('Disabled')
+
+GO
 

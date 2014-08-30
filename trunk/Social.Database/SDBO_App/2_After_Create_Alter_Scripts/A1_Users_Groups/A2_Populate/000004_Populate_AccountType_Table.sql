@@ -19,4 +19,9 @@
 **
 **************************************************************/
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+INSERT INTO [dbo].[AccountType] ([Type]) VALUES ('Administration')
+INSERT INTO [dbo].[AccountType] ([Type]) VALUES ('Service')
+
+INSERT INTO [dbo].[AccountType] ([Type]) VALUES ('Standard')
+INSERT INTO [dbo].[AccountType] ([Type]) VALUES ('Advanced')
+INSERT INTO [dbo].[AccountType] ([Type]) VALUES ('Business')

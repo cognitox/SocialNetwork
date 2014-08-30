@@ -20,5 +20,25 @@
 **************************************************************/
 
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+
+DECLARE @GroupAccountSettingsTypeID UNIQUEIDENTIFIER = (SELECT TOP 1 GroupAccountSettingsTypeID FROM GroupAccountSettingsType WHERE [Type] = 'CheckBox')
+
+INSERT INTO [dbo].[GroupAccountSettings]
+           ([GroupAccountSettingsTypeID], [Section], [Name], [DefaultValue])
+     VALUES
+           (@GroupAccountSettingsTypeID
+           ,'Account.Settings'
+           ,'Enable Notifications'
+           ,'True')
+GO
+
+DECLARE @GroupAccountSettingsTypeID UNIQUEIDENTIFIER = (SELECT TOP 1 GroupAccountSettingsTypeID FROM GroupAccountSettingsType WHERE [Type] = 'CheckBox')
+INSERT INTO [dbo].[GroupAccountSettings]
+           ([GroupAccountSettingsTypeID], [Section], [Name], [DefaultValue])
+     VALUES
+           (@GroupAccountSettingsTypeID
+           ,'Account.Settings.Notifications'
+           ,'Notify recipients upon account creation'
+           ,'True')
+GO
 

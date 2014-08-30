@@ -20,4 +20,21 @@
 **************************************************************/
 
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+INSERT INTO [dbo].[AccountSettings]
+           ([AccountSettingsTypeID], [Section], [Name], [DefaultValue])
+     VALUES
+           (@AccountSettingsTypeID
+           ,'Account.Settings'
+           ,'Enable Notifications'
+           ,'True')
+GO
+
+DECLARE @AccountSettingsTypeID UNIQUEIDENTIFIER = (SELECT TOP 1 AccountSettingsTypeID FROM AccountSettingsType WHERE [Type] = 'CheckBox')
+INSERT INTO [dbo].[AccountSettings]
+           ([AccountSettingsTypeID], [Section], [Name], [DefaultValue])
+     VALUES
+           (@AccountSettingsTypeID
+           ,'Account.Settings.Notifications'
+           ,'Notify recipients upon account creation'
+           ,'True')
+GO

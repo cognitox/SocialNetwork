@@ -19,5 +19,6 @@
 **
 **************************************************************/
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+INSERT INTO [dbo].[GroupAccountConfiguration] ([Section] ,[Name] ,[Value]) VALUES ('Landing.Page', 'DisplayBranding', 'True')
+GO
 

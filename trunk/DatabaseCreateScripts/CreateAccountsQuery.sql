@@ -6,6 +6,40 @@ GO
 -- CREATE GROUP ACCOUNT PAYMENT PLANS
 /***************************************************************************************/
 
+
+USE [SDBO_App]
+GO
+
+/****** Object:  Table [dbo].[PaymentPlanAccount]    Script Date: 8/29/2014 5:34:20 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[PaymentPlanAccount](
+	[PaymentPlanAccountID] [uniqueidentifier] NOT NULL CONSTRAINT [DF_PaymentPlanAccount_PaymentPlanAccountID]  DEFAULT (newsequentialid()),
+	[Name] [varchar](300) NOT NULL,
+	[CreatedDate] [datetime] NULL DEFAULT (getdate()),
+	[UpdatedDate] [datetime] NULL DEFAULT (getdate()),
+PRIMARY KEY CLUSTERED 
+(
+	[PaymentPlanAccountID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+
+
 /* 
 Holds all of the group account payment plans
 */
@@ -156,7 +190,7 @@ GO
 --UPDATE TRIGGER
 
 CREATE TRIGGER dbo.Account_Update_UpdatedDate
-ON dbo.[AccountType]
+ON dbo.[Account]
 FOR UPDATE 
 AS 
 BEGIN 
@@ -193,7 +227,7 @@ GO
 --UPDATE TRIGGER
 
 CREATE TRIGGER dbo.AccountStatusType_Update_UpdatedDate
-ON dbo.[AccountType]
+ON dbo.[AccountStatusType]
 FOR UPDATE 
 AS 
 BEGIN 
@@ -255,7 +289,7 @@ GO
 --UPDATE TRIGGER
 
 CREATE TRIGGER dbo.AccountMetaData_Update_UpdatedDate
-ON dbo.[AccountType]
+ON dbo.[AccountMetaData]
 FOR UPDATE 
 AS 
 BEGIN 
@@ -590,7 +624,7 @@ GO
 --UPDATE TRIGGER
 
 CREATE TRIGGER dbo.AccountAccountSettingsLink_Update_UpdatedDate
-ON dbo.[AccountSettings]
+ON dbo.[AccountAccountSettingsLink]
 FOR UPDATE 
 AS 
 BEGIN 
@@ -678,7 +712,7 @@ GO
 --UPDATE TRIGGER
 
 CREATE TRIGGER dbo.AccountRole_Update_UpdatedDate
-ON dbo.[AccountSettings]
+ON dbo.[AccountRole]
 FOR UPDATE 
 AS 
 BEGIN 

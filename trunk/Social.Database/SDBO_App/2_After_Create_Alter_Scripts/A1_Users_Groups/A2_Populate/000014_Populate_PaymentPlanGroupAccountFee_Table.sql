@@ -19,5 +19,10 @@
 **
 **************************************************************/
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+DECLARE @PaymentPlanID UNIQUEIDENTIFIER = (SELECT TOP 1 PaymentPlanGroupAccountID FROM PaymentPlanGroupAccount WHERE Name = 'Beta Demo Plan')
+
+INSERT INTO [dbo].[PaymentPlanGroupAccountFee] ([PaymentPlanGroupAccountID], [Section] ,[Amount]) VALUES (@PaymentPlanID ,'Signup.Fee' ,0.00)
+INSERT INTO [dbo].[PaymentPlanGroupAccountFee] ([PaymentPlanGroupAccountID], [Section] ,[Amount]) VALUES (@PaymentPlanID ,'Monthly.Fee' ,0.00)
+
+GO
 

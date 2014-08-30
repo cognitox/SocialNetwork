@@ -19,4 +19,5 @@
 **
 **************************************************************/
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+INSERT INTO [dbo].[AccountRole] ([Role]) VALUES ('User')
+GO

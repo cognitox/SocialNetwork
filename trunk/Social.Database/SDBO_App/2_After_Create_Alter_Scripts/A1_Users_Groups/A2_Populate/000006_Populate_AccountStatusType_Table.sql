@@ -19,5 +19,7 @@
 **
 **************************************************************/
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+INSERT INTO [dbo].[AccountStatusType] ([Type]) VALUES ('Active')
+INSERT INTO [dbo].[AccountStatusType] ([Type]) VALUES ('Pending')
+INSERT INTO [dbo].[AccountStatusType] ([Type]) VALUES ('Disabled')
 

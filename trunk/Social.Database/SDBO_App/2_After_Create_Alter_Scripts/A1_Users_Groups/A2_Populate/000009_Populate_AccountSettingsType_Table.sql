@@ -19,5 +19,9 @@
 **
 **************************************************************/
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+INSERT INTO [dbo].[AccountSettingsType] ([Type]) VALUES ('CheckBox')
+INSERT INTO [dbo].[AccountSettingsType] ([Type]) VALUES ('Email')
+INSERT INTO [dbo].[AccountSettingsType] ([Type]) VALUES ('Text')
+INSERT INTO [dbo].[AccountSettingsType] ([Type]) VALUES ('TextArea')
+INSERT INTO [dbo].[AccountSettingsType] ([Type]) VALUES ('Password')
 

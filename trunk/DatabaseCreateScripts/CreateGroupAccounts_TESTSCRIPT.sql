@@ -1,5 +1,5 @@
 
-CREATE DATABASE SDBO_App
+--CREATE DATABASE SDBO_App
 GO
 USE SDBO_App;
 GO
@@ -735,16 +735,12 @@ GO
 
 
 
-/*
-
-TODO
-
 
 
 ALTER TABLE dbo.[AccountGroupAccountLink]
 	ADD CONSTRAINT FK_AccountGroupAccountLink_AccountID FOREIGN KEY (AccountID) REFERENCES Account(AccountID);
 GO
-*/
+
 
 
 

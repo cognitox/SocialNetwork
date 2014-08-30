@@ -20,4 +20,9 @@
 **************************************************************/
 
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+
+INSERT INTO [dbo].[GroupAccountType] ([Type]) VALUES ('Everyone')
+INSERT INTO [dbo].[GroupAccountType] ([Type]) VALUES ('University')
+INSERT INTO [dbo].[GroupAccountType] ([Type]) VALUES ('Business')
+
+GO

@@ -22,6 +22,10 @@
 USE SDBO_App
 GO
 
-INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
 
+INSERT INTO [dbo].[GroupAccountSettingsType] ([Type]) VALUES ('CheckBox')
+INSERT INTO [dbo].[GroupAccountSettingsType] ([Type]) VALUES ('Email')
+INSERT INTO [dbo].[GroupAccountSettingsType] ([Type]) VALUES ('Text')
+INSERT INTO [dbo].[GroupAccountSettingsType] ([Type]) VALUES ('TextArea')
+INSERT INTO [dbo].[GroupAccountSettingsType] ([Type]) VALUES ('Password')
 GO
