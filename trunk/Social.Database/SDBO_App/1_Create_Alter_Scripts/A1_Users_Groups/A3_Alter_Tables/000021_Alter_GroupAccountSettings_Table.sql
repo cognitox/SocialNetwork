@@ -18,7 +18,7 @@
 
 GO
 
-ALTER TABLE [dbo].[GroupAccountSettings]  WITH CHECK ADD  CONSTRAINT [FK_GroupAccountSettings_GroupAccountSettingsTypeID] FOREIGN KEY([GroupAccountSettingsTypeID])
+ALTER TABLE [dbo].[GroupAccountSettings]  ADD  CONSTRAINT [FK_GroupAccountSettings_GroupAccountSettingsTypeID] FOREIGN KEY([GroupAccountSettingsTypeID])
 REFERENCES [dbo].[GroupAccountSettingsType] ([GroupAccountSettingsTypeID])
 GO
 

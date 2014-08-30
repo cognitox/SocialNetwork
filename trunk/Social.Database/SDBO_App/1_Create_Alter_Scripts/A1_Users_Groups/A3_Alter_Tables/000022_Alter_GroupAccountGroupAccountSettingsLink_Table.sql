@@ -18,21 +18,21 @@
 
 GO
 
-ALTER TABLE [dbo].[GroupAccountGroupAccountSettingsLink]  WITH CHECK ADD  CONSTRAINT [FK_GroupAccountGroupAccountSettingsLink_GroupAccountID] FOREIGN KEY([GroupAccountID])
+ALTER TABLE [dbo].[GroupAccountGroupAccountSettingsLink]  ADD  CONSTRAINT [FK_GroupAccountGroupAccountSettingsLink_GroupAccountID] FOREIGN KEY([GroupAccountID])
 REFERENCES [dbo].[GroupAccount] ([GroupAccountID])
 GO
 
 ALTER TABLE [dbo].[GroupAccountGroupAccountSettingsLink] CHECK CONSTRAINT [FK_GroupAccountGroupAccountSettingsLink_GroupAccountID]
 GO
 
-ALTER TABLE [dbo].[GroupAccountGroupAccountSettingsLink]  WITH CHECK ADD  CONSTRAINT [FK_GroupAccountGroupAccountSettingsLink_GroupAccountSettingsID] FOREIGN KEY([GroupAccountSettingsID])
+ALTER TABLE [dbo].[GroupAccountGroupAccountSettingsLink]  ADD  CONSTRAINT [FK_GroupAccountGroupAccountSettingsLink_GroupAccountSettingsID] FOREIGN KEY([GroupAccountSettingsID])
 REFERENCES [dbo].[GroupAccountSettings] ([GroupAccountSettingsID])
 GO
 
 ALTER TABLE [dbo].[GroupAccountGroupAccountSettingsLink] CHECK CONSTRAINT [FK_GroupAccountGroupAccountSettingsLink_GroupAccountSettingsID]
 GO
 
-ALTER TABLE [dbo].[GroupAccountGroupAccountSettingsLink]  WITH CHECK ADD  CONSTRAINT [FK_GroupAccountGroupAccountSettingsLink_GroupAccountSettingsTypeID] FOREIGN KEY([GroupAccountSettingsTypeID])
+ALTER TABLE [dbo].[GroupAccountGroupAccountSettingsLink]  ADD  CONSTRAINT [FK_GroupAccountGroupAccountSettingsLink_GroupAccountSettingsTypeID] FOREIGN KEY([GroupAccountSettingsTypeID])
 REFERENCES [dbo].[GroupAccountSettingsType] ([GroupAccountSettingsTypeID])
 GO
 

@@ -19,14 +19,14 @@
 
 GO
 
-ALTER TABLE [dbo].[GroupAccountMetaData]  WITH CHECK ADD  CONSTRAINT [FK_GroupAccountMetaData_GroupAccountID] FOREIGN KEY([GroupAccountID])
+ALTER TABLE [dbo].[GroupAccountMetaData]  ADD  CONSTRAINT [FK_GroupAccountMetaData_GroupAccountID] FOREIGN KEY([GroupAccountID])
 REFERENCES [dbo].[GroupAccount] ([GroupAccountID])
 GO
 
 ALTER TABLE [dbo].[GroupAccountMetaData] CHECK CONSTRAINT [FK_GroupAccountMetaData_GroupAccountID]
 GO
 
-ALTER TABLE [dbo].[GroupAccountMetaData]  WITH CHECK ADD  CONSTRAINT [FK_GroupAccountMetaData_GroupAccountStatusTypeID] FOREIGN KEY([GroupAccountStatusTypeID])
+ALTER TABLE [dbo].[GroupAccountMetaData]  ADD  CONSTRAINT [FK_GroupAccountMetaData_GroupAccountStatusTypeID] FOREIGN KEY([GroupAccountStatusTypeID])
 REFERENCES [dbo].[GroupAccountStatusType] ([GroupAccountStatusTypeID])
 GO
 

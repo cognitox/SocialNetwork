@@ -18,7 +18,7 @@
 
 GO
 
-ALTER TABLE [dbo].[PaymentPlanAccountFee]  WITH CHECK ADD  CONSTRAINT [FK_PaymentPlanAccountFee_PaymentPlanAccountID] FOREIGN KEY([PaymentPlanAccountID])
+ALTER TABLE [dbo].[PaymentPlanAccountFee] ADD  CONSTRAINT [FK_PaymentPlanAccountFee_PaymentPlanAccountID] FOREIGN KEY([PaymentPlanAccountID])
 REFERENCES [dbo].[PaymentPlanAccount] ([PaymentPlanAccountID])
 GO
 

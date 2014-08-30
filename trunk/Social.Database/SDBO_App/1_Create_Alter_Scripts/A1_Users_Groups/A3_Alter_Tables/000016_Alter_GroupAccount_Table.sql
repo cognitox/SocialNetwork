@@ -19,14 +19,14 @@
 
 GO
 
-ALTER TABLE [dbo].[GroupAccount]  WITH CHECK ADD  CONSTRAINT [FK_GroupAccount_GroupAccountTypeID] FOREIGN KEY([GroupAccountTypeID])
+ALTER TABLE [dbo].[GroupAccount]  ADD  CONSTRAINT [FK_GroupAccount_GroupAccountTypeID] FOREIGN KEY([GroupAccountTypeID])
 REFERENCES [dbo].[GroupAccountType] ([GroupAccountTypeID])
 GO
 
 ALTER TABLE [dbo].[GroupAccount] CHECK CONSTRAINT [FK_GroupAccount_GroupAccountTypeID]
 GO
 
-ALTER TABLE [dbo].[GroupAccount]  WITH CHECK ADD  CONSTRAINT [FK_GroupAccount_PaymentPlanGroupAccountID] FOREIGN KEY([PaymentPlanGroupAccountID])
+ALTER TABLE [dbo].[GroupAccount]  ADD  CONSTRAINT [FK_GroupAccount_PaymentPlanGroupAccountID] FOREIGN KEY([PaymentPlanGroupAccountID])
 REFERENCES [dbo].[PaymentPlanGroupAccount] ([PaymentPlanGroupAccountID])
 GO
 

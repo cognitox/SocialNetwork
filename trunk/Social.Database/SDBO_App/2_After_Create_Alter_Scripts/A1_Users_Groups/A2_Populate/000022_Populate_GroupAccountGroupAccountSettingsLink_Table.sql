@@ -20,7 +20,5 @@
 **************************************************************/
 
 
-CREATE TABLE [dbo].[000002_Create_Account]
-(
-	[Id] INT NOT NULL PRIMARY KEY
-)
+INSERT INTO [dbo].[PaymentPlanAccount] ([Name]) VALUES ('Free')
+

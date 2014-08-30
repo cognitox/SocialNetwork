@@ -18,14 +18,14 @@
 
 GO
 
-ALTER TABLE [dbo].[AccountMetaData]  WITH CHECK ADD  CONSTRAINT [FK_AccountMetaData_AccountID] FOREIGN KEY([AccountID])
+ALTER TABLE [dbo].[AccountMetaData]  ADD  CONSTRAINT [FK_AccountMetaData_AccountID] FOREIGN KEY([AccountID])
 REFERENCES [dbo].[Account] ([AccountID])
 GO
 
 ALTER TABLE [dbo].[AccountMetaData] CHECK CONSTRAINT [FK_AccountMetaData_AccountID]
 GO
 
-ALTER TABLE [dbo].[AccountMetaData]  WITH CHECK ADD  CONSTRAINT [FK_AccountMetaData_AccountStatusTypeID] FOREIGN KEY([AccountStatusTypeID])
+ALTER TABLE [dbo].[AccountMetaData]  ADD  CONSTRAINT [FK_AccountMetaData_AccountStatusTypeID] FOREIGN KEY([AccountStatusTypeID])
 REFERENCES [dbo].[AccountStatusType] ([AccountStatusTypeID])
 GO
 

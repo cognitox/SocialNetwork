@@ -17,21 +17,21 @@
 **************************************************************/
 GO
 
-ALTER TABLE [dbo].[AccountAccountSettingsLink]  WITH CHECK ADD  CONSTRAINT [FK_AccountAccountSettingsLink_AccountID] FOREIGN KEY([AccountID])
+ALTER TABLE [dbo].[AccountAccountSettingsLink]  ADD  CONSTRAINT [FK_AccountAccountSettingsLink_AccountID] FOREIGN KEY([AccountID])
 REFERENCES [dbo].[Account] ([AccountID])
 GO
 
 ALTER TABLE [dbo].[AccountAccountSettingsLink] CHECK CONSTRAINT [FK_AccountAccountSettingsLink_AccountID]
 GO
 
-ALTER TABLE [dbo].[AccountAccountSettingsLink]  WITH CHECK ADD  CONSTRAINT [FK_AccountAccountSettingsLink_AccountSettingsID] FOREIGN KEY([AccountSettingsID])
+ALTER TABLE [dbo].[AccountAccountSettingsLink]  ADD  CONSTRAINT [FK_AccountAccountSettingsLink_AccountSettingsID] FOREIGN KEY([AccountSettingsID])
 REFERENCES [dbo].[AccountSettings] ([AccountSettingsID])
 GO
 
 ALTER TABLE [dbo].[AccountAccountSettingsLink] CHECK CONSTRAINT [FK_AccountAccountSettingsLink_AccountSettingsID]
 GO
 
-ALTER TABLE [dbo].[AccountAccountSettingsLink]  WITH CHECK ADD  CONSTRAINT [FK_AccountAccountSettingsLink_AccountSettingsTypeID] FOREIGN KEY([AccountSettingsTypeID])
+ALTER TABLE [dbo].[AccountAccountSettingsLink]  ADD  CONSTRAINT [FK_AccountAccountSettingsLink_AccountSettingsTypeID] FOREIGN KEY([AccountSettingsTypeID])
 REFERENCES [dbo].[AccountSettingsType] ([AccountSettingsTypeID])
 GO
 

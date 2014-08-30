@@ -17,14 +17,14 @@
 **************************************************************/
 GO
 
-ALTER TABLE [dbo].[Account]  WITH CHECK ADD  CONSTRAINT [FK_Account_AccountTypeID] FOREIGN KEY([AccountTypeID])
+ALTER TABLE [dbo].[Account]  ADD  CONSTRAINT [FK_Account_AccountTypeID] FOREIGN KEY([AccountTypeID])
 REFERENCES [dbo].[AccountType] ([AccountTypeID])
 GO
 
 ALTER TABLE [dbo].[Account] CHECK CONSTRAINT [FK_Account_AccountTypeID]
 GO
 
-ALTER TABLE [dbo].[Account]  WITH CHECK ADD  CONSTRAINT [FK_Account_PaymentPlanAccountID] FOREIGN KEY([PaymentPlanAccountID])
+ALTER TABLE [dbo].[Account]  ADD  CONSTRAINT [FK_Account_PaymentPlanAccountID] FOREIGN KEY([PaymentPlanAccountID])
 REFERENCES [dbo].[PaymentPlanAccount] ([PaymentPlanAccountID])
 GO
 
