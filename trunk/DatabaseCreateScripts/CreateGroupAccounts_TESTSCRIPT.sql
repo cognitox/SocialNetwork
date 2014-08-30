@@ -14,13 +14,32 @@ Holds all of the group account payment plans
 CREATE TABLE dbo.[PaymentPlanGroupAccount]
 (
 	PaymentPlanGroupAccountID UNIQUEIDENTIFIER PRIMARY KEY,
-	[Name] VARCHAR(300) NOT NULL
+	[Name] VARCHAR(300) NOT NULL,
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 
 ALTER TABLE dbo.[PaymentPlanGroupAccount]
     ADD CONSTRAINT DF_PaymentPlanGroupAccount_PaymentPlanGroupAccountID DEFAULT NEWSEQUENTIALID() FOR PaymentPlanGroupAccountID
 
 GO
+
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.PaymentPlanGroupAccount_Update_UpdatedDate
+ON dbo.[PaymentPlanGroupAccount]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.PaymentPlanGroupAccount SET UpdatedDate=GETDATE() 
+        WHERE PaymentPlanGroupAccountID IN (SELECT PaymentPlanGroupAccountID FROM INSERTED) 
+END 
+GO
+
 
 /***************************************************************************************/
 -- CREATE GROUP ACCOUNT PAYMENT PLANS FEES
@@ -31,7 +50,11 @@ CREATE TABLE PaymentPlanGroupAccountFee
 	PaymentPlanGroupAccountFeeID UNIQUEIDENTIFIER PRIMARY KEY,
 	PaymentPlanGroupAccountID UNIQUEIDENTIFIER NOT NULL,
 	Section VARCHAR(500), -- holds the payment type options
-	Amount DECIMAL
+	Amount DECIMAL,
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 
 
@@ -42,6 +65,19 @@ GO
 
 ALTER TABLE dbo.[PaymentPlanGroupAccountFee]
 	ADD CONSTRAINT FK_PaymentPlanGroupAccountFee_PaymentPlanGroupAccountID FOREIGN KEY (PaymentPlanGroupAccountID) REFERENCES PaymentPlanGroupAccount(PaymentPlanGroupAccountID);
+GO
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.PaymentPlanGroupAccountFee_Update_UpdatedDate
+ON dbo.[PaymentPlanGroupAccountFee]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.PaymentPlanGroupAccountFee SET UpdatedDate=GETDATE() 
+        WHERE PaymentPlanGroupAccountFeeID IN (SELECT PaymentPlanGroupAccountFeeID FROM INSERTED) 
+END 
 GO
 
 
@@ -55,13 +91,30 @@ Holds the group account types
 CREATE TABLE dbo.[GroupAccountType]
 (
 	GroupAccountTypeID UNIQUEIDENTIFIER PRIMARY KEY,
-	[Type] VARCHAR(300)
+	[Type] VARCHAR(300),
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 GO
 
 ALTER TABLE dbo.[GroupAccountType]
     ADD CONSTRAINT DF_GroupAccountType_GroupAccountTypeID DEFAULT NEWSEQUENTIALID() FOR GroupAccountTypeID
 
+GO
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.GroupAccountType_Update_UpdatedDate
+ON dbo.[GroupAccountType]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.GroupAccountType SET UpdatedDate=GETDATE() 
+        WHERE GroupAccountTypeID IN (SELECT GroupAccountTypeID FROM INSERTED) 
+END 
 GO
 
 /***************************************************************************************/
@@ -76,7 +129,11 @@ CREATE TABLE dbo.[GroupAccount]
 	GroupAccountID UNIQUEIDENTIFIER PRIMARY KEY,
 	GroupAccountTypeID UNIQUEIDENTIFIER NOT NULL,
 	PaymentPlanGroupAccountID UNIQUEIDENTIFIER NOT NULL,
-	Name VARCHAR(500)
+	Name VARCHAR(500),
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 GO
 -- ADD PRIMARY KEY
@@ -94,6 +151,21 @@ ALTER TABLE dbo.[GroupAccount]
 	ADD CONSTRAINT FK_GroupAccount_PaymentPlanGroupAccountID FOREIGN KEY (PaymentPlanGroupAccountID) REFERENCES PaymentPlanGroupAccount(PaymentPlanGroupAccountID);
 GO
 
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.GroupAccount_Update_UpdatedDate
+ON dbo.[GroupAccount]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.GroupAccount SET UpdatedDate=GETDATE() 
+        WHERE GroupAccountID IN (SELECT GroupAccountID FROM INSERTED) 
+END 
+GO
+
+
 /***************************************************************************************/
 -- CREATE Group Account Status Type ID
 /***************************************************************************************/
@@ -104,13 +176,31 @@ Holds the group account status types
 CREATE TABLE dbo.[GroupAccountStatusType]
 (
 	GroupAccountStatusTypeID UNIQUEIDENTIFIER PRIMARY KEY,
-	[Type] VARCHAR(300)
+	[Type] VARCHAR(300),
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 GO
 ALTER TABLE dbo.[GroupAccountStatusType]
     ADD CONSTRAINT DF_GroupAccountStatusType_GroupAccountStatusTypeID DEFAULT NEWSEQUENTIALID() FOR GroupAccountStatusTypeID
 
 GO
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.GroupAccountStatusType_Update_UpdatedDate
+ON dbo.[GroupAccountStatusType]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.GroupAccountStatusType SET UpdatedDate=GETDATE() 
+        WHERE GroupAccountStatusTypeID IN (SELECT GroupAccountStatusTypeID FROM INSERTED) 
+END 
+GO
+
 
 USE [SDBO_App]
 GO
@@ -135,7 +225,11 @@ CREATE TABLE dbo.[GroupAccountMetaData]
 	GroupAccountStatusTypeID UNIQUEIDENTIFIER NOT NULL,
 
 	-- add in the metadata of the account
-	CustomBranding VARCHAR(MAX)
+	CustomBranding VARCHAR(MAX),
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 
 -- ADD PRIMARY KEY
@@ -151,6 +245,20 @@ GO
 -- GROUP ACCOUNT STATUS TYPE
 ALTER TABLE dbo.[GroupAccountMetaData]
 	ADD CONSTRAINT FK_GroupAccountMetaData_GroupAccountStatusTypeID FOREIGN KEY (GroupAccountStatusTypeID) REFERENCES GroupAccountStatusType(GroupAccountStatusTypeID);
+GO
+
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.GroupAccountMetaData_Update_UpdatedDate
+ON dbo.[GroupAccountMetaData]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.GroupAccountMetaData SET UpdatedDate=GETDATE() 
+        WHERE GroupAccountMetaDataID IN (SELECT GroupAccountMetaDataID FROM INSERTED) 
+END 
 GO
 
 
@@ -175,6 +283,10 @@ INSERT INTO [dbo].[PaymentPlanGroupAccountFee] ([PaymentPlanGroupAccountID], [Se
 INSERT INTO [dbo].[PaymentPlanGroupAccountFee] ([PaymentPlanGroupAccountID], [Section] ,[Amount]) VALUES (@PaymentPlanID ,'Monthly.Fee' ,0.00)
 
 GO
+
+
+
+
 /***************************************************************************************/
 -- CREATE GRUOP ACCOUNT AND TYPES
 /***************************************************************************************/
@@ -239,7 +351,11 @@ CREATE TABLE dbo.[GroupAccountConfiguration]
 	GroupAccountConfigurationID UNIQUEIDENTIFIER PRIMARY KEY,
 	Section VARCHAR(300) NOT NULL,
 	Name VARCHAR(300) NOT NULL,
-	Value VARCHAR(500) NOT NULL
+	Value VARCHAR(500) NOT NULL,
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 
 GO
@@ -247,6 +363,23 @@ GO
 ALTER TABLE dbo.[GroupAccountConfiguration]
     ADD CONSTRAINT DF_GroupAccountConfiguration_GroupAccountConfigurationID DEFAULT NEWSEQUENTIALID() FOR GroupAccountConfigurationID
 GO
+
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.GroupAccountConfiguration_Update_UpdatedDate
+ON dbo.[GroupAccountConfiguration]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.GroupAccountConfiguration SET UpdatedDate=GETDATE() 
+        WHERE GroupAccountConfigurationID IN (SELECT GroupAccountConfigurationID FROM INSERTED) 
+END 
+GO
+
+
+
 
 -- INERT SOME DEFAULT CONFIGURATIONS
 USE [SDBO_App]
@@ -269,7 +402,11 @@ Holds the group account types
 CREATE TABLE dbo.[GroupAccountSettingsType]
 (
 	GroupAccountSettingsTypeID UNIQUEIDENTIFIER PRIMARY KEY,
-	[Type] VARCHAR(300)
+	[Type] VARCHAR(300),
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 GO
 
@@ -277,6 +414,22 @@ ALTER TABLE dbo.[GroupAccountSettingsType]
     ADD CONSTRAINT DF_GroupAccountSettingsType_GroupAccountSettingsTypeID DEFAULT NEWSEQUENTIALID() FOR GroupAccountSettingsTypeID
 
 GO
+
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.GroupAccountSettingsType_Update_UpdatedDate
+ON dbo.[GroupAccountSettingsType]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.GroupAccountSettingsType SET UpdatedDate=GETDATE() 
+        WHERE GroupAccountSettingsTypeID IN (SELECT GroupAccountSettingsTypeID FROM INSERTED) 
+END 
+GO
+
+
 
 -- POPULATE
 USE [SDBO_App]
@@ -304,7 +457,11 @@ CREATE TABLE dbo.[GroupAccountSettings]
 	GroupAccountSettingsTypeID UNIQUEIDENTIFIER NOT NULL,
 	Section VARCHAR(300) NOT NULL,
 	Name VARCHAR(300) NOT NULL,
-	DefaultValue VARCHAR(500) NOT NULL
+	DefaultValue VARCHAR(500) NOT NULL,
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 
 GO
@@ -317,6 +474,21 @@ GO
 -- ADD FORIEGN KEY CONSTRAINT
 ALTER TABLE dbo.[GroupAccountSettings]
 	ADD CONSTRAINT FK_GroupAccountSettings_GroupAccountSettingsTypeID FOREIGN KEY (GroupAccountSettingsTypeID) REFERENCES GroupAccountSettingsType(GroupAccountSettingsTypeID);
+GO
+
+
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.GroupAccountSettings_Update_UpdatedDate
+ON dbo.[GroupAccountSettings]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.GroupAccountSettings SET UpdatedDate=GETDATE() 
+        WHERE GroupAccountSettingsID IN (SELECT GroupAccountSettingsID FROM INSERTED) 
+END 
 GO
 
 
@@ -365,7 +537,11 @@ CREATE TABLE dbo.[GroupAccountGroupAccountSettingsLink]
 	GroupAccountID UNIQUEIDENTIFIER NOT NULL,
 	GroupAccountSettingsID UNIQUEIDENTIFIER NOT NULL,
 	GroupAccountSettingsTypeID UNIQUEIDENTIFIER NOT NULL,
-	Value VARCHAR(500)
+	Value VARCHAR(500),
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 
 GO
@@ -387,6 +563,25 @@ GO
 ALTER TABLE dbo.[GroupAccountGroupAccountSettingsLink]
 	ADD CONSTRAINT FK_GroupAccountGroupAccountSettingsLink_GroupAccountSettingsTypeID FOREIGN KEY (GroupAccountSettingsTypeID) REFERENCES GroupAccountSettingsType(GroupAccountSettingsTypeID);
 GO
+
+
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.GroupAccountGroupAccountSettingsLink_Update_UpdatedDate
+ON dbo.[GroupAccountGroupAccountSettingsLink]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.GroupAccountGroupAccountSettingsLink SET UpdatedDate=GETDATE() 
+        WHERE GroupAccountGroupAccountSettingsLinkID IN (SELECT GroupAccountGroupAccountSettingsLinkID FROM INSERTED) 
+END 
+GO
+
+
+
+
 
 ---Populate
 USE [SDBO_App]
@@ -446,7 +641,11 @@ Holds all of the group level account settings, based off of sections
 CREATE TABLE dbo.[GroupAccountRole]
 (
 	GroupAccountRoleID UNIQUEIDENTIFIER PRIMARY KEY,
-	[Role] VARCHAR(500)
+	[Role] VARCHAR(500),
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 
 GO
@@ -455,6 +654,22 @@ GO
 ALTER TABLE dbo.[GroupAccountRole]
     ADD CONSTRAINT DF_GroupAccountRole_GroupAccountRoleID DEFAULT NEWSEQUENTIALID() FOR GroupAccountRoleID
 GO
+
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.GroupAccountRole_Update_UpdatedDate
+ON dbo.[GroupAccountRole]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.GroupAccountRole SET UpdatedDate=GETDATE() 
+        WHERE GroupAccountRoleID IN (SELECT GroupAccountRoleID FROM INSERTED) 
+END 
+GO
+
+
 
 -- Populate
 USE [SDBO_App]
@@ -481,7 +696,11 @@ CREATE TABLE dbo.[AccountGroupAccountLink]
 	AccountGroupAccountLinkID UNIQUEIDENTIFIER PRIMARY KEY,
 	GroupAccountID UNIQUEIDENTIFIER NOT NULL,
 	GroupAccountRoleID UNIQUEIDENTIFIER NOT NULL,
-	AccountID UNIQUEIDENTIFIER NOT NULL
+	AccountID UNIQUEIDENTIFIER NOT NULL,
+
+	-- Updated Datetime
+	CreatedDate datetime DEFAULT(GETDATE()), 
+	UpdatedDate datetime DEFAULT(GETDATE())
 )
 
 GO
@@ -498,6 +717,23 @@ GO
 ALTER TABLE dbo.[AccountGroupAccountLink]
 	ADD CONSTRAINT FK_AccountGroupAccountLink_GroupAccountRoleID FOREIGN KEY (GroupAccountRoleID) REFERENCES GroupAccountRole(GroupAccountRoleID);
 GO
+
+
+
+--UPDATE TRIGGER
+
+CREATE TRIGGER dbo.AccountGroupAccountLink_Update_UpdatedDate
+ON dbo.[AccountGroupAccountLink]
+FOR UPDATE 
+AS 
+BEGIN 
+    IF NOT UPDATE(UpdatedDate) 
+        UPDATE dbo.AccountGroupAccountLink SET UpdatedDate=GETDATE() 
+        WHERE AccountGroupAccountLinkID IN (SELECT AccountGroupAccountLinkID FROM INSERTED) 
+END 
+GO
+
+
 
 /*
 
