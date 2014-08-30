@@ -287,6 +287,7 @@ GO
 
 
 
+
 /***************************************************************************************/
 -- CREATE GRUOP ACCOUNT AND TYPES
 /***************************************************************************************/
@@ -440,7 +441,6 @@ INSERT INTO [dbo].[GroupAccountSettingsType] ([Type]) VALUES ('Email')
 INSERT INTO [dbo].[GroupAccountSettingsType] ([Type]) VALUES ('Text')
 INSERT INTO [dbo].[GroupAccountSettingsType] ([Type]) VALUES ('TextArea')
 INSERT INTO [dbo].[GroupAccountSettingsType] ([Type]) VALUES ('Password')
-
 GO
 
 

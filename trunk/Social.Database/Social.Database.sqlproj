@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{4395220d-dd6d-455f-b60c-7d9b88e637ce}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureDatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -23,6 +23,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <PermissionSet>SAFE</PermissionSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -45,12 +46,10 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>
-    </NoWarn>
-    <SuppressTSqlWarnings>
-    </SuppressTSqlWarnings>
-    <TreatTSqlWarningsAsErrors>True</TreatTSqlWarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+    <NoWarn>SQL70001</NoWarn>
+    <SuppressTSqlWarnings>SQL80001</SuppressTSqlWarnings>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
   </PropertyGroup>
   <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
   <PropertyGroup>
@@ -99,9 +98,8 @@
     <Folder Include="SDBO_Core\Z10_Run_After_Other_Anytime_Scripts\" />
     <Folder Include="SDBO_Core\Z11_Permission_Scripts" />
     <Folder Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups" />
-    <Folder Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables" />
-    <Folder Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Database" />
-    <Folder Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables" />
+    <Folder Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables" />
+    <Folder Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables" />
     <Folder Include="SDBO_App\2_After_Create_Alter_Scripts\A1_Users_Groups" />
     <Folder Include="SDBO_App\2_After_Create_Alter_Scripts\A1_Users_Groups\A2_Populate" />
     <Folder Include="SDBO_App\2_After_Create_Alter_Scripts\A1_Users_Groups\A1_Triggers" />
@@ -115,53 +113,55 @@
     <None Include="Deploy.Database.Core.bat" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000002_Alter_PaymentPlanAccount_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000003_Alter_PaymentPlanAccountFee_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000004_Alter_AccountType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000005_Alter_Account_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000006_Alter_AccountStatusType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000007_Alter_AccountMetaData_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000008_Alter_AccountConfiguration_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000009_Alter_AccountSettingsType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000010_Alter_AccountSettings_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000011_Alter_AccountAccountSettingsLink_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000012_Alter_AccountRole_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000013_Alter_PaymentPlanGroupAccount_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000014_Alter_PaymentPlanGroupAccountFee_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000015_Alter_GroupAccountType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000016_Alter_GroupAccount_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000017_Alter_GroupAccountStatusType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000018_Alter_GroupAccountMetaData_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000019_Alter_GroupAccountConfiguration_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000020_Alter_GroupAccountSettingsType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000021_Alter_GroupAccountSettings_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000022_Alter_GroupAccountGroupAccountSettingsLink_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000023_Alter_GroupAccountRole.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A3_Alter_Tables\000024_Alter_AccountGroupAccountLink.sql" />
-    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Database\000001_Create_SDBO_App_Database.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000002_Create_PaymentPlanAccount_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000003_Create_PaymentPlanAccountFee_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000004_Create_AccountType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000005_Create_Account_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000006_Create_AccountStatusType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000007_Create_AccountMetaData_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000008_Create_AccountConfiguration_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000009_Create_AccountSettingsType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000010_Create_AccountSettings_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000011_Create_AccountAccountSettingsLink_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000012_Create_AccountRole_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000013_Create_PaymentPlanGroupAccount_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000014_Create_PaymentPlanGroupAccountFee_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000015_Create_GroupAccountType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000016_Create_GroupAccount_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000017_Create_GroupAccountStatusType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000018_Create_GroupAccountMetaData_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000019_Create_GroupAccountConfiguration_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000020_Create_GroupAccountSettingsType_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000021_Create_GroupAccountSettings_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000022_Create_GroupAccountGroupAccountSettingsLink_Table.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000023_Create_GroupAccountRole.sql" />
-    <Build Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Create_Tables\000024_Create_AccountGroupAccountLink.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000002_Alter_PaymentPlanAccount_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000003_Alter_PaymentPlanAccountFee_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000004_Alter_AccountType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000005_Alter_Account_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000006_Alter_AccountStatusType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000007_Alter_AccountMetaData_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000008_Alter_AccountConfiguration_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000009_Alter_AccountSettingsType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000010_Alter_AccountSettings_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000011_Alter_AccountAccountSettingsLink_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000012_Alter_AccountRole_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000013_Alter_PaymentPlanGroupAccount_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000014_Alter_PaymentPlanGroupAccountFee_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000015_Alter_GroupAccountType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000016_Alter_GroupAccount_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000017_Alter_GroupAccountStatusType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000018_Alter_GroupAccountMetaData_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000019_Alter_GroupAccountConfiguration_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000020_Alter_GroupAccountSettingsType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000021_Alter_GroupAccountSettings_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000022_Alter_GroupAccountGroupAccountSettingsLink_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000023_Alter_GroupAccountRole.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A2_Alter_Tables\000024_Alter_AccountGroupAccountLink.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000002_Create_PaymentPlanAccount_Table.sql">
+      <SuppressTSqlWarnings>
+      </SuppressTSqlWarnings>
+    </None>
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000003_Create_PaymentPlanAccountFee_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000004_Create_AccountType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000005_Create_Account_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000006_Create_AccountStatusType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000007_Create_AccountMetaData_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000008_Create_AccountConfiguration_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000009_Create_AccountSettingsType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000010_Create_AccountSettings_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000011_Create_AccountAccountSettingsLink_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000012_Create_AccountRole_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000013_Create_PaymentPlanGroupAccount_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000014_Create_PaymentPlanGroupAccountFee_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000015_Create_GroupAccountType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000016_Create_GroupAccount_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000017_Create_GroupAccountStatusType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000018_Create_GroupAccountMetaData_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000019_Create_GroupAccountConfiguration_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000020_Create_GroupAccountSettingsType_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000021_Create_GroupAccountSettings_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000022_Create_GroupAccountGroupAccountSettingsLink_Table.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000023_Create_GroupAccountRole.sql" />
+    <None Include="SDBO_App\1_Create_Alter_Scripts\A1_Users_Groups\A1_Create_Tables\000024_Create_AccountGroupAccountLink.sql" />
     <Build Include="SDBO_App\2_After_Create_Alter_Scripts\A1_Users_Groups\A1_Triggers\000002_Update_UpdatedDate_PaymentPlanAccount_Table.sql" />
     <Build Include="SDBO_App\2_After_Create_Alter_Scripts\A1_Users_Groups\A1_Triggers\000003_Update_UpdatedDate_PaymentPlanAccountFee_Table.sql" />
     <Build Include="SDBO_App\2_After_Create_Alter_Scripts\A1_Users_Groups\A1_Triggers\000004_Update_UpdatedDate_AccountType_Table.sql" />
@@ -208,5 +208,6 @@
     <None Include="SDBO_App\2_After_Create_Alter_Scripts\A1_Users_Groups\A2_Populate\000022_Populate_GroupAccountGroupAccountSettingsLink_Table.sql" />
     <None Include="SDBO_App\2_After_Create_Alter_Scripts\A1_Users_Groups\A2_Populate\000023_Populate_GroupAccountRole.sql" />
     <None Include="SDBO_App\2_After_Create_Alter_Scripts\A1_Users_Groups\A2_Populate\000024_Populate_AccountGroupAccountLink.sql" />
+    <None Include="SDBO_App\SDBO_App_CREATE_DATABASE.sql" />
   </ItemGroup>
 </Project>

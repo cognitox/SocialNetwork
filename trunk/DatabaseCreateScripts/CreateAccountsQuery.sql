@@ -357,8 +357,6 @@ DECLARE @PaymentPlanID UNIQUEIDENTIFIER = (SELECT TOP 1 PaymentPlanAccountID FRO
 DECLARE @Type UNIQUEIDENTIFIER = (SELECT TOP 1 AccountTypeID FROM [dbo].[AccountType] WHERE [Type] = 'Service')
 INSERT INTO [dbo].[Account] ([AccountTypeID],[PaymentPlanAccountID], [Email]) VALUES (@Type, @PaymentPlanID, 'service@relsocial.com')
 
-
-
 GO
 
 /***************************************************************************************/

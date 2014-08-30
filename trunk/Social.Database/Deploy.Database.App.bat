@@ -1,39 +1,62 @@
 @echo off
 :: https://github.com/chucknorris/roundhouse/wiki/ConfigurationOptions
 
+
+
+:: username and password
+REM SET user="SDBOServiceAccount"
+REM SET password="oroVerde"
+SET user="sa"
+SET password="oroVerde"
+
+:: server & ip
+SET server="localhost"
+SET server.database="127.0.0.1"
+
+:: db name
+SET database.name="SDBO_App"
+
+:: repository
+SET repository.path="git@github.com:ARDevOp/Augmented_Project.git"
+
+:: modifying these references is like playing with scissors 
+:: refer to the documentation
+SET version.file="%~dp0\database_local_build.xml"
+SET environment="LOCAL"
+SET connstring="Server=%server%;Database=%database.name%;User Id=%user%;Password=%password%;"
+
 SET DIR=%~dp0
 :: settings
 SET silent=true
 SET debug=false
-SET sql.files.directory="%DIR%\..\scripts"
+SET sql.files.directory="%DIR%\SDBO_App"
 SET version.xpath="//buildInfo/version"
-SET databasetype="mysql"
-SET outputpath="%DIR%\.."
+SET databasetype="sqlserver"
+SET outputpath="%DIR%\Migrations"
 SET commandtimeout="50000"
 SET commandtimeoutadmin="50000"
 
 ::folder structure
 
-SET alterdatabasefoldername="1_alter_scripts"
-SET runaftercreatedatabasefoldername="2_after_create_scripts"
-SET runbeforeupfoldername="3_before_update_scripts"
-SET upfoldername="4_update_scripts"
-SET runfirstafterupdatefoldername="5_after_update_scripts"
-SET functionsfoldername="6_functions"
-SET viewsfoldername="7_views"
-SET sprocsfoldername="8_stored_proceedures"
-SET indexesfoldername="9_indexes"
-SET runAfterOtherAnyTimeScriptsfoldername="10_run_after_orther_any_time_scripts"
-SET permissionsfoldername="11_permissions_scripts"
+SET alterdatabasefoldername="1_Create_Alter_Scripts"
+SET runbeforeupfoldername="2_Before_Update_Scripts"
+SET upfoldername="3_Update_Scripts"
+SET runfirstafterupdatefoldername="4_After_Update_Scripts"
+SET functionsfoldername="5_Table_Function_Scripts"
+SET viewsfoldername="6_View_Scripts"
+SET sprocsfoldername="7_Stored_Procedures_Scripts"
+SET indexesfoldername="8_Index_Scripts"
+SET runAfterOtherAnyTimeScriptsfoldername="9_Run_After_Other_Anytime_Scripts"
+SET permissionsfoldername="Z10_Permission_Scripts"
 
 :: error table names
 
-SET schemaname="Manage"
-SET versiontablename="ARDBVersion"
-SET scriptsruntablename="ARDBScriptsRun"
-SET scriptsrunerrorstablename="ARDBScriptsRunErrors"
+SET schemaname="dbo"
+SET versiontablename="SDBOVersion"
+SET scriptsruntablename="SDBOScriptsRun"
+SET scriptsrunerrorstablename="SDBOScriptsRunErrors"
 
-"%DIR%\rh.exe" ^
+"%DIR%\..\Solutions\packages\roundhouse.0.8.6\bin\rh.exe" ^
 	/databasename=%database.name% ^
 	/sqlfilesdirectory=%sql.files.directory% ^
 	/s=%server.database% ^
@@ -47,7 +70,6 @@ SET scriptsrunerrorstablename="ARDBScriptsRunErrors"
 	/commandtimeout=%commandtimeout% ^
 	/commandtimeoutadmin=%commandtimeoutadmin% ^
 	/alterdatabasefoldername=%alterdatabasefoldername% ^
-	/runaftercreatedatabasefoldername=%runaftercreatedatabasefoldername% ^
 	/runbeforeupfoldername=%runbeforeupfoldername%  ^
 	/upfoldername=%upfoldername%  ^
 	/runfirstafterupdatefoldername=%runfirstafterupdatefoldername%  ^
