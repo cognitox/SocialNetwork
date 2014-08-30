@@ -1,11 +1,9 @@
 @echo off
 :: https://github.com/chucknorris/roundhouse/wiki/ConfigurationOptions
 
-
+SET DIR=%~dp0
 
 :: username and password
-REM SET user="SDBOServiceAccount"
-REM SET password="oroVerde"
 SET user="sa"
 SET password="oroVerde"
 
@@ -19,13 +17,14 @@ SET database.name="SDBO_App"
 :: repository
 SET repository.path="git@github.com:ARDevOp/Augmented_Project.git"
 
+:: env var
+SET environment="LOCAL"
+
 :: modifying these references is like playing with scissors 
 :: refer to the documentation
-SET version.file="%~dp0\database_local_build.xml"
-SET environment="LOCAL"
+SET version.file="%DIR%\database_local_build.xml"
 SET connstring="Server=%server%;Database=%database.name%;User Id=%user%;Password=%password%;"
 
-SET DIR=%~dp0
 :: settings
 SET silent=true
 SET debug=false
