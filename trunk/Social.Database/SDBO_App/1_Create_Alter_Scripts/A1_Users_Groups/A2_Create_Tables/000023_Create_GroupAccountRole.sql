@@ -1,6 +1,6 @@
 ﻿/*************************************************************
-** File:    00000
-** Name:	
+** File:    000023_Create_GroupAccountRole.sql
+** Name:	[dbo].[GroupAccountRole]
 ** Desc:	
 **
 **

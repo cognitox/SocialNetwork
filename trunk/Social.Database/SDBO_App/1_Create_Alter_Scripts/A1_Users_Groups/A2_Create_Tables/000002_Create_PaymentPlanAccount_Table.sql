@@ -1,6 +1,6 @@
 ﻿/*************************************************************
-** File:    00000
-** Name:	
+** File:    000002_Create_PaymentPlanAccount_Table.sql
+** Name:	[dbo].[PaymentPlanAccount]
 ** Desc:	
 **
 **

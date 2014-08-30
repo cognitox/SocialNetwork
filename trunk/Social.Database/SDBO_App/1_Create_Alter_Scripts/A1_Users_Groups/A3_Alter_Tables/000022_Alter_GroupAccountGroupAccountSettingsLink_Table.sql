@@ -1,11 +1,8 @@
 ﻿/*************************************************************
-** File:    00000
+** File:    000022_Alter_GroupAccountGroupAccountSettingsLink_Table.sql
 ** Name:	
 ** Desc:	
-**
-**
-**
-**
+**			Foreign key constraints for [dbo].[GroupAccountGroupAccountSettingsLink]
 **
 ** Auth:	Justin Jarczyk
 ** Date:	8/29/2014

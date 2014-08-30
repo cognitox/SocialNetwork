@@ -2,10 +2,7 @@
 ** File:    000005_Alter_Account_Table.sql
 ** Name:	
 ** Desc:	
-**
-**
-**
-**
+**			Foreign key constraints for [dbo].[Account]
 **
 ** Auth:	Justin Jarczyk
 ** Date:	8/29/2014

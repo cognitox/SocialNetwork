@@ -1,6 +1,6 @@
 ﻿/*************************************************************
-** File:    00000
-** Name:	
+** File:    000024_Create_AccountGroupAccountLink.sql
+** Name:	[dbo].[AccountGroupAccountLink]
 ** Desc:	
 **
 **

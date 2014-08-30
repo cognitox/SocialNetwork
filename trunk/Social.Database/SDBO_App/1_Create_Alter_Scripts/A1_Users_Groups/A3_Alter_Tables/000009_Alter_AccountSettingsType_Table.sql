@@ -1,5 +1,5 @@
 ﻿/*************************************************************
-** File:    00000
+** File:    000009_Alter_AccountSettingsType_Table.sql
 ** Name:	
 ** Desc:	
 **

@@ -1,5 +1,5 @@
 ﻿/*************************************************************
-** File:    00000
+** File:    000017_Alter_GroupAccountStatusType_Table.sql
 ** Name:	
 ** Desc:	
 **

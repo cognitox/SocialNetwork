@@ -1,6 +1,6 @@
 ﻿/*************************************************************
-** File:    00000
-** Name:	
+** File:    000016_Create_GroupAccount_Table.sql
+** Name:	[dbo].[GroupAccount]
 ** Desc:	
 **
 **

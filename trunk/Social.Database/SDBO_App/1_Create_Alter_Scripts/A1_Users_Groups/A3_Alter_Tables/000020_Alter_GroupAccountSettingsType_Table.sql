@@ -1,5 +1,5 @@
 ﻿/*************************************************************
-** File:    00000
+** File:    000020_Alter_GroupAccountSettingsType_Table.sql
 ** Name:	
 ** Desc:	
 **

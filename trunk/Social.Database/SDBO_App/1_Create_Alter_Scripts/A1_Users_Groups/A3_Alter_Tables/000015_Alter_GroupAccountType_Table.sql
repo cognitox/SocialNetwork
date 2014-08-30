@@ -1,11 +1,8 @@
 ﻿/*************************************************************
-** File:    00000
+** File:    000015_Alter_GroupAccountType_Table.sql
 ** Name:	
 ** Desc:	
-**
-**
-**
-**
+**			Foreign key constraints for [dbo].[PaymentPlanAccountFee]
 **
 ** Auth:	Justin Jarczyk
 ** Date:	8/29/2014

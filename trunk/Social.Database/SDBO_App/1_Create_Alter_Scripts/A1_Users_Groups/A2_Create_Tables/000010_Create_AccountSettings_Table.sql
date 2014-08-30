@@ -1,6 +1,6 @@
 ﻿/*************************************************************
-** File:    00000
-** Name:	
+** File:    000010_Create_AccountSettings_Table.sql
+** Name:	[dbo].[AccountSettings]
 ** Desc:	
 **
 **

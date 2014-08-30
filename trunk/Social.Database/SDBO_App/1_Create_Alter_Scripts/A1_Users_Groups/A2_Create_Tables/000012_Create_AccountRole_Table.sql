@@ -1,6 +1,6 @@
 ﻿/*************************************************************
-** File:    00000
-** Name:	
+** File:    000012_Create_AccountRole_Table.sql
+** Name:	[dbo].[AccountRole]
 ** Desc:	
 **
 **

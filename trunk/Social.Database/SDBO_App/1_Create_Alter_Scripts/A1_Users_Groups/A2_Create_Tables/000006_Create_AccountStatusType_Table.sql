@@ -1,6 +1,6 @@
 ﻿/*************************************************************
-** File:    00000
-** Name:	
+** File:    000006_Create_AccountStatusType_Table.sql
+** Name:	[dbo].[AccountStatusType]
 ** Desc:	
 **
 **

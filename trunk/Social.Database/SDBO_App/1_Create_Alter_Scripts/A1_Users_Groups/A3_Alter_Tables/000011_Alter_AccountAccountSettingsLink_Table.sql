@@ -1,11 +1,8 @@
 ﻿/*************************************************************
-** File:    00000
+** File:    000011_Alter_AccountAccountSettingsLink_Table.sql
 ** Name:	
 ** Desc:	
-**
-**
-**
-**
+**			Foreign key constraints for [dbo].[AccountAccountSettingsLink]
 **
 ** Auth:	Justin Jarczyk
 ** Date:	8/29/2014

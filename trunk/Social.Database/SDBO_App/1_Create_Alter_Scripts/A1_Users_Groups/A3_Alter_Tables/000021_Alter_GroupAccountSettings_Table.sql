@@ -1,11 +1,8 @@
 ﻿/*************************************************************
-** File:    00000
+** File:    000021_Alter_GroupAccountSettings_Table.sql
 ** Name:	
 ** Desc:	
-**
-**
-**
-**
+**			Foreign key constraints for [dbo].[GroupAccountSettings]
 **
 ** Auth:	Justin Jarczyk
 ** Date:	8/29/2014

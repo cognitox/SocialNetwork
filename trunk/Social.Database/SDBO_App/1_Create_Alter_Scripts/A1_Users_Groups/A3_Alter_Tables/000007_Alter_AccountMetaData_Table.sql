@@ -1,11 +1,8 @@
 ﻿/*************************************************************
-** File:    00000
+** File:    000007_Alter_AccountMetaData_Table.sql
 ** Name:	
 ** Desc:	
-**
-**
-**
-**
+**			Foreign key constraints for [dbo].[AccountMetaData]
 **
 ** Auth:	Justin Jarczyk
 ** Date:	8/29/2014

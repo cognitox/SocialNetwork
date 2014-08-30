@@ -1,6 +1,6 @@
 ﻿/*************************************************************
-** File:    00000
-** Name:	
+** File:    000007_Create_AccountMetaData_Table.sql
+** Name:	[dbo].[AccountMetaData]
 ** Desc:	
 **
 **

@@ -1,6 +1,6 @@
 ﻿/*************************************************************
-** File:    00000
-** Name:	
+** File:    000001_Create_SDBO_App_Database.sql
+** Name:	DATABASE [SDBO_App]
 ** Desc:	
 **
 **

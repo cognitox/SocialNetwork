@@ -1,6 +1,6 @@
 ﻿/*************************************************************
-** File:    00000
-** Name:	
+** File:    000011_Create_AccountAccountSettingsLink_Table.sql
+** Name:	[dbo].[AccountAccountSettingsLink]
 ** Desc:	
 **
 **

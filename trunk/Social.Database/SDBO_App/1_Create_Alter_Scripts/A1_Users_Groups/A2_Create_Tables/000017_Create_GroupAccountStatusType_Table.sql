@@ -1,6 +1,6 @@
 ﻿/*************************************************************
-** File:    00000
-** Name:	
+** File:    000017_Create_GroupAccountStatusType_Table.sql
+** Name:	[dbo].[GroupAccountStatusType]
 ** Desc:	
 **
 **
