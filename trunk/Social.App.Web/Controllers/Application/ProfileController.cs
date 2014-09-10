@@ -26,26 +26,34 @@ namespace Social.App.Web.Controllers.Application
 
             if (Convert.ToBoolean(ConfigurationManager.AppSettings["BetaMode"]))
             {
-                //Beta Mode
+
                 try
                 {
-                    var context = new BetaDatabase.BetaDatabaseDataContext();
-                    context.BetaSignUps.InsertOnSubmit(new BetaDatabase.BetaSignUp()
+                    //Beta Mode
+                    try
                     {
-                        BetaSignUpID = Guid.NewGuid(),
-                        Email = formModel.Email
-                    });
-                    context.SubmitChanges();
+                        var context = new BetaDatabase.BetaDatabaseDataContext();
+                        context.BetaSignUps.InsertOnSubmit(new BetaDatabase.BetaSignUp()
+                        {
+                            BetaSignUpID = Guid.NewGuid(),
+                            Email = formModel.Email
+                        });
+                        context.SubmitChanges();
+                    }
+                    catch (Exception e)
+                    {
+                        var context = new BetaDatabase.BetaDatabaseDataContext();
+                        context.BetaSignUps.InsertOnSubmit(new BetaDatabase.BetaSignUp()
+                        {
+                            BetaSignUpID = Guid.NewGuid(),
+                            Email = formModel.Email
+                        });
+                        context.SubmitChanges();
+                    }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    var context = new BetaDatabase.BetaDatabaseDataContext();
-                    context.BetaSignUps.InsertOnSubmit(new BetaDatabase.BetaSignUp()
-                    {
-                        BetaSignUpID = Guid.NewGuid(),
-                        Email = formModel.Email
-                    });
-                    context.SubmitChanges();
+
                 }
                 TempData["Message"] = @"Thank You For Signing Up!";
                 return RedirectToAction("Home", "Company");

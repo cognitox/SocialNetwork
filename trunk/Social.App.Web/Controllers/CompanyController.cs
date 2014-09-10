@@ -220,29 +220,36 @@ namespace Social.App.Web.Controllers
             {
                 try
                 {
-                    var context = new BetaDatabase.BetaDatabaseDataContext();
-                    context.ContactUs.InsertOnSubmit(new BetaDatabase.ContactUs()
+                    try
                     {
-                        ContactUsID = Guid.NewGuid(),
-                        Email = viewModel.Email,
-                        Message = viewModel.Message,
-                        Name = viewModel.Name,
-                        Phone = viewModel.Phone
-                    });
-                    context.SubmitChanges();
+                        var context = new BetaDatabase.BetaDatabaseDataContext();
+                        context.ContactUs.InsertOnSubmit(new BetaDatabase.ContactUs()
+                        {
+                            ContactUsID = Guid.NewGuid(),
+                            Email = viewModel.Email,
+                            Message = viewModel.Message,
+                            Name = viewModel.Name,
+                            Phone = viewModel.Phone
+                        });
+                        context.SubmitChanges();
+                    }
+                    catch (Exception e)
+                    {
+                        var context = new BetaDatabase.BetaDatabaseDataContext();
+                        context.ContactUs.InsertOnSubmit(new BetaDatabase.ContactUs()
+                        {
+                            ContactUsID = Guid.NewGuid(),
+                            Email = viewModel.Email,
+                            Message = viewModel.Message,
+                            Name = viewModel.Name,
+                            Phone = viewModel.Phone
+                        });
+                        context.SubmitChanges();
+                    }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    var context = new BetaDatabase.BetaDatabaseDataContext();
-                    context.ContactUs.InsertOnSubmit(new BetaDatabase.ContactUs()
-                    {
-                        ContactUsID = Guid.NewGuid(),
-                        Email = viewModel.Email,
-                        Message = viewModel.Message,
-                        Name = viewModel.Name,
-                        Phone = viewModel.Phone
-                    });
-                    context.SubmitChanges();
+
                 }
                 //In beta mode
                 TempData["Message"] = @"Thank You For Reaching Out To Us!";
