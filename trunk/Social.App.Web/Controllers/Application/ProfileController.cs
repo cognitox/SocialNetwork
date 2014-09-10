@@ -1,8 +1,10 @@
 ﻿using Social.App.Web.Models.Application;
 using Social.App.Web.Models.Application.ViewModels;
+using Social.App.Web.Models.Company.ViewModels;
 using Social.Core.UnitOfService.Interface;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -21,8 +23,39 @@ namespace Social.App.Web.Controllers.Application
         [HttpPost]
         public ActionResult AuthenticateUser(LoginForm formModel)
         {
-            //TODO Refactor this into the .net facebook, twitter, linkedin support
-            return RedirectToAction("Home", "Profile");
+
+            if (Convert.ToBoolean(ConfigurationManager.AppSettings["BetaMode"]))
+            {
+                //Beta Mode
+                try
+                {
+                    var context = new BetaDatabase.BetaDatabaseDataContext();
+                    context.BetaSignUps.InsertOnSubmit(new BetaDatabase.BetaSignUp()
+                    {
+                        BetaSignUpID = Guid.NewGuid(),
+                        Email = formModel.Email
+                    });
+                    context.SubmitChanges();
+                }
+                catch (Exception e)
+                {
+                    var context = new BetaDatabase.BetaDatabaseDataContext();
+                    context.BetaSignUps.InsertOnSubmit(new BetaDatabase.BetaSignUp()
+                    {
+                        BetaSignUpID = Guid.NewGuid(),
+                        Email = formModel.Email
+                    });
+                    context.SubmitChanges();
+                }
+                TempData["Message"] = @"Thank You For Signing Up!";
+                return RedirectToAction("Home", "Company");
+            }
+            else
+            {
+                //Production Mode
+                //TODO Refactor this into the .net facebook, twitter, linkedin support
+                return RedirectToAction("Home", "Profile");
+            }
         }
 
         public ActionResult Home()

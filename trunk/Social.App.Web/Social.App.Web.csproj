@@ -59,6 +59,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -207,6 +208,11 @@
     <Compile Include="App_Start\WebApiConfig.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BetaDatabase\BetaDatabase.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BetaDatabase.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Application\BaseController.cs" />
     <Compile Include="Controllers\Application\ProfileController.cs" />
@@ -259,6 +265,11 @@
     <Content Include="Content\Company\font-awesome-4.1.0\css\font-awesome.min.css" />
     <Content Include="Content\Company\font-awesome-4.1.0\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\Application\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Company\fonts\kaushan.script.css" />
+    <Content Include="Content\Company\fonts\droid.serif.css" />
+    <Content Include="Content\Company\fonts\quicksand.css" />
+    <Content Include="Content\Company\fonts\montserrat.css" />
+    <Content Include="Content\Company\fonts\roboto.slab.css" />
     <Content Include="Content\Company\img\about\1.jpg" />
     <Content Include="Content\Company\img\about\2.jpg" />
     <Content Include="Content\Company\img\about\3.jpg" />
@@ -292,9 +303,14 @@
     <Content Include="Content\Company\img\portfolio\startup-framework.png" />
     <Content Include="Content\Company\img\portfolio\treehouse-preview.png" />
     <Content Include="Content\Company\img\portfolio\treehouse.png" />
+    <Content Include="Content\Company\img\logos\standardoftrust.jpg" />
     <Content Include="Content\Company\img\team\1.jpg" />
     <Content Include="Content\Company\img\team\2.jpg" />
     <Content Include="Content\Company\img\team\3.jpg" />
+    <Content Include="Content\Company\img\team\justin.jpg" />
+    <Content Include="Content\Company\img\team\muscarello.jpg" />
+    <Content Include="Content\Company\img\team\peter.jpg" />
+    <Content Include="Content\Company\img\team\rob.jpg" />
     <Content Include="Content\Company\js\bootstrap.js" />
     <Content Include="Content\Company\js\bootstrap.min.js" />
     <Content Include="Content\Company\js\cbpAnimatedHeader.js" />
@@ -302,8 +318,11 @@
     <Content Include="Content\Company\js\classie.js" />
     <Content Include="Content\Company\js\company.js" />
     <Content Include="Content\Company\js\contact_me.js" />
+    <Content Include="Content\Company\js\html5shiv.js" />
     <Content Include="Content\Company\js\jqBootstrapValidation.js" />
     <Content Include="Content\Company\js\jquery-1.11.0.js" />
+    <Content Include="Content\Company\js\jquery.easing.min.js" />
+    <Content Include="Content\Company\js\respond.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Company\less\agency.less" />
@@ -345,6 +364,11 @@
     <Content Include="Content\Company\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\Company\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Company\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="BetaDatabase\BetaDatabase.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>BetaDatabase.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\rcdev - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\rcdev - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
@@ -423,6 +447,14 @@
       <Project>{22f3426a-a4a3-4f7c-9132-2f1127e5fd9e}</Project>
       <Name>Social.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BetaDatabase\BetaDatabase.dbml.layout">
+      <DependentUpon>BetaDatabase.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

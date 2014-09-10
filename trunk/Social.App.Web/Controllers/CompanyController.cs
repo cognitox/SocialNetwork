@@ -3,6 +3,7 @@ using Social.App.Web.Models.Company.Forms;
 using Social.App.Web.Models.Company.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -47,8 +48,20 @@ namespace Social.App.Web.Controllers
         [ChildActionOnly]
         public ActionResult _LoginPartial()
         {
-            var viewModel = new CompanyLoginViewModel();
-            return PartialView(viewModel);
+            if (Convert.ToBoolean(ConfigurationManager.AppSettings["BetaMode"]))
+            {
+                //in beta mode
+                var viewModel = new CompanyLoginViewModel();
+                viewModel.IsBetaMode = true;
+                return PartialView(viewModel);
+            }
+            else
+            {
+                //in production mode
+                var viewModel = new CompanyLoginViewModel();
+                viewModel.IsBetaMode = false;
+                return PartialView(viewModel);
+            }
         }
 
         [ChildActionOnly]
@@ -100,25 +113,25 @@ namespace Social.App.Web.Controllers
                         ImageSourceURL = @"Content/Company/img/about/1.jpg",
                         DateOrEventHeader = @"June 2014",
                         SubHeading = @"Our Humble Beginnings",
-                        Body = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"    
+                        Body = @"Our team began collaborating on software architecture and design."    
                     },
                     new TimeLineMoment(){
                         ImageSourceURL = @"Content/Company/img/about/2.jpg",
-                        DateOrEventHeader = @"August 2014",
-                        SubHeading = @"Relationship Capital Mockups are Created",
-                        Body = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"    
+                        DateOrEventHeader = @"July 2014",
+                        SubHeading = @"Relationship Capital Mockups",
+                        Body = @"Mockups are set in stone and created, development begins!"    
                     },
                     new TimeLineMoment(){
                         ImageSourceURL = @"Content/Company/img/about/3.jpg",
-                        DateOrEventHeader = @"December 2012",
-                        SubHeading = @"Transition to Full Service",
-                        Body = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"    
+                        DateOrEventHeader = @"August 2012",
+                        SubHeading = @"Peter Wensel Joins The Team",
+                        Body = "Welcome to the Team!"    
                     },
                     new TimeLineMoment(){
                         ImageSourceURL = @"Content/Company/img/about/4.jpg",
                         DateOrEventHeader = @"September 2014",
-                        SubHeading = @"Beta Release",
-                        Body = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"    
+                        SubHeading = @"Company Website",
+                        Body = @"Relationship Capital public facing website, and beta sign up has been deployed."    
                     }
                 }
             };
@@ -132,13 +145,13 @@ namespace Social.App.Web.Controllers
             {
                 SectionName = @"The Relationship Capital Team",
                 SubHeading = @"",
-                TeamMissionStatement = @"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.",
+                TeamMissionStatement = @"Our Amazing Team!",
                 TeamMembers = new List<TeamMemberProfile>()
                 {
                     new TeamMemberProfile(){
                         PersonName = @"Rob Peters",
                         PositionTitle = @"Marketing",
-                        PersonImageURL = @"http://www.lharrispartners.com/wp-content/uploads/2014/03/rob-peters.jpg",
+                        PersonImageURL = @"Content/Company/img/team/rob.jpg",
                         FacebookURL = @"http://www.facebook.com/robpeters59",
                         LinkedInURL = @"https://www.linkedin.com/profile/view?id=217005&authType=NAME_SEARCH&authToken=pGr8&locale=en_US&srchid=1613240311408842701094&srchindex=1&srchtotal=763&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A1613240311408842701094%2CVSRPtargetId%3A217005%2CVSRPcmpt%3Aprimary",
                         TwitterURL = @"http://www.twitter.com/standardoftrust"
@@ -146,7 +159,7 @@ namespace Social.App.Web.Controllers
                     new TeamMemberProfile(){
                         PersonName = @"Tom Muscarello",
                         PositionTitle = @"Project Management/ Business Analyist",
-                        PersonImageURL = @"http://facweb.cs.depaul.edu/yele/CIO-annual-events/2005spring/muscarello.jpg",
+                        PersonImageURL = @"Content/Company/img/team/muscarello.jpg",
                         FacebookURL = @"https://www.facebook.com/tom.muscarello.3",
                         LinkedInURL = @"https://www.linkedin.com/profile/view?id=2661047&authType=NAME_SEARCH&authToken=hgCZ&locale=en_US&srchid=1613240311408842828316&srchindex=1&srchtotal=3&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A1613240311408842828316%2CVSRPtargetId%3A2661047%2CVSRPcmpt%3Aprimary",
                         TwitterURL = @"https://twitter.com/tmuscare"
@@ -154,10 +167,18 @@ namespace Social.App.Web.Controllers
                     new TeamMemberProfile(){
                         PersonName = @"Justin Jarczyk",
                         PositionTitle = @"Developer",
-                        PersonImageURL = @"http://www.webitects.com/content/images/people/justin.jpg",
+                        PersonImageURL = @"Content/Company/img/team/justin.jpg",
                         FacebookURL = @"https://www.facebook.com/jjarczyk1",
                         LinkedInURL = @"https://www.linkedin.com/pub/justin-jarczyk/46/3a/993",
                         TwitterURL = @"https://twitter.com/JJarczyk"
+                    },
+                    new TeamMemberProfile(){
+                        PersonName = @"Peter Wensel",
+                        PositionTitle = @"Associate Developer",
+                        PersonImageURL = @"Content/Company/img/team/peter.jpg",
+                        FacebookURL = @"https://www.facebook.com/peter.wensel",
+                        LinkedInURL = @"https://www.linkedin.com/profile/view?id=365951806&authType=NAME_SEARCH&authToken=NP9A&locale=en_US&srchid=1613240311410310962554&srchindex=1&srchtotal=1&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A1613240311410310962554%2CVSRPtargetId%3A365951806%2CVSRPcmpt%3Aprimary",
+                        TwitterURL = @"https://twitter.com/PeterCat123"
                     }
                 }
             };
@@ -172,19 +193,7 @@ namespace Social.App.Web.Controllers
                 ClientImages = new List<ClientImage>()
                 {
                     new ClientImage(){
-                        ImageURL = @"Content/Company/img/logos/envato.jpg",
-                        ClientWebsiteURL = @"#"
-                    },
-                    new ClientImage(){
-                        ImageURL = @"Content/Company/img/logos/designmodo.jpg",
-                        ClientWebsiteURL = @"#"
-                    },
-                    new ClientImage(){
-                        ImageURL = @"Content/Company/img/logos/themeforest.jpg",
-                        ClientWebsiteURL = @"#"
-                    },
-                    new ClientImage(){
-                        ImageURL = @"Content/Company/img/logos/creative-market.jpg",
+                        ImageURL = @"Content/Company/img/logos/standardoftrust.jpg",
                         ClientWebsiteURL = @"#"
                     }
                 }
@@ -199,26 +208,59 @@ namespace Social.App.Web.Controllers
             var viewModel = new CompanyContactViewModel()
             {
                 SectionName = @"Contact Us",
-                SubHeading = @"Lorem ipsum dolor sit amet consectetur."
+                SubHeading = @"With... Further Questions On How Your Company Can Benefit."
             };
             return PartialView(viewModel);
         }
 
         [HttpPost]
-        public JsonResult SubmitContactForm(ContactFormViewModel viewModel)
+        public ActionResult SubmitContactForm(ContactFormViewModel viewModel)
         {
-            //TODO, complete the processing of this form
-            throw new Exception(String.Format(@"{0} {1} {2} {3}"
-                , viewModel.Email
-                , viewModel.Name
-                , viewModel.Phone
-                , viewModel.Message));
-
-            var retVal = new JsonResult()
+            if (Convert.ToBoolean(ConfigurationManager.AppSettings["BetaMode"]))
             {
-                Data = viewModel
-            };
-            return retVal;
+                try
+                {
+                    var context = new BetaDatabase.BetaDatabaseDataContext();
+                    context.ContactUs.InsertOnSubmit(new BetaDatabase.ContactUs()
+                    {
+                        ContactUsID = Guid.NewGuid(),
+                        Email = viewModel.Email,
+                        Message = viewModel.Message,
+                        Name = viewModel.Name,
+                        Phone = viewModel.Phone
+                    });
+                    context.SubmitChanges();
+                }
+                catch (Exception e)
+                {
+                    var context = new BetaDatabase.BetaDatabaseDataContext();
+                    context.ContactUs.InsertOnSubmit(new BetaDatabase.ContactUs()
+                    {
+                        ContactUsID = Guid.NewGuid(),
+                        Email = viewModel.Email,
+                        Message = viewModel.Message,
+                        Name = viewModel.Name,
+                        Phone = viewModel.Phone
+                    });
+                    context.SubmitChanges();
+                }
+                //In beta mode
+                TempData["Message"] = @"Thank You For Reaching Out To Us!";
+                return RedirectToAction("Home");
+            }
+            else
+            {
+                // production mode
+
+                //TODO, complete the processing of this form
+                throw new Exception(String.Format(@"{0} {1} {2} {3}"
+                    , viewModel.Email
+                    , viewModel.Name
+                    , viewModel.Phone
+                    , viewModel.Message));
+
+                return RedirectToAction("Home");
+            }
         }
 
     }

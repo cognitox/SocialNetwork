@@ -7,5 +7,6 @@ namespace Social.App.Web.Models.Company.ViewModels
 {
     public class CompanyHomeViewModel
     {
+        public String Message { get; set; }
     }
 }

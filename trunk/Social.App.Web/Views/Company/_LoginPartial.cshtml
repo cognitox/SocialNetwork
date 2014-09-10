@@ -1,7 +1,19 @@
 ﻿@model Social.App.Web.Models.Company.ViewModels.CompanyLoginViewModel
 
 <div class="page-header">
-    Log In / Sign Up
+    @if (Model.IsBetaMode)
+    {
+        <text>
+            Beta Sign Up
+        </text>
+    }
+    else
+    {
+        <text>
+            Log In / Sign Up
+        </text>
+    }
+
     <ul class="list-inline social-buttons">
         <li>
             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -15,14 +27,40 @@
     </ul>
 </div>
 <form role="form" class="login-form-input" method="post" action="@Url.Action("AuthenticateUser","Profile")">
-    <div class="form-group float-label-control">
-        <label for="">Username</label>
-        <input type="email" class="form-control" name="email" placeholder="Username">
+
+
+    <div style="@(Model.IsBetaMode ? @"margin-top:33px;" : "" )" class="form-group float-label-control">
+        <label for="">
+            @if (Model.IsBetaMode)
+            {
+                <text>
+                    Email Address
+                </text>
+            }
+            else
+            {
+                <text>
+                    Username
+                </text>
+            }
+        </label>
+
+        <input type="email" class="form-control" name="email" placeholder="@(Model.IsBetaMode ? @"Your Email" : @"Username" )">
     </div>
-    <div class="form-group float-label-control">
-        <label for="">Password</label>
-        <input type="password" class="form-control" name="password" placeholder="Password">
-    </div>
+
+    @if (Model.IsBetaMode)
+    {
+        <div style="height: 19px;" class="form-group float-label-control">
+            
+        </div>
+    }
+    else
+    {
+        <div class="form-group float-label-control">
+            <label for="">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+    }
     <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
             <button type="submit" class="pull-right btn btn-primary">Submit</button>

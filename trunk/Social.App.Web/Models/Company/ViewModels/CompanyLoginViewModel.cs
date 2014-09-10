@@ -7,5 +7,6 @@ namespace Social.App.Web.Models.Company.ViewModels
 {
     public class CompanyLoginViewModel
     {
+        public Boolean IsBetaMode { get; set; }
     }
 }
