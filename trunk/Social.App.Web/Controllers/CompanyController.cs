@@ -22,22 +22,22 @@ namespace Social.App.Web.Controllers
         {
             var viewModel = new CompanyImageSliderViewModel()
             {
-                SlideIntervalMS = 3000,
+                SlideIntervalMS = 5000,
                 Images = new List<SlidingImage>()
                 {
                     new SlidingImage()
                     {
-                        ImageURL = @"../../Content/Company/img/header-bg.jpg",
-                        Caption = @""
-                    },
-                    new SlidingImage()
-                    {
-                        ImageURL = @"../../Content/Company/img/header-bg1.jpg",
+                        ImageURL = @"../../Content/Company/img/header-bg9.jpg",
                         Caption = @""
                     },
                     new SlidingImage()
                     {
                         ImageURL = @"../../Content/Company/img/header-bg4.jpg",
+                        Caption = @""
+                    },
+                    new SlidingImage()
+                    {
+                        ImageURL = @"../../Content/Company/img/header-bg.jpg",
                         Caption = @""
                     }
                 }
