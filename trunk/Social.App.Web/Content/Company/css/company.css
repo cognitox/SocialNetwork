@@ -1100,6 +1100,8 @@ body {
     color: #84000E;
     border-radius: 4px;
     height: 330px;
+    z-index: 999;
+    position: relative;
 }
 
 .intro-text .login-form-input {

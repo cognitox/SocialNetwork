@@ -28,17 +28,17 @@ namespace Social.App.Web.Controllers
                     new SlidingImage()
                     {
                         ImageURL = @"../../Content/Company/img/header-bg9.jpg",
-                        Caption = @""
+                        Caption = @"Credibility accounted for"
                     },
                     new SlidingImage()
                     {
                         ImageURL = @"../../Content/Company/img/header-bg4.jpg",
-                        Caption = @""
+                        Caption = @"Live your values & Build Relationship Capital"
                     },
                     new SlidingImage()
                     {
                         ImageURL = @"../../Content/Company/img/header-bg.jpg",
-                        Caption = @""
+                        Caption = @"Keep commitments, strengthen bonds - It's your reputation"
                     }
                 }
             };

@@ -1,5 +1,49 @@
 ﻿@model Social.App.Web.Models.Company.ViewModels.CompanyImageSliderViewModel
 
+<style type="text/css">
+    .carousel-caption {
+        /*right: 20%;
+        top: 418px;
+        width: 55%;
+        padding-left: 100px;
+        z-index: 19;
+        color: rgb(255, 255, 255);
+        text-align: left;
+        left: 0%;
+        height: 80px;
+        text-shadow: 3px 3px 3px rgb(41, 41, 41);
+        background: #3B4757;
+        border: 2px solid rgb(93, 93, 93);
+        opacity: 0.7;*/
+        right: 20%;
+        top: 208px;
+        width: 55%;
+        padding-left: 100px;
+        z-index: 19;
+        color: #A32B2B;
+        text-align: center;
+        left: 0%;
+        height: 80px;
+        text-shadow: 3px 3px 3px rgb(41, 41, 41);
+    }
+
+    }
+
+    .cut {
+        background: url('http://www.webitects.com/content/images/ribbon-cut.png') no-repeat 100% 50%;
+        display: block;
+        height: 50px;
+        position: absolute;
+    }
+
+    .big-qoute {
+        position: absolute;
+        z-index: 999;
+        top: 190px;
+        left: 376px;
+    }
+</style>
+
 <!-- Indicators -->
 <ol class="carousel-indicators">
     @for (var i = 0; i < Model.Images.Count(); i++)
@@ -9,17 +53,18 @@
 </ol>
 <!-- Wrapper for Slides -->
 <div class="carousel-inner" style="position: absolute;">
+    <i class="big-qoute fa fa-quote-left fa-4x"></i>
     @foreach (var image in Model.Images)
     {
         <div class="item @( image == Model.Images[0] ? "active": "" ) ">
             <!-- Set the first background image using inline CSS below. -->
             <div class="fill" style="background-image:url('@image.ImageURL');"></div>
             <div class="carousel-caption">
-                <h2>@image.Caption</h2>
+                <p style="text-transform: none;font-size: 60px;">@image.Caption</p>
+                <div class="cut"></div>
             </div>
         </div>
     }
-
 </div>
 <!-- Custom image slider -->
 <script type="text/javascript">
