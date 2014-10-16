@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48bf4ce7fb4a4fe39158d52d4fb5dbe6" Name="Diagram1">
+        <EntityTypeShape EntityType="SDBOAppModel.Account" Width="1.5" PointX="3" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountAccountSettingsLink" Width="1.5" PointX="5.25" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountCommitmentLink" Width="1.5" PointX="8.25" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountCommitmentLinkType" Width="1.5" PointX="6" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountConfiguration" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountGroupAccountLink" Width="1.5" PointX="5.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountMetaData" Width="1.5" PointX="5.25" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountRole" Width="1.5" PointX="2.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountSetting" Width="1.5" PointX="3" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountSettingsAccountSettingsMultichoiceAnswerLink" Width="1.5" PointX="8.25" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountSettingsMultichoiceAnswer" Width="1.5" PointX="6" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountSettingsType" Width="1.5" PointX="0.75" PointY="38.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountStatusType" Width="1.5" PointX="3" PointY="42.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.AccountType" Width="1.5" PointX="0.75" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.Commitment" Width="1.5" PointX="11.25" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.CommitmentGroup" Width="1.5" PointX="6" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.CommitmentGroupStatusType" Width="1.5" PointX="3.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.CommitmentNote" Width="1.5" PointX="16.5" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.CommitmentNoteType" Width="1.5" PointX="14.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.CommitmentQuestionnaireLink" Width="1.5" PointX="13.5" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.CommitmentQuestionnaireLinkType" Width="1.5" PointX="11.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.CommitmentStatusType" Width="1.5" PointX="9" PointY="37.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.CommitmentType" Width="1.5" PointX="6" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.CommitmentTypeSubType" Width="1.5" PointX="6" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.GroupAccount" Width="1.5" PointX="6" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.GroupAccountConfiguration" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.GroupAccountGroupAccountSettingsLink" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.GroupAccountMetaData" Width="1.5" PointX="11.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.GroupAccountRole" Width="1.5" PointX="3" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.GroupAccountSetting" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.GroupAccountSettingsType" Width="1.5" PointX="3.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.GroupAccountStatusType" Width="1.5" PointX="9" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.GroupAccountType" Width="1.5" PointX="3.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.PaymentPlanAccount" Width="1.5" PointX="0.75" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.PaymentPlanAccountFee" Width="1.5" PointX="3" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.PaymentPlanGroupAccount" Width="1.5" PointX="3.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.PaymentPlanGroupAccountFee" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.Questionnaire" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.QuestionnaireQuestion" Width="1.5" PointX="8.25" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.QuestionnaireQuestionAnswerType" Width="1.5" PointX="6" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.QuestionnaireQuestionMultichoiceAnswer" Width="1.5" PointX="8.25" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.QuestionnaireQuestionnaireQuestionLink" Width="1.5" PointX="10.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.QuestionnaireQuestionQuestionnaireQuestionMultichoiceAnswerLink" Width="1.5" PointX="13.5" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.QuestionnaireQuestionType" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.QuestionnaireType" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.RCAccountBalance" Width="1.5" PointX="5.25" PointY="63.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.RCAccountTransaction" Width="1.5" PointX="13.5" PointY="32" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.SDBOScriptsRun" Width="1.5" PointX="2.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.SDBOScriptsRunError" Width="1.5" PointX="8.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SDBOAppModel.SDBOVersion" Width="1.5" PointX="10.75" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="SDBOAppModel.FK_Account_AccountTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_Account_PaymentPlanAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountAccountSettingsLink_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountCommitmentLink_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountGroupAccountLink_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountMetaData_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_Commitment_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentNote_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentQuestionnaireLink_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentQuestionnaireLink_SendToAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QQQQMultichoiceAnswerLink_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestion_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestionMultichoiceAnswer_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_RCAccountBalance_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_RCAccountTransaction_GrantorAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_RCAccountTransaction_ReceiverAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountAccountSettingsLink_AccountSettingsID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountAccountSettingsLink_AccountSettingsTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountCommitmentLink_AccountCommitmentLinkTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountCommitmentLink_CommitmentGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountCommitmentLink_CommitmentTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountCommitmentLink_CommitmentTypeSubTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountCommitmentLink_GroupAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountCommitmentLink_HeadNodeCommitmentID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountGroupAccountLink_GroupAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountGroupAccountLink_GroupAccountRoleID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountMetaData_AccountStatusTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountSettings_AccountSettingsTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountSettingsAccountSettingsMultichoiceAnswerLink_QuestionnaireQuestionTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_AccountSettingsAccountSettingsMultichoiceAnswerLink_AccountSettingsMultichoiceAnswerID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_Commitment_CommitmentGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_Commitment_CommitmentStatusTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_Commitment_CommitmentTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_Commitment_CommitmentTypeSubTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentNote_CommitmentID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentQuestionnaireLink_CommitmentID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_RCAccountTransaction_CommitmentID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentGroup_CommitmentGroupStatusTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentNote_CommitmentGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentQuestionnaireLink_CommitmentGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestion_CommitmentGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestionMultichoiceAnswer_CommitmentGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestionnaireQuestionLink_CommitmentGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestionQuestionnaireQuestionMultichoiceAnswerLink_CommitmentGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_RCAccountTransaction_CommitmentGroupID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentNote_CommitmentNoteTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentNote_ParentCommitmentNoteID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentQuestionnaireLink_CommitmentQuestionnaireLinkTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentQuestionnaireLink_QuestionnaireID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_CommitmentTypeSubType_CommitmentTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_GroupAccount_GroupAccountTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_GroupAccount_PaymentPlanGroupAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_GroupAccountGroupAccountSettingsLink_GroupAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_GroupAccountMetaData_GroupAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QQQQMultichoiceAnswerLink_GroupAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestion_GroupAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestionMultichoiceAnswer_GroupAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_RCAccountTransaction_GrantorGroupAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_RCAccountTransaction_ReceiverGroupAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_GroupAccountGroupAccountSettingsLink_GroupAccountSettingsID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_GroupAccountGroupAccountSettingsLink_GroupAccountSettingsTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_GroupAccountMetaData_GroupAccountStatusTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_GroupAccountSettings_GroupAccountSettingsTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_PaymentPlanAccountFee_PaymentPlanAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_PaymentPlanGroupAccountFee_PaymentPlanGroupAccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_Questionnaire_AccountID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestionnaireQuestionLink_CommitmentQuestionnaireID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QQQQMultichoiceAnswerLink_QQQQMultichoiceAnswerLinkID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestion_QuestionnaireQuestionAnswerTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestion_QuestionnaireQuestionTypeID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QuestionnaireQuestionnaireQuestionLink_QuestionnaireQuestionID" ManuallyRouted="false" />
+        <AssociationConnector Association="SDBOAppModel.FK_QQQQMultichoiceAnswerLink_QQMultichoiceAnswerID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

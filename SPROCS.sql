@@ -1,3 +1,55 @@
+USE SDBO_App1;
+
+SELECT 
+    [Extent1].[AccountID] AS [AccountID], 
+    [Extent1].[AccountTypeID] AS [AccountTypeID], 
+    [Extent1].[PaymentPlanAccountID] AS [PaymentPlanAccountID], 
+    [Extent1].[Email] AS [Email], 
+    [Extent1].[CreatedDate] AS [CreatedDate], 
+    [Extent1].[UpdatedDate] AS [UpdatedDate]
+    FROM [dbo].[Account] AS [Extent1]
+
+
+
+use SDBO_App3;
+
+
+select * from dbo.aspnet_Applications;
+select * from dbo.aspnet_Membership;
+select * from dbo.aspnet_WebEvent_Events;
+
+select * from [dbo].[aspnet_Applications]
+select * from [dbo].[aspnet_PersonalizationAllUsers]
+select * from [dbo].[aspnet_PersonalizationPerUser]
+select * from [dbo].[aspnet_Profile]
+select * from [dbo].[aspnet_Roles]
+select * from [dbo].[aspnet_SchemaVersions]
+select * from [dbo].[aspnet_Users]
+select * from [dbo].[aspnet_UsersInRoles]
+select * from [dbo].[aspnet_WebEvent_Events]
+
+select * from [dbo].[AspNetRoles]
+select * from [dbo].[AspNetUserLogins]
+select * from [dbo].[AspNetUserClaims]
+select * from [dbo].[AspNetUserRoles]
+select * from [dbo].[AspNetUsers]
+
+
+select * from dbo.Account;
+BIT IsDeleted DEFAULT 0
+
+
+
+
+
+
+
+
+
+
+
+select * from 
+
 
 select * from dbo.Account;
 select * from dbo.AccountType;
@@ -25,6 +77,9 @@ AS
 			   ,@email)
 	GO
 
+	-- link with settings
+
+	-- load with relationship capital
 
 
 RETURN 0 

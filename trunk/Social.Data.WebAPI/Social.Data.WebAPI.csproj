@@ -40,6 +40,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Solutions\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Solutions\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\Solutions\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -52,11 +58,18 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\Solutions\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.OData">
+      <HintPath>..\Solutions\packages\Microsoft.AspNet.WebApi.OData.5.2.0\lib\net45\System.Web.Http.OData.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -211,6 +224,56 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Attributes\MoniterApplicationIDAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\API\AccountAccountSettingsLinksController.cs" />
+    <Compile Include="Controllers\API\AccountCommitmentLinksController.cs" />
+    <Compile Include="Controllers\API\AccountCommitmentLinkTypesController.cs" />
+    <Compile Include="Controllers\API\AccountConfigurationsController.cs" />
+    <Compile Include="Controllers\API\AccountGroupAccountLinksController.cs" />
+    <Compile Include="Controllers\API\AccountMetaDatasController.cs" />
+    <Compile Include="Controllers\API\AccountRolesController.cs" />
+    <Compile Include="Controllers\API\AccountsController.cs" />
+    <Compile Include="Controllers\API\AccountSettingsAccountSettingsMultichoiceAnswerLinksController.cs" />
+    <Compile Include="Controllers\API\AccountSettingsController.cs" />
+    <Compile Include="Controllers\API\AccountSettingsMultichoiceAnswersController.cs" />
+    <Compile Include="Controllers\API\AccountSettingsTypesController.cs" />
+    <Compile Include="Controllers\API\AccountStatusTypesController.cs" />
+    <Compile Include="Controllers\API\AccountTypesController.cs" />
+    <Compile Include="Controllers\API\CommitmentGroupsController.cs" />
+    <Compile Include="Controllers\API\CommitmentGroupStatusTypesController.cs" />
+    <Compile Include="Controllers\API\CommitmentNotesController.cs" />
+    <Compile Include="Controllers\API\CommitmentNoteTypesController.cs" />
+    <Compile Include="Controllers\API\CommitmentQuestionnaireLinksController.cs" />
+    <Compile Include="Controllers\API\CommitmentQuestionnaireLinkTypesController.cs" />
+    <Compile Include="Controllers\API\CommitmentsController.cs" />
+    <Compile Include="Controllers\API\CommitmentStatusTypesController.cs" />
+    <Compile Include="Controllers\API\CommitmentTypesController.cs" />
+    <Compile Include="Controllers\API\CommitmentTypeSubTypesController.cs" />
+    <Compile Include="Controllers\API\GroupAccountConfigurationsController.cs" />
+    <Compile Include="Controllers\API\GroupAccountGroupAccountSettingsLinksController.cs" />
+    <Compile Include="Controllers\API\GroupAccountMetaDatasController.cs" />
+    <Compile Include="Controllers\API\GroupAccountRolesController.cs" />
+    <Compile Include="Controllers\API\GroupAccountsController.cs" />
+    <Compile Include="Controllers\API\GroupAccountSettingsController.cs" />
+    <Compile Include="Controllers\API\GroupAccountSettingsTypesController.cs" />
+    <Compile Include="Controllers\API\GroupAccountStatusTypesController.cs" />
+    <Compile Include="Controllers\API\GroupAccountTypesController.cs" />
+    <Compile Include="Controllers\API\PaymentPlanAccountFeesController.cs" />
+    <Compile Include="Controllers\API\PaymentPlanAccountsController.cs" />
+    <Compile Include="Controllers\API\PaymentPlanGroupAccountFeesController.cs" />
+    <Compile Include="Controllers\API\PaymentPlanGroupAccountsController.cs" />
+    <Compile Include="Controllers\API\QuestionnaireQuestionAnswerTypesController.cs" />
+    <Compile Include="Controllers\API\QuestionnaireQuestionMultichoiceAnswersController.cs" />
+    <Compile Include="Controllers\API\QuestionnaireQuestionnaireQuestionLinksController.cs" />
+    <Compile Include="Controllers\API\QuestionnaireQuestionQuestionnaireQuestionMultichoiceAnswerLinksController.cs" />
+    <Compile Include="Controllers\API\QuestionnaireQuestionsController.cs" />
+    <Compile Include="Controllers\API\QuestionnaireQuestionTypesController.cs" />
+    <Compile Include="Controllers\API\QuestionnairesController.cs" />
+    <Compile Include="Controllers\API\QuestionnaireTypesController.cs" />
+    <Compile Include="Controllers\API\RCAccountBalancesController.cs" />
+    <Compile Include="Controllers\API\RCAccountTransactionsController.cs" />
+    <Compile Include="Controllers\API\SDBOScriptsRunErrorsController.cs" />
+    <Compile Include="Controllers\API\SDBOScriptsRunsController.cs" />
+    <Compile Include="Controllers\API\SDBOVersionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -289,6 +352,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Social.Core\Social.Core.csproj">
+      <Project>{22f3426a-a4a3-4f7c-9132-2f1127e5fd9e}</Project>
+      <Name>Social.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

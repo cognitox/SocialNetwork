@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using Social.Data.WebAPI.Models;
 using Social.Data.WebAPI.Providers;
 using Social.Data.WebAPI.Results;
+using Social.Data.WebAPI.DatabaseContext;
 
 namespace Social.Data.WebAPI.Controllers
 {
@@ -125,7 +126,7 @@ namespace Social.Data.WebAPI.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -258,9 +259,9 @@ namespace Social.Data.WebAPI.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -327,10 +328,13 @@ namespace Social.Data.WebAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            // using simple membership authentication
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
-
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            
+            // integrate social network account table into the application
+            
+
 
             if (!result.Succeeded)
             {
@@ -368,7 +372,7 @@ namespace Social.Data.WebAPI.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }

@@ -31,10 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\Solutions\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\Solutions\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\Solutions\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
@@ -42,6 +42,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,14 +52,278 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseContext\Account.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountAccountSettingsLink.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountCommitmentLink.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountCommitmentLinkType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountConfiguration.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountGroupAccountLink.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountMetaData.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountRole.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountSetting.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountSettingsAccountSettingsMultichoiceAnswerLink.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountSettingsMultichoiceAnswer.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountSettingsType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountStatusType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\AccountType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\aspnet_Applications.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\aspnet_Membership.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\aspnet_Paths.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\aspnet_PersonalizationAllUsers.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\aspnet_PersonalizationPerUser.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\aspnet_Profile.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\aspnet_Roles.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\aspnet_SchemaVersions.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\aspnet_Users.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\aspnet_WebEvent_Events.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\Commitment.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\CommitmentGroup.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\CommitmentGroupStatusType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\CommitmentNote.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\CommitmentNoteType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\CommitmentQuestionnaireLink.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\CommitmentQuestionnaireLinkType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\CommitmentStatusType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\CommitmentType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\CommitmentTypeSubType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\GroupAccount.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\GroupAccountConfiguration.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\GroupAccountGroupAccountSettingsLink.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\GroupAccountMetaData.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\GroupAccountRole.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\GroupAccountSetting.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\GroupAccountSettingsType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\GroupAccountStatusType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\GroupAccountType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\PaymentPlanAccount.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\PaymentPlanAccountFee.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\PaymentPlanGroupAccount.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\PaymentPlanGroupAccountFee.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\Questionnaire.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\QuestionnaireQuestion.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\QuestionnaireQuestionAnswerType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\QuestionnaireQuestionMultichoiceAnswer.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\QuestionnaireQuestionnaireQuestionLink.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\QuestionnaireQuestionQuestionnaireQuestionMultichoiceAnswerLink.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\QuestionnaireQuestionType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\QuestionnaireType.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\RCAccountBalance.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\RCAccountTransaction.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\SDBOApp.Context.cs">
+      <DependentUpon>SDBOApp.Context.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DatabaseContext\SDBOApp.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DatabaseContext\SDBOApp.Designer.cs">
+      <DependentUpon>SDBOApp.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DatabaseContext\SDBOScriptsRun.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\SDBOScriptsRunError.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\SDBOVersion.cs">
+      <DependentUpon>SDBOApp.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\TaskSchedulerRepository.cs" />
+    <Compile Include="Repositories\Base\Implementation\BaseRepository.cs" />
+    <Compile Include="Repositories\Base\Implementation\CRUDMethods.cs" />
+    <Compile Include="Repositories\Implementation\AccountAccountSettingsLinksRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountCommitmentLinksRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountCommitmentLinkTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountConfigurationsRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountGroupAccountLinksRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountMetaDatasRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountRolesRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountsRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountSettingsAccountSettingsMultichoiceAnswerLinksRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountSettingsRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountSettingsMultichoiceAnswersRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountSettingsTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountStatusTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\AccountTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\CommitmentGroupsRepository.cs" />
+    <Compile Include="Repositories\Implementation\CommitmentGroupStatusTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\CommitmentNotesRepository.cs" />
+    <Compile Include="Repositories\Implementation\CommitmentNoteTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\CommitmentQuestionnaireLinksRepository.cs" />
+    <Compile Include="Repositories\Implementation\CommitmentQuestionnaireLinkTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\CommitmentsRepository.cs" />
+    <Compile Include="Repositories\Implementation\CommitmentStatusTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\CommitmentTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\CommitmentTypeSubTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\GroupAccountConfigurationsRepository.cs" />
+    <Compile Include="Repositories\Implementation\GroupAccountGroupAccountSettingsLinksRepository.cs" />
+    <Compile Include="Repositories\Implementation\GroupAccountMetaDatasRepository.cs" />
+    <Compile Include="Repositories\Implementation\GroupAccountRolesRepository.cs" />
+    <Compile Include="Repositories\Implementation\GroupAccountsRepository.cs" />
+    <Compile Include="Repositories\Implementation\GroupAccountSettingsRepository.cs" />
+    <Compile Include="Repositories\Implementation\GroupAccountSettingsTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\GroupAccountStatusTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\GroupAccountTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\PaymentPlanAccountFeesRepository.cs" />
+    <Compile Include="Repositories\Implementation\PaymentPlanAccountsRepository.cs" />
+    <Compile Include="Repositories\Implementation\PaymentPlanGroupAccountFeesRepository.cs" />
+    <Compile Include="Repositories\Implementation\PaymentPlanGroupAccountsRepository.cs" />
+    <Compile Include="Repositories\Implementation\QuestionnaireQuestionAnswerTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\QuestionnaireQuestionMultichoiceAnswersRepository.cs" />
+    <Compile Include="Repositories\Implementation\QuestionnaireQuestionnaireQuestionLinksRepository.cs" />
+    <Compile Include="Repositories\Implementation\QuestionnaireQuestionQuestionnaireQuestionMultichoiceAnswerLinksRepository.cs" />
+    <Compile Include="Repositories\Implementation\QuestionnaireQuestionsRepository.cs" />
+    <Compile Include="Repositories\Implementation\QuestionnaireQuestionTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\QuestionnairesRepository.cs" />
+    <Compile Include="Repositories\Implementation\QuestionnaireTypesRepository.cs" />
+    <Compile Include="Repositories\Implementation\RCAccountBalancesRepository.cs" />
+    <Compile Include="Repositories\Implementation\RCAccountTransactionsRepository.cs" />
+    <Compile Include="Repositories\Utilties\RepositoryUtilities.cs" />
     <Compile Include="UnitOfWork\Interface\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="DatabaseContext\SDBOApp.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SDBOApp.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DatabaseContext\SDBOApp.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SDBOApp.edmx</DependentUpon>
+      <LastGenOutput>SDBOApp.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DatabaseContext\SDBOApp.edmx.diagram">
+      <DependentUpon>SDBOApp.edmx</DependentUpon>
+    </Content>
+    <Content Include="DatabaseContext\SDBOApp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SDBOApp.edmx</DependentUpon>
+      <LastGenOutput>SDBOApp.cs</LastGenOutput>
+    </Content>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
