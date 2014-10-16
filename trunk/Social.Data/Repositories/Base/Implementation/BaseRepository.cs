@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Social.Data.Repositories.Base.Implementation
 {
-    public class BaseRepository<TEntity, TDbContext>
+    public class BaseRepository<TEntity, TDbContext> : Social.Data.Repositories.Base.IBaseRepository<TEntity>
         where TDbContext : DbContext
         where TEntity : class
     {

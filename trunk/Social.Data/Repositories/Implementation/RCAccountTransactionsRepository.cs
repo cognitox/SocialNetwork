@@ -10,12 +10,17 @@ using System.Threading.Tasks;
 namespace Social.Data.Repositories.Implementation
 {
 
-    public class RCAccountTransactionsRepository : BaseRepository<RCAccountTransaction, SDBOAppContext>
+    public class RCAccountTransactionsRepository : BaseRepository<RCAccountTransaction, SDBOAppContext>, Social.Data.Repositories.IRCAccountTransactionsRepository
     {
         public RCAccountTransactionsRepository(SDBOAppContext context)
             :base(context)
         {
             
+        }
+
+        public void TestMethod()
+        {
+            //remove this
         }
 
     }

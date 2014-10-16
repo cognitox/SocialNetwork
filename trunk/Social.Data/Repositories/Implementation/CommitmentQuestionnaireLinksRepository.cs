@@ -10,12 +10,17 @@ using System.Threading.Tasks;
 namespace Social.Data.Repositories.Implementation
 {
 
-    public class CommitmentQuestionnaireLinksRepository : BaseRepository<CommitmentQuestionnaireLink, SDBOAppContext>
+    public class CommitmentQuestionnaireLinksRepository : BaseRepository<CommitmentQuestionnaireLink, SDBOAppContext>, Social.Data.Repositories.ICommitmentQuestionnaireLinksRepository
     {
         public CommitmentQuestionnaireLinksRepository(SDBOAppContext context)
             :base(context)
         {
             
+        }
+
+        public void TestMethod()
+        {
+            //remove this
         }
 
     }

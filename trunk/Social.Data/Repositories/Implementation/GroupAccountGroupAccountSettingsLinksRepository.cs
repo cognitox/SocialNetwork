@@ -10,12 +10,17 @@ using System.Threading.Tasks;
 namespace Social.Data.Repositories.Implementation
 {
 
-    public class GroupAccountGroupAccountSettingsLinksRepository : BaseRepository<GroupAccountGroupAccountSettingsLink, SDBOAppContext>
+    public class GroupAccountGroupAccountSettingsLinksRepository : BaseRepository<GroupAccountGroupAccountSettingsLink, SDBOAppContext>, Social.Data.Repositories.IGroupAccountGroupAccountSettingsLinksRepository
     {
         public GroupAccountGroupAccountSettingsLinksRepository(SDBOAppContext context)
             :base(context)
         {
             
+        }
+
+        public void TestMethod()
+        {
+            //remove this
         }
 
     }

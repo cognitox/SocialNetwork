@@ -10,12 +10,17 @@ using System.Threading.Tasks;
 namespace Social.Data.Repositories.Implementation
 {
 
-    public class QuestionnaireTypesRepository : BaseRepository<QuestionnaireType, SDBOAppContext>
+    public class QuestionnaireTypesRepository : BaseRepository<QuestionnaireType, SDBOAppContext>, Social.Data.Repositories.IQuestionnaireTypesRepository
     {
         public QuestionnaireTypesRepository(SDBOAppContext context)
             :base(context)
         {
             
+        }
+
+        public void TestMethod()
+        {
+            //remove this
         }
 
     }

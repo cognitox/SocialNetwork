@@ -1,5 +1,4 @@
 ﻿using Social.Data.DatabaseContext;
-using Social.Data.Repositories.Utilties;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Social.Data.Repositories.Base.Implementation
 {
-    public class CRUDMethods<TEntity, TDbContext>
+    public class CRUDMethods<TEntity, TDbContext> : Social.Data.Repositories.Base.ICRUDMethods<TEntity>
         where TDbContext : DbContext
         where TEntity : class
     {
         private TDbContext _dbcontext;
         private DbSet<TEntity> _entitycontext;
-        private RepoUtilities<TEntity> _repositoryUtilities;
+        private IRepoUtilities<TEntity> _repositoryUtilities;
 
 
         public CRUDMethods(TDbContext dbcontext)

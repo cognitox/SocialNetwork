@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Social.Data.Repositories.Utilties
+namespace Social.Data.Repositories.Base.Implementation
 {
-    public class RepoUtilities<TEntity> 
+    public class RepoUtilities<TEntity> : Social.Data.Repositories.Base.IRepoUtilities<TEntity> 
         where TEntity : class
     {
         private String _primaryKey;

@@ -10,12 +10,17 @@ using System.Threading.Tasks;
 namespace Social.Data.Repositories.Implementation
 {
 
-    public class AccountSettingsMultichoiceAnswersRepository : BaseRepository<AccountSettingsMultichoiceAnswer, SDBOAppContext>
+    public class AccountSettingsMultichoiceAnswersRepository : BaseRepository<AccountSettingsMultichoiceAnswer, SDBOAppContext>, Social.Data.Repositories.IAccountSettingsMultichoiceAnswersRepository
     {
         public AccountSettingsMultichoiceAnswersRepository(SDBOAppContext context)
             :base(context)
         {
             
+        }
+
+        public void TestMethod()
+        {
+            //remove this
         }
 
     }

@@ -10,12 +10,17 @@ using System.Threading.Tasks;
 namespace Social.Data.Repositories.Implementation
 {
 
-    public class PaymentPlanAccountFeesRepository : BaseRepository<PaymentPlanAccountFee, SDBOAppContext>
+    public class PaymentPlanAccountFeesRepository : BaseRepository<PaymentPlanAccountFee, SDBOAppContext>, Social.Data.Repositories.IPaymentPlanAccountFeesRepository
     {
         public PaymentPlanAccountFeesRepository(SDBOAppContext context)
             :base(context)
         {
             
+        }
+
+        public void TestMethod()
+        {
+            //remove this
         }
 
     }
