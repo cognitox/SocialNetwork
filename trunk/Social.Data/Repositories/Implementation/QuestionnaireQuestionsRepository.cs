@@ -13,9 +13,9 @@ namespace Social.Data.Repositories.Implementation
     public class QuestionnaireQuestionsRepository : BaseRepository<QuestionnaireQuestion, SDBOAppContext>, Social.Data.Repositories.IQuestionnaireQuestionsRepository
     {
         public QuestionnaireQuestionsRepository(SDBOAppContext context)
-            :base(context)
+            : base()
         {
-            
+            SetContext(context);
         }
 
         public void TestMethod()

@@ -13,9 +13,9 @@ namespace Social.Data.Repositories.Implementation
     public class AccountRolesRepository : BaseRepository<AccountRole, SDBOAppContext>, Social.Data.Repositories.IAccountRolesRepository
     {
         public AccountRolesRepository(SDBOAppContext context)
-            :base(context)
+            : base()
         {
-
+            SetContext(context);
         }
 
         public void TestMethod()

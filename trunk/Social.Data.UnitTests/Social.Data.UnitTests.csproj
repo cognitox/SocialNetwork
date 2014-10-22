@@ -64,9 +64,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Repositories\Base\CRUDMethodsTest.cs" />
-    <Compile Include="TESTHELPERS\AccountEntityManager.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Repositories\Implementation\AccountRepository_TestSuite.cs" />
+    <Compile Include="Repositories\UnitOfWork\UnitOfWork_TestSuite.cs" />
+    <Compile Include="Managers\AccountEntityManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\Base\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

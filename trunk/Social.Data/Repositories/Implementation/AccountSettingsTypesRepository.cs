@@ -13,9 +13,9 @@ namespace Social.Data.Repositories.Implementation
     public class AccountSettingsTypesRepository : BaseRepository<AccountSettingsType, SDBOAppContext>, Social.Data.Repositories.IAccountSettingsTypesRepository
     {
         public AccountSettingsTypesRepository(SDBOAppContext context)
-            :base(context)
+            : base()
         {
-            
+            SetContext(context);
         }
 
         public void TestMethod()

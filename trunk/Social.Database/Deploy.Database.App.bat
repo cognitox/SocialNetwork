@@ -12,7 +12,7 @@ SET server="localhost"
 SET server.database="127.0.0.1"
 
 :: db name
-SET database.name="SDBO_App3"
+SET database.name="SDBO_App5"
 
 :: repository
 SET repository.path="git@github.com:ARDevOp/Augmented_Project.git"

@@ -3,7 +3,7 @@ using Social.Data.Repositories.Base;
 using System;
 namespace Social.Data.Repositories
 {
-    interface IRCAccountTransactionsRepository : IBaseRepository<RCAccountTransaction> 
+    public interface IRCAccountTransactionsRepository : IBaseRepository<RCAccountTransaction, SDBOAppContext> 
     {
         void TestMethod();
     }

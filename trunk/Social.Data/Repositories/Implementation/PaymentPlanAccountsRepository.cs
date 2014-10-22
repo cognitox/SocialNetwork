@@ -13,9 +13,9 @@ namespace Social.Data.Repositories.Implementation
     public class PaymentPlanAccountsRepository : BaseRepository<PaymentPlanAccount, SDBOAppContext>, Social.Data.Repositories.IPaymentPlanAccountsRepository
     {
         public PaymentPlanAccountsRepository(SDBOAppContext context)
-            :base(context)
+            : base()
         {
-            
+            SetContext(context);
         }
 
         public void TestMethod()

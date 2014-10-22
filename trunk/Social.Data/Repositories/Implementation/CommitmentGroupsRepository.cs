@@ -13,9 +13,9 @@ namespace Social.Data.Repositories.Implementation
     public class CommitmentGroupsRepository : BaseRepository<CommitmentGroup, SDBOAppContext>, Social.Data.Repositories.ICommitmentGroupsRepository
     {
         public CommitmentGroupsRepository(SDBOAppContext context)
-            :base(context)
+            : base()
         {
-            
+            SetContext(context);
         }
 
         public void TestMethod()

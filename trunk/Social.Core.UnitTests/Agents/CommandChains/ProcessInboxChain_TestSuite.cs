@@ -3,7 +3,6 @@ using NUnit.Framework;
 using Social.Core.Agents.CommandChains;
 using Social.Core.Agents.Commands.Args;
 using Social.Core.Agents.Commands.Base.Interface;
-using Social.Core.Agents.Commands.Email;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -12,9 +12,9 @@ namespace Social.Data.Repositories.Implementation
     public class AccountConfigurationsRepository : BaseRepository<AccountConfiguration, SDBOAppContext>, Social.Data.Repositories.IAccountConfigurationsRepository
     {
         public AccountConfigurationsRepository(SDBOAppContext context)
-            :base(context)
+            : base()
         {
-            
+            SetContext(context);
         }
 
         public void TestMethod()

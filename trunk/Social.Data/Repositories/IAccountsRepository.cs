@@ -3,7 +3,7 @@ using Social.Data.Repositories.Base;
 using System;
 namespace Social.Data.Repositories
 {
-    interface IAccountsRepository : IBaseRepository<Account> 
+    public interface IAccountsRepository : IBaseRepository<Account, SDBOAppContext> 
     {
         void TestMethod();
     }

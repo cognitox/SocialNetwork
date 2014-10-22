@@ -3,7 +3,7 @@ using Social.Data.Repositories.Base;
 using System;
 namespace Social.Data.Repositories
 {
-    interface IAccountMetaDatasRepository : IBaseRepository<AccountMetaData> 
+    public interface IAccountMetaDatasRepository : IBaseRepository<AccountMetaData, SDBOAppContext> 
     {
         void TestMethod();
     }

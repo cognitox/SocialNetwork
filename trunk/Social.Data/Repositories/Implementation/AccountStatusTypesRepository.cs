@@ -13,9 +13,9 @@ namespace Social.Data.Repositories.Implementation
     public class AccountStatusTypesRepository : BaseRepository<AccountStatusType, SDBOAppContext>, Social.Data.Repositories.IAccountStatusTypesRepository
     {
         public AccountStatusTypesRepository(SDBOAppContext context)
-            :base(context)
+            : base()
         {
-            
+            SetContext(context);
         }
 
         public void TestMethod()

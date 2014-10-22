@@ -34,6 +34,17 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Solutions\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\Solutions\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Solutions\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="S22.Imap">
       <HintPath>..\Solutions\packages\S22.Imap.3.6.0.0\lib\net40\S22.Imap.dll</HintPath>
     </Reference>
@@ -46,6 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Social.Data\Bindings\NinjectRepositoryBindings.cs">
+      <Link>Bindings\NinjectRepositoryBindings.cs</Link>
+    </Compile>
     <Compile Include="..\Social.Data\DatabaseContext\Account.cs">
       <Link>Models\DTO\Account.cs</Link>
     </Compile>
@@ -204,31 +218,114 @@
     <Compile Include="Agents\Commands\Base\EmailCommand.cs" />
     <Compile Include="Agents\Commands\Base\Interface\ICommand.cs" />
     <Compile Include="Agents\Commands\Base\Reciever.cs" />
-    <Compile Include="Agents\Commands\Email\CertifyIMAPServerCommand.cs" />
-    <Compile Include="Agents\Commands\Email\CertifyEmailCommand.cs" />
-    <Compile Include="Agents\Commands\Email\CreateEmailDirectoryCommand.cs" />
-    <Compile Include="Agents\Commands\Email\MoveTargetEmailsToDirectoryCommand.cs" />
+    <Compile Include="Bindings\NinjectServiceBindings.cs" />
+    <Compile Include="Bindings\NinjectUnitBindings.cs" />
     <Compile Include="Models\Email\ParsableEmailAccount.cs" />
     <Compile Include="Models\Server\Base\BaseEmailServer.cs" />
     <Compile Include="Models\Server\IMAPServer.cs" />
     <Compile Include="Models\Server\POP3Server.cs" />
     <Compile Include="Models\Server\SMTPServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Database\Base\ICRUDRepo.cs" />
-    <Compile Include="Services\Database\Base\Implementation\AccountRepositoryBase.cs" />
-    <Compile Include="Services\Database\Base\Implementation\AuditableRepositoryBase.cs" />
-    <Compile Include="Services\Database\Base\Implementation\CreatedOnRepositoryBase.cs" />
-    <Compile Include="Services\Database\Base\Implementation\CRUDRepositoryBase.cs" />
-    <Compile Include="Services\Database\Base\Implementation\DeleteRepositoryBase.cs" />
-    <Compile Include="Services\Database\Base\Implementation\GroupAccountRepositoryBase.cs" />
-    <Compile Include="Services\Database\Base\Implementation\RecursableRepositoryBase.cs" />
-    <Compile Include="Services\Database\Base\Implementation\UpdatedOnRepositoryBase.cs" />
-    <Compile Include="Services\EmailService.cs" />
-    <Compile Include="Services\Interface\IEmailService.cs" />
-    <Compile Include="Services\Interface\IServerService.cs" />
-    <Compile Include="Services\ServerService.cs" />
-    <Compile Include="UnitOfService\Interface\IUnitOfService.cs" />
-    <Compile Include="UnitOfService\UnitOfService.cs" />
+    <Compile Include="Services\Database\Base\IBaseService.cs" />
+    <Compile Include="Services\Database\Base\Implementation\BaseService.cs" />
+    <Compile Include="Services\Database\Base\Implementation\ServiceUtilities.cs" />
+    <Compile Include="Services\Database\Base\IServiceUtilities.cs" />
+    <Compile Include="Services\Database\IAccountAccountSettingsLinksService.cs" />
+    <Compile Include="Services\Database\IAccountCommitmentLinksService.cs" />
+    <Compile Include="Services\Database\IAccountCommitmentLinkTypesService.cs" />
+    <Compile Include="Services\Database\IAccountConfigurationsService.cs" />
+    <Compile Include="Services\Database\IAccountGroupAccountLinksService.cs" />
+    <Compile Include="Services\Database\IAccountMetaDatasService.cs" />
+    <Compile Include="Services\Database\IAccountRolesService.cs" />
+    <Compile Include="Services\Database\IAccountSettingsAccountSettingsMultichoiceAnswerLinksService.cs" />
+    <Compile Include="Services\Database\IAccountSettingsMultichoiceAnswersService.cs" />
+    <Compile Include="Services\Database\IAccountSettingsService.cs" />
+    <Compile Include="Services\Database\IAccountSettingsTypesService.cs" />
+    <Compile Include="Services\Database\IAccountsService.cs" />
+    <Compile Include="Services\Database\IAccountStatusTypesService.cs" />
+    <Compile Include="Services\Database\IAccountTypesService.cs" />
+    <Compile Include="Services\Database\ICommitmentGroupsService.cs" />
+    <Compile Include="Services\Database\ICommitmentGroupStatusTypesService.cs" />
+    <Compile Include="Services\Database\ICommitmentNotesService.cs" />
+    <Compile Include="Services\Database\ICommitmentNoteTypesService.cs" />
+    <Compile Include="Services\Database\ICommitmentQuestionnaireLinksService.cs" />
+    <Compile Include="Services\Database\ICommitmentQuestionnaireLinkTypesService.cs" />
+    <Compile Include="Services\Database\ICommitmentsService.cs" />
+    <Compile Include="Services\Database\ICommitmentStatusTypesService.cs" />
+    <Compile Include="Services\Database\ICommitmentTypesService.cs" />
+    <Compile Include="Services\Database\ICommitmentTypeSubTypesService.cs" />
+    <Compile Include="Services\Database\IGroupAccountConfigurationsService.cs" />
+    <Compile Include="Services\Database\IGroupAccountGroupAccountSettingsLinksService.cs" />
+    <Compile Include="Services\Database\IGroupAccountMetaDatasService.cs" />
+    <Compile Include="Services\Database\IGroupAccountRolesService.cs" />
+    <Compile Include="Services\Database\IGroupAccountSettingsService.cs" />
+    <Compile Include="Services\Database\IGroupAccountSettingsTypesService.cs" />
+    <Compile Include="Services\Database\IGroupAccountsService.cs" />
+    <Compile Include="Services\Database\IGroupAccountStatusTypesService.cs" />
+    <Compile Include="Services\Database\IGroupAccountTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountAccountSettingsLinksService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountCommitmentLinksService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountCommitmentLinkTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountConfigurationsService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountGroupAccountLinksService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountMetaDatasService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountRolesService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountSettingsAccountSettingsMultichoiceAnswerLinksService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountSettingsMultichoiceAnswersService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountSettingsService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountSettingsTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountsService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountStatusTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\AccountTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\CommitmentGroupsService.cs" />
+    <Compile Include="Services\Database\Implementation\CommitmentGroupStatusTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\CommitmentNotesService.cs" />
+    <Compile Include="Services\Database\Implementation\CommitmentNoteTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\CommitmentQuestionnaireLinksService.cs" />
+    <Compile Include="Services\Database\Implementation\CommitmentQuestionnaireLinkTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\CommitmentsService.cs" />
+    <Compile Include="Services\Database\Implementation\CommitmentStatusTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\CommitmentTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\CommitmentTypeSubTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\GroupAccountConfigurationsService.cs" />
+    <Compile Include="Services\Database\Implementation\GroupAccountGroupAccountSettingsLinksService.cs" />
+    <Compile Include="Services\Database\Implementation\GroupAccountMetaDatasService.cs" />
+    <Compile Include="Services\Database\Implementation\GroupAccountRolesService.cs" />
+    <Compile Include="Services\Database\Implementation\GroupAccountSettingsService.cs" />
+    <Compile Include="Services\Database\Implementation\GroupAccountSettingsTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\GroupAccountsService.cs" />
+    <Compile Include="Services\Database\Implementation\GroupAccountStatusTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\GroupAccountTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\PaymentPlanAccountFeesService.cs" />
+    <Compile Include="Services\Database\Implementation\PaymentPlanAccountsService.cs" />
+    <Compile Include="Services\Database\Implementation\PaymentPlanGroupAccountFeesService.cs" />
+    <Compile Include="Services\Database\Implementation\PaymentPlanGroupAccountsService.cs" />
+    <Compile Include="Services\Database\Implementation\QuestionnaireQuestionAnswerTypesRepository.cs" />
+    <Compile Include="Services\Database\Implementation\QuestionnaireQuestionMultichoiceAnswersService.cs" />
+    <Compile Include="Services\Database\Implementation\QuestionnaireQuestionnaireQuestionLinksService.cs" />
+    <Compile Include="Services\Database\Implementation\QuestionnaireQuestionQuestionnaireQuestionMultichoiceAnswerLinksService.cs" />
+    <Compile Include="Services\Database\Implementation\QuestionnaireQuestionsService.cs" />
+    <Compile Include="Services\Database\Implementation\QuestionnaireQuestionTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\QuestionnairesService.cs" />
+    <Compile Include="Services\Database\Implementation\QuestionnaireTypesService.cs" />
+    <Compile Include="Services\Database\Implementation\RCAccountBalancesService.cs" />
+    <Compile Include="Services\Database\Implementation\RCAccountTransactionsService.cs" />
+    <Compile Include="Services\Database\IPaymentPlanAccountFeesService.cs" />
+    <Compile Include="Services\Database\IPaymentPlanAccountsService.cs" />
+    <Compile Include="Services\Database\IPaymentPlanGroupAccountFeesService.cs" />
+    <Compile Include="Services\Database\IPaymentPlanGroupAccountsService.cs" />
+    <Compile Include="Services\Database\IQuestionnaireQuestionAnswerTypesService.cs" />
+    <Compile Include="Services\Database\IQuestionnaireQuestionMultichoiceAnswersService.cs" />
+    <Compile Include="Services\Database\IQuestionnaireQuestionnaireQuestionLinksService.cs" />
+    <Compile Include="Services\Database\IQuestionnaireQuestionQuestionnaireQuestionMultichoiceAnswerLinksService.cs" />
+    <Compile Include="Services\Database\IQuestionnaireQuestionsService.cs" />
+    <Compile Include="Services\Database\IQuestionnaireQuestionTypesService.cs" />
+    <Compile Include="Services\Database\IQuestionnairesService.cs" />
+    <Compile Include="Services\Database\IQuestionnaireTypesService.cs" />
+    <Compile Include="Services\Database\IRCAccountBalancesService.cs" />
+    <Compile Include="Services\Database\IRCAccountTransactionsService.cs" />
+    <Compile Include="UnitOfService\IUnitOfService.cs" />
+    <Compile Include="UnitOfService\Implementation\UnitOfService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Social.Common\Social.Common.csproj">
@@ -247,9 +344,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\Database\Implementation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

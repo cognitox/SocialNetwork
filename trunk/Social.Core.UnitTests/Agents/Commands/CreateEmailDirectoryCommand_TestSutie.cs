@@ -1,7 +1,6 @@
 ﻿using Moq;
 using NUnit.Framework;
 using Social.Core.Agents.Commands.Args;
-using Social.Core.Agents.Commands.Email;
 using Social.Core.Models.Email;
 using Social.Core.Services;
 using System;
@@ -44,20 +43,5 @@ namespace Social.Core.UnitTests.Agents.Commands
             }; 
         }
 
-        [Test]
-        public void CreateEmailDirectoryExecute_Success()
-        {
-            var emailAccount = _emailAccountList[0];
-            //arrange 
-            var args = emailAccount.EmailCommandArgs;
-            var command = new CreateEmailDirectoryCommand();
-            
-            //act
-            command.Execute(args);
-
-            //assert
-            Assert.IsTrue(args.IsSuccessful);
-            Assert.IsNull(args.Exception);
-        }
     }
 }

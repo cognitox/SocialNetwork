@@ -3,7 +3,7 @@ using Social.Data.Repositories.Base;
 using System;
 namespace Social.Data.Repositories
 {
-    interface ICommitmentsRepository : IBaseRepository<Commitment> 
+    public interface ICommitmentsRepository : IBaseRepository<Commitment, SDBOAppContext> 
     {
         void TestMethod();
     }

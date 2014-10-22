@@ -13,9 +13,9 @@ namespace Social.Data.Repositories.Implementation
     public class AccountSettingsMultichoiceAnswersRepository : BaseRepository<AccountSettingsMultichoiceAnswer, SDBOAppContext>, Social.Data.Repositories.IAccountSettingsMultichoiceAnswersRepository
     {
         public AccountSettingsMultichoiceAnswersRepository(SDBOAppContext context)
-            :base(context)
+            : base()
         {
-            
+            SetContext(context);
         }
 
         public void TestMethod()

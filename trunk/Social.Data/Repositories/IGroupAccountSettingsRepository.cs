@@ -3,7 +3,7 @@ using Social.Data.Repositories.Base;
 using System;
 namespace Social.Data.Repositories
 {
-    interface IGroupAccountSettingsRepository : IBaseRepository<GroupAccountSetting> 
+    public interface IGroupAccountSettingsRepository : IBaseRepository<GroupAccountSetting, SDBOAppContext> 
     {
         void TestMethod();
     }

@@ -13,9 +13,9 @@ namespace Social.Data.Repositories.Implementation
     public class RCAccountTransactionsRepository : BaseRepository<RCAccountTransaction, SDBOAppContext>, Social.Data.Repositories.IRCAccountTransactionsRepository
     {
         public RCAccountTransactionsRepository(SDBOAppContext context)
-            :base(context)
+            : base()
         {
-            
+            SetContext(context);
         }
 
         public void TestMethod()

@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Social.Data.Repositories.Base
 {
-    interface IRepoUtilities<TEntity>
+    public interface IRepoUtilities<TEntity>
      where TEntity : class
     {
         TEntity ExecuteInRetryLoop(Func<TEntity> func);

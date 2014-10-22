@@ -3,7 +3,7 @@ using Social.Data.Repositories.Base;
 using System;
 namespace Social.Data.Repositories
 {
-    interface IQuestionnaireQuestionTypesRepository : IBaseRepository<QuestionnaireQuestionType> 
+    public interface IQuestionnaireQuestionTypesRepository : IBaseRepository<QuestionnaireQuestionType, SDBOAppContext> 
     {
         void TestMethod();
     }

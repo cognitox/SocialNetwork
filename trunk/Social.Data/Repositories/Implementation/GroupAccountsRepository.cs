@@ -13,9 +13,9 @@ namespace Social.Data.Repositories.Implementation
     public class GroupAccountsRepository : BaseRepository<GroupAccount, SDBOAppContext>, Social.Data.Repositories.IGroupAccountsRepository
     {
         public GroupAccountsRepository(SDBOAppContext context)
-            :base(context)
+            : base()
         {
-            
+            SetContext(context);
         }
 
         public void TestMethod()

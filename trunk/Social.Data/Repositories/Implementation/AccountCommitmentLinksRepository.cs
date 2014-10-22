@@ -13,9 +13,9 @@ namespace Social.Data.Repositories.Implementation
     public class AccountCommitmentLinksRepository : BaseRepository<AccountCommitmentLink, SDBOAppContext>, Social.Data.Repositories.IAccountCommitmentLinksRepository
     {
         public AccountCommitmentLinksRepository(SDBOAppContext context)
-            :base(context)
+            : base()
         {
-            
+            SetContext(context);
         }
 
         public void TestMethod()

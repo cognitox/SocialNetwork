@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bindings\NinjectRepositoryBindings.cs" />
     <Compile Include="DatabaseContext\Account.cs">
       <DependentUpon>SDBOApp.tt</DependentUpon>
     </Compile>
@@ -249,9 +250,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\Implementation\BaseRepository.cs" />
-    <Compile Include="Repositories\Base\Implementation\CRUDMethods.cs" />
     <Compile Include="Repositories\Base\IBaseRepository.cs" />
-    <Compile Include="Repositories\Base\ICRUDMethods.cs" />
     <Compile Include="Repositories\Base\IRepoUtilities.cs" />
     <Compile Include="Repositories\IAccountAccountSettingsLinksRepository.cs" />
     <Compile Include="Repositories\IAccountCommitmentLinksRepository.cs" />
@@ -348,8 +347,8 @@
     <Compile Include="Repositories\IRCAccountBalancesRepository.cs" />
     <Compile Include="Repositories\IRCAccountTransactionsRepository.cs" />
     <Compile Include="Repositories\Base\Implementation\RepoUtilities.cs" />
-    <Compile Include="UnitOfWork\Interface\IUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\Implementation\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
