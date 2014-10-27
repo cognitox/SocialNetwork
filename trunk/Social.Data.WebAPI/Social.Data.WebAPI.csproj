@@ -39,12 +39,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\Solutions\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="LinkedIn.NET">
+      <HintPath>..\Solutions\packages\LinkedIn.NET.1.0.0.1\lib\net40-client\LinkedIn.NET.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\Solutions\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\Solutions\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Solutions\packages\Microsoft.Owin.3.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Solutions\packages\Microsoft.Owin.Host.SystemWeb.3.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
       <HintPath>..\Solutions\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
@@ -54,6 +68,12 @@
     </Reference>
     <Reference Include="Ninject.Web.Mvc">
       <HintPath>..\Solutions\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin.Security.Providers">
+      <HintPath>..\Solutions\packages\Owin.Security.Providers.1.9.0\lib\net45\Owin.Security.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\Solutions\packages\RestSharp.104.2.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -155,12 +175,6 @@
     <Reference Include="Owin">
       <HintPath>..\Solutions\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\Solutions\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\Solutions\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Owin.Security">
       <HintPath>..\Solutions\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
     </Reference>
@@ -224,58 +238,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Attributes\MoniterApplicationIDAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\API\AccountAccountSettingsLinksController.cs" />
-    <Compile Include="Controllers\API\AccountCommitmentLinksController.cs" />
-    <Compile Include="Controllers\API\AccountCommitmentLinkTypesController.cs" />
-    <Compile Include="Controllers\API\AccountConfigurationsController.cs" />
-    <Compile Include="Controllers\API\AccountGroupAccountLinksController.cs" />
-    <Compile Include="Controllers\API\AccountMetaDatasController.cs" />
-    <Compile Include="Controllers\API\AccountRolesController.cs" />
-    <Compile Include="Controllers\API\AccountsController.cs" />
-    <Compile Include="Controllers\API\AccountSettingsAccountSettingsMultichoiceAnswerLinksController.cs" />
-    <Compile Include="Controllers\API\AccountSettingsController.cs" />
-    <Compile Include="Controllers\API\AccountSettingsMultichoiceAnswersController.cs" />
-    <Compile Include="Controllers\API\AccountSettingsTypesController.cs" />
-    <Compile Include="Controllers\API\AccountStatusTypesController.cs" />
-    <Compile Include="Controllers\API\AccountTypesController.cs" />
-    <Compile Include="Controllers\API\CommitmentGroupsController.cs" />
-    <Compile Include="Controllers\API\CommitmentGroupStatusTypesController.cs" />
-    <Compile Include="Controllers\API\CommitmentNotesController.cs" />
-    <Compile Include="Controllers\API\CommitmentNoteTypesController.cs" />
-    <Compile Include="Controllers\API\CommitmentQuestionnaireLinksController.cs" />
-    <Compile Include="Controllers\API\CommitmentQuestionnaireLinkTypesController.cs" />
-    <Compile Include="Controllers\API\CommitmentsController.cs" />
-    <Compile Include="Controllers\API\CommitmentStatusTypesController.cs" />
-    <Compile Include="Controllers\API\CommitmentTypesController.cs" />
-    <Compile Include="Controllers\API\CommitmentTypeSubTypesController.cs" />
-    <Compile Include="Controllers\API\GroupAccountConfigurationsController.cs" />
-    <Compile Include="Controllers\API\GroupAccountGroupAccountSettingsLinksController.cs" />
-    <Compile Include="Controllers\API\GroupAccountMetaDatasController.cs" />
-    <Compile Include="Controllers\API\GroupAccountRolesController.cs" />
-    <Compile Include="Controllers\API\GroupAccountsController.cs" />
-    <Compile Include="Controllers\API\GroupAccountSettingsController.cs" />
-    <Compile Include="Controllers\API\GroupAccountSettingsTypesController.cs" />
-    <Compile Include="Controllers\API\GroupAccountStatusTypesController.cs" />
-    <Compile Include="Controllers\API\GroupAccountTypesController.cs" />
-    <Compile Include="Controllers\API\PaymentPlanAccountFeesController.cs" />
-    <Compile Include="Controllers\API\PaymentPlanAccountsController.cs" />
-    <Compile Include="Controllers\API\PaymentPlanGroupAccountFeesController.cs" />
-    <Compile Include="Controllers\API\PaymentPlanGroupAccountsController.cs" />
-    <Compile Include="Controllers\API\QuestionnaireQuestionAnswerTypesController.cs" />
-    <Compile Include="Controllers\API\QuestionnaireQuestionMultichoiceAnswersController.cs" />
-    <Compile Include="Controllers\API\QuestionnaireQuestionnaireQuestionLinksController.cs" />
-    <Compile Include="Controllers\API\QuestionnaireQuestionQuestionnaireQuestionMultichoiceAnswerLinksController.cs" />
-    <Compile Include="Controllers\API\QuestionnaireQuestionsController.cs" />
-    <Compile Include="Controllers\API\QuestionnaireQuestionTypesController.cs" />
-    <Compile Include="Controllers\API\QuestionnairesController.cs" />
-    <Compile Include="Controllers\API\QuestionnaireTypesController.cs" />
-    <Compile Include="Controllers\API\RCAccountBalancesController.cs" />
-    <Compile Include="Controllers\API\RCAccountTransactionsController.cs" />
-    <Compile Include="Controllers\API\SDBOScriptsRunErrorsController.cs" />
-    <Compile Include="Controllers\API\SDBOScriptsRunsController.cs" />
-    <Compile Include="Controllers\API\SDBOVersionsController.cs" />
+    <Compile Include="Controllers\Base\BaseApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -294,6 +258,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="LinkedIn_API_ReadMe.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -345,6 +310,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\API\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -357,9 +323,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Social.Common\Social.Common.csproj">
+      <Project>{acdbb97d-5ab2-4b6a-bc0e-1078634b92dd}</Project>
+      <Name>Social.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Social.Core\Social.Core.csproj">
       <Project>{22f3426a-a4a3-4f7c-9132-2f1127e5fd9e}</Project>
       <Name>Social.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Social.Data\Social.Data.csproj">
+      <Project>{5330d755-72b8-4c28-9693-adce67d4caac}</Project>
+      <Name>Social.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

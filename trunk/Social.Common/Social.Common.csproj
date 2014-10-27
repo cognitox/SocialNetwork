@@ -43,8 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\EmailHelper.cs" />
-    <Compile Include="Helpers\Interface\IEmailHelper.cs" />
+    <Compile Include="Configuration\OAuthProvidersConfiguration.cs" />
+    <Compile Include="Helpers\Implementation\EmailHelper.cs" />
+    <Compile Include="Helpers\IEmailHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

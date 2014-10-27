@@ -10,6 +10,8 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Social.Data.WebAPI.Providers;
 using Social.Data.WebAPI.Models;
+using Owin.Security.Providers.LinkedIn;
+using Social.Common.Configuration;
 
 namespace Social.Data.WebAPI
 {
@@ -46,6 +48,8 @@ namespace Social.Data.WebAPI
             app.UseOAuthBearerTokens(OAuthOptions);
 
             // Uncomment the following lines to enable logging in with third party login providers
+
+
             //app.UseMicrosoftAccountAuthentication(
             //    clientId: "",
             //    clientSecret: "");
@@ -63,6 +67,15 @@ namespace Social.Data.WebAPI
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+            var linkedInOptions = new LinkedInAuthenticationOptions()
+            {
+                ClientId = OAuthProvidersConfiguration.LinkedIn_OAuth_ClientID,
+                ClientSecret = OAuthProvidersConfiguration.LinkedIn_OAuth_ClientSecret,
+                AuthenticationType = DefaultAuthenticationTypes.ExternalBearer
+            };
+
+            app.UseLinkedInAuthentication(linkedInOptions);
+
         }
     }
 }

@@ -65,7 +65,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Repositories\Implementation\AccountRepository_TestSuite.cs" />
-    <Compile Include="Repositories\UnitOfWork\UnitOfWork_TestSuite.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork_TestSuite.cs" />
     <Compile Include="Managers\AccountEntityManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

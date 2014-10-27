@@ -1,6 +1,6 @@
 ﻿using Ninject.Modules;
 using Social.Core.UnitOfService;
-using Social.Core.UnitOfService.Interface;
+using Social.Core.UnitOfService.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;

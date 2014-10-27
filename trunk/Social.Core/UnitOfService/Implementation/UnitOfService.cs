@@ -23,8 +23,22 @@ namespace Social.Core.UnitOfService.Implementation
             _kernel.Load(Assembly.GetExecutingAssembly());
             _context = new UnitOfWork();
             _parms = new Ninject.Parameters.ConstructorArgument("context", _context);
+        }
+
+        /// <summary>
+        /// Unit Test Constructor
+        /// </summary>
+        /// <param name="unitOfWork"></param>
+        public UnitOfService(IUnitOfWork unitOfWork)
+        {
+            //load in the bindings
+            _kernel = new StandardKernel();
+            _kernel.Load(Assembly.GetExecutingAssembly());
+            _context = unitOfWork;
+            _parms = new Ninject.Parameters.ConstructorArgument("context", _context);
 
         }
+
 
 
         private IAccountAccountSettingsLinksService _accountAccountSettingsLinksService;

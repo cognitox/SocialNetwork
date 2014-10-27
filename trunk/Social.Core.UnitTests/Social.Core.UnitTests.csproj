@@ -70,13 +70,22 @@
   <ItemGroup>
     <Compile Include="Agents\CommandChains\ProcessInboxChain_TestSuite.cs" />
     <Compile Include="Agents\Commands\CreateEmailDirectoryCommand_TestSutie.cs" />
+    <Compile Include="Database\Services\AccountsService_TestSuite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfService\UnitOfService_TestSuite.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Social.Common\Social.Common.csproj">
+      <Project>{acdbb97d-5ab2-4b6a-bc0e-1078634b92dd}</Project>
+      <Name>Social.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Social.Core\Social.Core.csproj">
       <Project>{22f3426a-a4a3-4f7c-9132-2f1127e5fd9e}</Project>
       <Name>Social.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Social.Data\Social.Data.csproj">
+      <Project>{5330d755-72b8-4c28-9693-adce67d4caac}</Project>
+      <Name>Social.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

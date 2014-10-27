@@ -1,5 +1,8 @@
 ﻿@model Social.App.Web.Models.Company.ViewModels.CompanyLoginViewModel
 
+<script src="Scripts/api/social.common.js"></script>
+<script src="Scripts/api/social.login.js"></script>
+
 <div class="page-header">
     @if (Model.IsBetaMode)
     {
@@ -15,14 +18,14 @@
     }
 
     <ul class="list-inline social-buttons">
-        <li>
+        @*<li>
             <a href="#"><i class="fa fa-twitter"></i></a>
         </li>
         <li>
             <a href="#"><i class="fa fa-facebook"></i></a>
-        </li>
+        </li>*@
         <li>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a id="linkedin-external-signup" href="#"><i class="fa fa-linkedin"></i></a>
         </li>
     </ul>
 </div>

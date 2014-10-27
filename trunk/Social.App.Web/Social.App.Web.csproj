@@ -217,7 +217,6 @@
     <Compile Include="Controllers\Application\BaseController.cs" />
     <Compile Include="Controllers\Application\ProfileController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -372,6 +371,9 @@
     <None Include="Properties\PublishProfiles\rcdev - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\rcdev - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\api\social.entities.js" />
+    <Content Include="Scripts\api\social.login.js" />
+    <Content Include="Scripts\api\social.common.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -409,9 +411,6 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -425,7 +424,6 @@
     <Content Include="Views\Company\_InstructionsPartial.cshtml" />
     <Content Include="Views\Company\_ClientsPartial.cshtml" />
     <Content Include="Views\Company\_ImageSliderPartial.cshtml" />
-    <Content Include="Views\Shared\_AppLayout.cshtml" />
     <Content Include="Views\Profile\Home.cshtml" />
     <Content Include="Views\Profile\_SideNavigationPartial.cshtml" />
     <Content Include="Views\Profile\_TopNavigationPartial.cshtml" />

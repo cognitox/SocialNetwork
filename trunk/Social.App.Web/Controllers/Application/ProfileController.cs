@@ -1,7 +1,8 @@
 ﻿using Social.App.Web.Models.Application;
 using Social.App.Web.Models.Application.ViewModels;
 using Social.App.Web.Models.Company.ViewModels;
-using Social.Core.UnitOfService.Interface;
+using Social.Core.UnitOfService;
+using Social.Core.UnitOfService.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

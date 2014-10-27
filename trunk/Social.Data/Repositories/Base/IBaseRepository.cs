@@ -7,6 +7,8 @@ namespace Social.Data.Repositories.Base
         where TEntity : class
         where TDbContext : System.Data.Entity.DbContext
     {
+        List<TEntity> Where(Func<TEntity, bool> predicate);
+        List<TEntity> Where(Func<TEntity, int, bool> predicate);
         System.Collections.Generic.List<TEntity> Create(System.Collections.Generic.List<TEntity> models);
         TEntity Create(TEntity model);
         System.Collections.Generic.List<TEntity> CreateOrUpdate(System.Collections.Generic.List<TEntity> model);

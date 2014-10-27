@@ -16,18 +16,25 @@ using Microsoft.Owin.Security.OAuth;
 using Social.Data.WebAPI.Models;
 using Social.Data.WebAPI.Providers;
 using Social.Data.WebAPI.Results;
-using Social.Data.WebAPI.DatabaseContext;
+using Social.Data.WebAPI.Controllers.Base;
+using Social.Data.DatabaseContext;
+using System.Linq;
+using System.Net;
+using Social.Common.Configuration;
+using System.IO;
+
 
 namespace Social.Data.WebAPI.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
-    public class AccountController : ApiController
+    public class AccountController : BaseApiController
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
         public AccountController()
+            : base()
         {
         }
 
@@ -221,6 +228,9 @@ namespace Social.Data.WebAPI.Controllers
             return Ok();
         }
 
+
+        //this is the method that gets called when the user is authenticated by the external service
+
         // GET api/Account/ExternalLogin
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
@@ -273,10 +283,13 @@ namespace Social.Data.WebAPI.Controllers
                 IEnumerable<Claim> claims = externalLogin.GetClaims();
                 ClaimsIdentity identity = new ClaimsIdentity(claims, OAuthDefaults.AuthenticationType);
                 Authentication.SignIn(identity);
+                Authentication.SignIn(identity);
             }
 
             return Ok();
         }
+
+        //this is the method that needs to get called to get the external authentication data
 
         // GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
         [AllowAnonymous]
@@ -331,14 +344,18 @@ namespace Social.Data.WebAPI.Controllers
             // using simple membership authentication
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-            
-            // integrate social network account table into the application
-            
-
 
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
+            }
+
+            //create the standard free system account
+            var accountCreated = CreateOrUpdateFreeStandardAccount(user.UserName);
+            if (null == accountCreated)
+            {
+                ModelState.AddModelError("SocialSytemError", "System account could not be created");
+                return BadRequest(ModelState);
             }
 
             return Ok();
@@ -354,8 +371,8 @@ namespace Social.Data.WebAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            var info = await Authentication.GetExternalLoginInfoAsync();
+            var loginInfo = new ExternalLoginInfo();
+            var info = Authentication.GetExternalLoginInfo();
             if (info == null)
             {
                 return InternalServerError();
@@ -374,7 +391,23 @@ namespace Social.Data.WebAPI.Controllers
             {
                 return GetErrorResult(result);
             }
+
+            var accountCreated = CreateOrUpdateFreeStandardAccount(user.UserName);
+            if (null == accountCreated)
+            {
+                ModelState.AddModelError("SocialSytemError", "System account could not be created");
+                return BadRequest(ModelState);
+            }
+
             return Ok();
+        }
+       
+        private Account CreateOrUpdateFreeStandardAccount(String userName)
+        {
+            //create the standard free system account
+            var accountsService = _unitOfService.AccountsService;
+            var accountCreated = accountsService.CreateOrUpdateFreeStandardAccount(username: userName);
+            return accountCreated;
         }
 
         protected override void Dispose(bool disposing)

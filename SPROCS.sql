@@ -35,8 +35,68 @@ select * from [dbo].[AspNetUserRoles]
 select * from [dbo].[AspNetUsers]
 
 
+
+
+
+
+
+
+USE SANDBOX_DB;
+select * from dbo.Account 
+
+where AccountID = '9dd31d5a-12f5-4487-a28d-590a8797e00d';
+
+USE SDBO_App;
 select * from dbo.Account;
+
+USE SDBO_App3;
+select * from SDBOScriptsRun;
+select * from SDBOScriptsRunErrors;
+select * from SDBOVersion;
+
+
+
+
+
+
+
+
+
+
+
 BIT IsDeleted DEFAULT 0
+
+
+f27caf4b-46ef-44bb-b1ff-9ed591f330d4
+
+
+CREATE TABLE [dbo].[PaymentPlanAccount1](
+	[PaymentPlanAccountID] [uniqueidentifier] NOT NULL  DEFAULT (newsequentialid()),
+	[Name] [varchar](300) NOT NULL,
+	[CreatedDate] [datetime] NOT NULL DEFAULT (getutcdate()),
+	[UpdatedDate] [datetime] NOT NULL DEFAULT (getutcdate()),
+	[IsDeleted] BIT NOT NULL DEFAULT 0,
+PRIMARY KEY CLUSTERED 
+(
+	[PaymentPlanAccountID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+use SANDBOX_DB;
+
+select * from Account order by CreatedDate ;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
