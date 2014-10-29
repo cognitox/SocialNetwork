@@ -273,6 +273,7 @@
     <Content Include="Content\Company\img\about\2.jpg" />
     <Content Include="Content\Company\img\about\3.jpg" />
     <Content Include="Content\Company\img\about\4.jpg" />
+    <Content Include="Content\Company\img\glyphicons.png" />
     <Content Include="Content\Company\img\header-bg.jpg" />
     <Content Include="Content\Company\img\header-bg1.jpg" />
     <Content Include="Content\Company\img\header-bg2.jpg" />

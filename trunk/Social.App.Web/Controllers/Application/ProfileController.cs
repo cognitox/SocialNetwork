@@ -14,58 +14,62 @@ namespace Social.App.Web.Controllers.Application
 {
     public class ProfileController : BaseController
     {
-        private readonly IUnitOfService _serviceUnit;
+        //private readonly IUnitOfService _serviceUnit;
 
-        public ProfileController(IUnitOfService serviceUnit)
-        {
-            _serviceUnit = serviceUnit;
-        }
-
-        [HttpPost]
-        public ActionResult AuthenticateUser(LoginForm formModel)
+        public ProfileController()
         {
 
-            if (Convert.ToBoolean(ConfigurationManager.AppSettings["BetaMode"]))
-            {
-
-                try
-                {
-                    //Beta Mode
-                    try
-                    {
-                        var context = new BetaDatabase.BetaDatabaseDataContext();
-                        context.BetaSignUps.InsertOnSubmit(new BetaDatabase.BetaSignUp()
-                        {
-                            BetaSignUpID = Guid.NewGuid(),
-                            Email = formModel.Email
-                        });
-                        context.SubmitChanges();
-                    }
-                    catch (Exception e)
-                    {
-                        var context = new BetaDatabase.BetaDatabaseDataContext();
-                        context.BetaSignUps.InsertOnSubmit(new BetaDatabase.BetaSignUp()
-                        {
-                            BetaSignUpID = Guid.NewGuid(),
-                            Email = formModel.Email
-                        });
-                        context.SubmitChanges();
-                    }
-                }
-                catch (Exception)
-                {
-
-                }
-                TempData["Message"] = @"Thank You For Signing Up!";
-                return RedirectToAction("Home", "Company");
-            }
-            else
-            {
-                //Production Mode
-                //TODO Refactor this into the .net facebook, twitter, linkedin support
-                return RedirectToAction("Home", "Profile");
-            }
         }
+        //public ProfileController(IUnitOfService serviceUnit)
+        //{
+        //    _serviceUnit = serviceUnit;
+        //}
+
+        //[HttpPost]
+        //public ActionResult AuthenticateUser(LoginForm formModel)
+        //{
+
+        //    if (Convert.ToBoolean(ConfigurationManager.AppSettings["BetaMode"]))
+        //    {
+
+        //        try
+        //        {
+        //            //Beta Mode
+        //            try
+        //            {
+        //                var context = new BetaDatabase.BetaDatabaseDataContext();
+        //                context.BetaSignUps.InsertOnSubmit(new BetaDatabase.BetaSignUp()
+        //                {
+        //                    BetaSignUpID = Guid.NewGuid(),
+        //                    Email = formModel.Email
+        //                });
+        //                context.SubmitChanges();
+        //            }
+        //            catch (Exception e)
+        //            {
+        //                var context = new BetaDatabase.BetaDatabaseDataContext();
+        //                context.BetaSignUps.InsertOnSubmit(new BetaDatabase.BetaSignUp()
+        //                {
+        //                    BetaSignUpID = Guid.NewGuid(),
+        //                    Email = formModel.Email
+        //                });
+        //                context.SubmitChanges();
+        //            }
+        //        }
+        //        catch (Exception)
+        //        {
+
+        //        }
+        //        TempData["Message"] = @"Thank You For Signing Up!";
+        //        return RedirectToAction("Home", "Company");
+        //    }
+        //    else
+        //    {
+        //        //Production Mode
+        //        //TODO Refactor this into the .net facebook, twitter, linkedin support
+        //        return RedirectToAction("Home", "Profile");
+        //    }
+        //}
 
         public ActionResult Home()
         {

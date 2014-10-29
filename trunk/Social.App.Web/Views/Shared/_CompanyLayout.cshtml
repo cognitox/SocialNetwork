@@ -35,6 +35,44 @@
 
 </head>
 <body id="page-top" class="index">
+    <!-- Register Modal -->
+    <div class="modal fade" id="loginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Register New Account</h4>
+                </div>
+                <div id="register-modal-body" class="modal-body" style="height: 200px;padding-top: 30px;">
+                    <div id="error-messages" style="color: rgb(179, 40, 40);margin-right: 25px;position: absolute;top: 10px;right: 0px;" class="field-validation-error">
+                    </div>
+                    <form id="reg-form" role="form" class="login-form-input">
+                        <div class="form-group float-label-control">
+                            <label for="">Username</label>
+                            <input id="sign-up-username" type="email" class="form-control" name="email" placeholder="Username">
+                        </div>
+                        <div class="form-group float-label-control">
+                            <label for="">Password</label>
+                            <input id="sign-up-password" type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                        <div class="form-group float-label-control">
+                            <label for="">Confirm Password</label>
+                            <input id="sign-up-confirm-password" type="password" class="form-control" name="confirm-password" placeholder="Confirm Password">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                    <a href="#terms-conditions" style="margin-top: 14px;" class="pull-left">Terms</a>
+                    <a href="#instructions" style="margin-left: 55px;margin-top: 14px;" class="pull-left">Instructions</a>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="register-new-account" type="button" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
