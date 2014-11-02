@@ -25,9 +25,9 @@ namespace Social.Data.WebAPI
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+            
             //allow all cross site requests, very important do not remove
             app.UseCors(CorsOptions.AllowAll); //seriosly don't FFFF with this
-
 
             // Configure the db context and user manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);

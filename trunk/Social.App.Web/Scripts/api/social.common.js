@@ -1,91 +1,57 @@
-﻿//all script setup
-var DEVELOPMENT_MODE = true;
-
-var HOST = (function () {
-    //sets the base host url depending on development or production
-    var base_api_url = 'http://platform.relsocial.com/';
-    if (DEVELOPMENT_MODE) {
-        base_api_url = 'http://localhost:1469/';
-    }
+﻿
+var Common = (function () {
     return {
-        URL: base_api_url
-    }
-
-})(jQuery);
-
-
-
-var AuthToken = (function ($) {
-
-    var statusobj = {
-        success: false,
-        message: '',
-        reset: function () {
-            this.success = false;
-            this.message = '';
-        }
-    }
-
-    var request = {
-        registeruser: function (url, credentials) {
-            //returns a status object
-            statusobj.reset();
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: JSON.stringify(credentials),
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                async: false, //make sure the request is posted
-                crossDomain: true,
-                success: function (data) {
-                    statusobj.success = true;
-                    statusobj.message = 'success';
-                    console.log(message);
-                },
-                failure: function (errMsg) {
-                    statusobj.success = false;
-                    statusobj.message = errMsg
-                    console.log(errMsg);
-                },
-                error: function (errMsg) {
-                    statusobj.success = false;
-                    try {
-                        //catch the email taken message
-                        statusobj.message = errMsg.responseJSON.ModelState[""][1];
-                    } catch (error) {
-                        statusobj.message = 'Please contact a system administrator.';
-                    }
-                    /* TODO ... better handle the api error messages.
-                    status.message.responseJSON
-Object {$id: "1", Message: "The request is invalid.", ModelState: Object}$id: "1"Message: "The request is invalid."ModelState: Object"": Array[2]0: "Name justinjarczyk@gmail.com is already taken."1: "Email 'justinjarczyk@gmail.com' is already taken."length: 2__proto__: Array[0]$id: "2"__proto__: Object__proto__: Object
-                    */
-                }
-            });
-
-            return { success: statusobj.success, message: statusobj.message };
+        getCookie: function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1);
+                if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+            }
+            return "";
         },
-        to: function (url, json) {
-            /*
-            //add flag to ajax request         
-            headers: {
-                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3Mi..."
-              }
-            */
+        setCookie: function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        },
+        isValidEmail: function validateEmail(email) {
+
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        },
+        isXGreaterThanYCharactersLong: function isXGreaterThanYCharactersLong(x, y) {
+            var retVal = false;
+            if (x.length > y) {
+                retVal = true;
+            }
+            return retVal;
+        },
+        containsSpecialCharacters: function containsSpecialCharacters(target) {
+            var retVal = false;
+            var special = /\W+/;
+            if (special.test(target)) {
+                retVal = true;
+            }
+            return retVal;
+        },
+        containsNumbers: function containsNumbers(target) {
+            var retVal = false;
+            var num = /[0-9]/;
+            if (num.test(target)) {
+                retVal = true;
+            }
+            return retVal;
+        },
+        containsLetter: function containsLetter(target) {
+            var retVal = false;
+            var letters = /[a-zA-Z]/;
+            if (letters.test(target)) {
+                retVal = true;
+            }
+            return retVal;
         }
     }
-
-    return {
-        RegisterNewUser: function (username, password, confirmpassword) {
-            var body = {
-                email: username,
-                password: password,
-                confirmpassword: confirmpassword
-            };
-            var status = request.registeruser(HOST.URL + '/api/account/Register', body);
-            return status;
-        }
-
-    }
-
 })(jQuery);

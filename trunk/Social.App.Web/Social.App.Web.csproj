@@ -372,9 +372,12 @@
     <None Include="Properties\PublishProfiles\rcdev - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\rcdev - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Scripts\api\social.entities.js" />
-    <Content Include="Scripts\api\social.login.js" />
     <Content Include="Scripts\api\social.common.js" />
+    <Content Include="Scripts\api\social.services.js" />
+    <Content Include="Scripts\api\social.entities.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\page\social.page.login.js" />
+    <Content Include="Scripts\api\social.settings.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

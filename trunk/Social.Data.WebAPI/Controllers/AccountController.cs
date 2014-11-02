@@ -22,6 +22,7 @@ using System.Linq;
 using System.Net;
 using Social.Common.Configuration;
 using System.IO;
+using System.Web.Http.Cors;
 
 
 namespace Social.Data.WebAPI.Controllers
@@ -79,7 +80,12 @@ namespace Social.Data.WebAPI.Controllers
         public IHttpActionResult Logout()
         {
             Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
-            return Ok();
+            return CorsOK();
+        }
+
+        private IHttpActionResult CorsOK()
+        {
+            return Json("success");
         }
 
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
@@ -139,7 +145,8 @@ namespace Social.Data.WebAPI.Controllers
                 return GetErrorResult(result);
             }
 
-            return Ok();
+
+            return CorsOK();
         }
 
         // POST api/Account/SetPassword
@@ -158,7 +165,7 @@ namespace Social.Data.WebAPI.Controllers
                 return GetErrorResult(result);
             }
 
-            return Ok();
+            return CorsOK();
         }
 
         // POST api/Account/AddExternalLogin
@@ -196,7 +203,7 @@ namespace Social.Data.WebAPI.Controllers
                 return GetErrorResult(result);
             }
 
-            return Ok();
+            return CorsOK();
         }
 
         // POST api/Account/RemoveLogin
@@ -225,7 +232,7 @@ namespace Social.Data.WebAPI.Controllers
                 return GetErrorResult(result);
             }
 
-            return Ok();
+            return CorsOK();
         }
 
 
@@ -286,7 +293,7 @@ namespace Social.Data.WebAPI.Controllers
                 Authentication.SignIn(identity);
             }
 
-            return Ok();
+            return CorsOK();
         }
 
         //this is the method that needs to get called to get the external authentication data
@@ -357,8 +364,8 @@ namespace Social.Data.WebAPI.Controllers
                 ModelState.AddModelError("SocialSytemError", "System account could not be created");
                 return BadRequest(ModelState);
             }
-
-            return Ok();
+            
+            return Json(accountCreated.Email);
         }
 
         // POST api/Account/RegisterExternal
@@ -399,7 +406,7 @@ namespace Social.Data.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            return Ok();
+            return CorsOK();
         }
        
         private Account CreateOrUpdateFreeStandardAccount(String userName)
