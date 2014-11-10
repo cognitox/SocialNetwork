@@ -21,6 +21,11 @@ namespace Social.Data.DatabaseContext
         public System.DateTime CreatedDate { get; set; }
         public System.DateTime UpdatedDate { get; set; }
         public bool IsDeleted { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Headline { get; set; }
+        public string LinkedInID { get; set; }
+        public bool UserModified { get; set; }
     
         public virtual Account Account { get; set; }
         public virtual AccountStatusType AccountStatusType { get; set; }

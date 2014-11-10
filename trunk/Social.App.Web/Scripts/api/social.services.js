@@ -9,6 +9,7 @@
     return {
         //login cookies are a list of accounts
         getLoginCookie: function () {
+            var retVal = '';
             var loginCookie = Common.getCookie(LOGIN_COOKIE_NAME);
             if (loginCookie != '') {
                 LOG_INFO('Getting Cookie [ ' + LOGIN_COOKIE_NAME + ' ] with the value [ ' + loginCookie + ' ]');
@@ -17,14 +18,10 @@
                 if (cookie.COOKIEVERSION != CURRENT_LOGIN_COOKIE) {
                     LOG_INFO('need to update the current login cookie version');
                     alert('need to handle the login cookie versioning');
-                    //to do this we need to reset the cookie, update the version of the current
-                    //login cookie, then handle how we will transition the cookie over to the
-                    //new version of the cookie
                 }
+                retVal = JSON.parse(loginCookie);
             }
-            var deserialized = JSON.parse(loginCookie);
-            return deserialized;
-
+            return retVal;
         },
         setLoginCookie: function (loginCookie) {
             var json = JSON.stringify(loginCookie);
@@ -128,12 +125,19 @@ var RequestService = (function () {
                 beforeSend: function (xhr) {
                     xhr.withCredentials = true;
                 },
-                success: function (user_email) {
-                    response.success = true;
-                    response.message = user_email + ' has successfully logged in.';
-                    LOG(response.message)
+                success: function (token_info) {
+                    var email = token_info.userName;
+                    var access_token = token_info.access_token;
+                    var expires = token_info['.expires'];
+                    var issued = token_info['.issued'];
+                    var expires_in = token_info.expires_in;
 
-                    var account = new Account(user_email);
+                    response.success = true;
+                    response.message = email + ' has successfully logged in.';
+                    LOG(response.message)
+                    var account = new Account(email);
+                    account.setAuth(access_token, expires, issued, expires_in);
+                    LOG('Created Account [ ' + JSON.stringify(account) + ' ]');
                     //create an account
                     var currentLoginCookie = CookieService.getLoginCookie();
                     if (currentLoginCookie == '') {
@@ -152,12 +156,12 @@ var RequestService = (function () {
                 failure: function (error_message) {
                     response.success = false;
                     response.message = bad_request_message;
-                    LOG_ERROR(response.message)
+                    LOG_ERROR(response.message);
                 },
                 error: function (error_message) {
                     response.success = false;
                     response.message = bad_request_message;
-                    LOG_ERROR(response.message)
+                    LOG_ERROR(response.message);
                 }
             });
 
@@ -184,7 +188,7 @@ var RequestService = (function () {
                 success: function (user_email) {
                     response.success = true;
                     response.message = user_email + ' has been successfully created';
-                    LOG(response.message)
+                    LOG(response.message);
 
                     var account = new Account(user_email);
                     //create an account
@@ -200,26 +204,56 @@ var RequestService = (function () {
                         existingLoginCookie.setPrimaryAccount(account);
                         CookieService.setLoginCookie(existingLoginCookie);
                     }
-
                 },
                 failure: function (error_message) {
                     response.success = false;
                     response.message = bad_request_message;
-                    LOG_ERROR(response.message)
+                    LOG_ERROR(response.message);
                 },
                 error: function (error_message) {
                     response.success = false;
-                    try{
+                    try {
                         var emailAlreadyTaken = error_message.responseJSON.ModelState[""][1];
                         response.message = emailAlreadyTaken;
                     } catch (e) {
                         response.message = bad_request_message;
                     }
-                    
-                    LOG_ERROR(response.message)
+                    LOG_ERROR(response.message);
                 }
             });
-
+            return response;
+        },
+        getExternalProviders: function (url) {
+            var bad_request_message = 'Please contact a system administrator.';
+            var response = new Response();
+            LOG('AccountService :: Account.getExternalProviders( ' + url + ');');
+            $.ajax({
+                type: "GET",
+                url: url,
+                headers: { "Accept": "application/json" },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                crossDomain: true,
+                beforeSend: function (xhr) {
+                    xhr.withCredentials = true;
+                },
+                success: function (logins) {
+                    response.success = true;
+                    response.message = logins;
+                    LOG(response.message);
+                },
+                failure: function (error_message) {
+                    response.success = false;
+                    response.message = bad_request_message;
+                    LOG_ERROR(response.message);
+                },
+                error: function (error_message) {
+                    response.success = false;
+                    response.message = bad_request_message;
+                    LOG_ERROR(response.message);
+                }
+            });
             return response;
         }
     }
@@ -230,8 +264,27 @@ var RequestService = (function () {
         },
         Authenticate: function (url, data) {
             return request.Authenticate(url, data);
+        },
+        GetExternalProviders: function (url) {
+            return request.getExternalProviders(url);
         }
     }
+})(jQuery);
+
+var ExternalProviderService = (function ($) {
+
+    var Providers = {
+        GetProviders: function (url) {
+            return RequestService.GetExternalProviders(url);
+        }
+    }
+
+    return {
+        GetExternalProviders: function () {
+            return Providers.GetProviders(HOST.EXTERNAL_LOGINS_URL);
+        }
+    }
+
 })(jQuery);
 
 var AccountService = (function ($) {
@@ -263,6 +316,53 @@ var AccountService = (function ($) {
             //make request
             var status = Account.Authenticate(HOST.AUTHENTICATE_URL, data);
             return status;
+        }
+    }
+})(jQuery);
+
+var WindowProviderService = (function ($) {
+    var linkedInAuthWindow = '';
+    var authwindow = {
+        open: function () {
+            linkedInAuthWindow = window.open($('#linkedin-external-signup').attr('href'), 'RelSocial - LinkedIn Authentication', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
+            this.startWindowTracker();
+        },
+
+        startWindowTracker: function () {
+            setTimeout(this.trackWindow, 3000);
+        },
+        trackWindow: function () {
+            var url = null;
+            try {
+                url = linkedInAuthWindow.location.href;
+                //window.location = url;
+                console.log(url);
+                if (url.indexOf('access_token=') > -1) {
+                    console.log('access token found');
+                } else {
+                    url = null;
+                    console.log('url doesn\'t contain access token.');
+                }
+            } catch (e) {
+                console.log('caught url exception.')
+                url = null;
+            }
+
+            if (url == null) {
+                authwindow.startWindowTracker();
+            } else {
+                alert('need to set cookie from here, and redirect the request on the web api end of it to a more freindly login successful page');
+                alert(url);
+                linkedInAuthWindow.close();
+            }
+
+        }
+    }
+
+    return {
+        OpenLinkedInAuthWindow: function () {
+            authwindow.open();
+            return false;
         }
     }
 })(jQuery);

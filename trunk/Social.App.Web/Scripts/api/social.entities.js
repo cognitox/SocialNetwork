@@ -5,6 +5,12 @@ function Account(email) {
     this.getEmail = function() {
         return this.email;
     }
+    this.setAuth = function(access_token, expires, issued, expires_in){
+        this.access_token = access_token;
+        this.expires = expires;
+        this.issued = issued;
+        this.expires_in = expires_in;
+    }
 }
 
 

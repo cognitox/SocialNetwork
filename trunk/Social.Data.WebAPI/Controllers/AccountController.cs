@@ -293,7 +293,7 @@ namespace Social.Data.WebAPI.Controllers
                 Authentication.SignIn(identity);
             }
 
-            return CorsOK();
+            return Ok();
         }
 
         //this is the method that needs to get called to get the external authentication data

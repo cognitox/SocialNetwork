@@ -17,7 +17,8 @@ var HOST = (function ($) {
     return {
         BASE_URL: base_url,
         REGISTRATION_URL: base_url + '/api/account/Register',
-        AUTHENTICATE_URL: base_url + '/token'
+        AUTHENTICATE_URL: base_url + '/token',
+        EXTERNAL_LOGINS_URL: base_url + '/api/Account/ExternalLogins?returnUrl=%2F&generateState=true'
     }
 })(jQuery);
 

@@ -44,8 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\OAuthProvidersConfiguration.cs" />
+    <Compile Include="Configuration\ProfileConfiguration.cs" />
+    <Compile Include="Helpers\Implementation\Base64Helper.cs" />
     <Compile Include="Helpers\Implementation\EmailHelper.cs" />
     <Compile Include="Helpers\IEmailHelper.cs" />
+    <Compile Include="Helpers\IBase64Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

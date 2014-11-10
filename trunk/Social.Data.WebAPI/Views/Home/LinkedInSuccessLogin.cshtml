@@ -1,0 +1,350 @@
+﻿@{
+    ViewBag.Title = "SuccessLogin";
+    Layout = "~/Views/Shared/_PlatformLayout.cshtml";
+}
+<!-- Development Relationship Capital Forms -->
+
+<script src="http://localhost:1178/Scripts/api/social.settings.js"></script>
+<script src="http://localhost:1178/Scripts/api/social.entities.js"></script>
+<script src="http://localhost:1178/Scripts/api/social.common.js"></script>
+<script src="http://localhost:1178/Scripts/api/social.services.js"></script>
+
+<script src="/Scripts/api/social.redirect.js"></script>
+
+@*https://developer.linkedin.com/documents/overview*@
+<script type="text/javascript" src="https://platform.linkedin.com/in.js">
+    api_key: 77ej9dtlsehdzw
+    onLoad: onLinkedInLoad
+    authorize: true
+</script>
+
+<script type="text/javascript">
+
+    var USER_EMAIL = null;
+
+    //linkedin callbacks
+    function onLinkedInLoad() {
+        IN.Event.on(IN, "auth", onLinkedInAuth);
+    }
+    function onLinkedInAuth() {
+        IN.API.Raw('/people/~/email-address').result(GetLinkedInUserEmail);
+    }
+    function GetLinkedInUserEmail(email){
+        USER_EMAIL = email;
+        IN.API.Profile("me").result(IntegrateUserIntoSystem);
+    }
+
+    //registration form
+    var registrationForm = {
+        onClick: function (id, firstName, headline, lastName, pictureUrl) {
+            //display pane
+            var pane = $('#error-messages');
+
+            //inputs
+            var username = $('#sign-up-username');
+            var password = $('#sign-up-password');
+            var confirmpassword = $('#sign-up-confirm-password');
+
+            //validate email
+            var emailValResult = ValidationService.validateEmail(username.val());
+            if (!emailValResult.success) {
+                pane.empty().append(emailValResult.message);
+                return;
+            }
+
+            //validate password
+            var passValResult = ValidationService.validatePassword(password.val(), confirmpassword.val());
+            if (!passValResult.success) {
+                pane.empty().append(passValResult.message);
+                return;
+            }
+
+            var throbber = '<i id=\'throbber-thinking\' style=\'height: 18px;width: 114px;zoom: 5;padding-left: 50px;padding-top: 10px;\' class=\'glyphicon glyphicon-cog spin\'></i>';
+            $('#register-modal-body').append(throbber);
+
+            var bad_request_message = 'Please contact a system administrator.';
+
+            var data = JSON.stringify({
+                email: username.val(),
+                password: password.val(),
+                confirmpassword: confirmpassword.val()
+            });
+            var response = new Response();
+
+            //register user account
+            $.ajax({
+                type: "POST",
+                url: HOST.REGISTRATION_URL,
+                headers: { "Accept": "application/json" },
+                data: data,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                async: false,
+                beforeSend: function (xhr) {
+                    xhr.withCredentials = true;
+                },
+                success: function (user_email) {
+                    response.success = true;
+                    response.message = user_email + ' has been successfully created';
+                    LOG(response.message);
+                },
+                failure: function (error_message) {
+                    response.success = false;
+                    response.message = bad_request_message;
+                    LOG_ERROR(response.message);
+                },
+                error: function (error_message) {
+                    response.success = false;
+                    response.message = bad_request_message;
+                    LOG_ERROR(response.message);
+                }
+            });
+
+            $('#throbber-thinking').remove();
+            pane.empty().append(response.message)
+            var bad_request_message = 'Please contact a system administrator.';
+
+            var API_TOKEN = null;
+            if(response.success){
+                //log user in and get the token
+                
+                var authResponse = new Response();
+                var authData = 'grant_type=password&username=' + username.val() + '&password=' + password.val();
+                $.ajax({
+                    type: "POST",
+                    url: HOST.AUTHENTICATE_URL,
+                    headers: {
+                        "Accept": "application/json",
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    data: authData,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    beforeSend: function (xhr) {
+                        xhr.withCredentials = true;
+                    },
+                    success: function (token_info) {
+                        var email = token_info.userName;
+                        var access_token = token_info.access_token;
+                        var expires = token_info['.expires'];
+                        var issued = token_info['.issued'];
+                        var expires_in = token_info.expires_in;
+
+                        API_TOKEN = access_token;
+
+                        authResponse.success = true;
+                        authResponse.message = email + ' has successfully logged in.';
+                        LOG(authResponse.message)
+
+                    },
+                    failure: function (error_message) {
+                        authResponse.success = false;
+                        authResponse.message = bad_request_message;
+                        LOG_ERROR(authResponse.message);
+                    },
+                    error: function (error_message) {
+                        authResponse.success = false;
+                        authResponse.message = bad_request_message;
+                        LOG_ERROR(authResponse.message);
+                    }
+                });
+
+                if(authResponse.success){
+
+                    var emailData = {
+                        email: username.val()
+                    };
+
+                    var ACCOUNTID = null;
+                    var emailResponse = new Response();
+                    $.ajax({
+                        type: "GET",
+                        url: 'api/PlatformAccount/GetAccountIDByEmail',
+                        headers: {
+                            "Accept": "application/json",
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            "Authorization" : "Bearer " + API_TOKEN
+                        },
+                        data: emailData,
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        async: false,
+                        beforeSend: function (xhr) {
+                            xhr.withCredentials = true;
+                        },
+                        success: function (accountID) {
+                            ACCOUNTID = accountID;
+                            emailResponse.success = true;
+                            emailResponse.message = accountID + ' has been succes.';
+                            LOG(emailResponse.message)
+
+                        },
+                        failure: function (error_message) {
+                            emailResponse.success = false;
+                            emailResponse.message = bad_request_message;
+                            LOG_ERROR(emailResponse.message);
+                        },
+                        error: function (error_message) {
+                            emailResponse.success = false;
+                            emailResponse.message = bad_request_message;
+                            LOG_ERROR(emailResponse.message);
+                        }
+                    });
+                    
+                    if(emailResponse.success){
+
+                        var linkLinkedInAccountData = {
+                            AccountID: ACCOUNTID,
+                            LinkedInAccountID: id,
+                            FirstName: firstName,
+                            LastName: lastName,
+                            Headline: headline,
+                            PictureUrl: pictureUrl,
+                        };
+
+                        var METADATA = null;
+                        var linkedResponse = new Response();
+                        $.ajax({
+                            type: "POST",
+                            url: 'api/PlatformAccount/LinkLinkedInAccount',
+                            headers: {
+                                "Accept": "application/json",
+                                'Content-Type': 'application/x-www-form-urlencoded',
+                                "Authorization" : "Bearer " + API_TOKEN
+                            },
+                            data: linkLinkedInAccountData,
+                            contentType: "application/json; charset=utf-8",
+                            dataType: "json",
+                            async: false,
+                            beforeSend: function (xhr) {
+                                xhr.withCredentials = true;
+                            },
+                            success: function (metadata) {
+                                METADATA = metadata;
+                                linkedResponse.success = true;
+                                linkedResponse.message = metadata + ' has been succes.';
+                                LOG(linkedResponse.message)
+                            },
+                            failure: function (error_message) {
+                                linkedResponse.success = false;
+                                linkedResponse.message = bad_request_message;
+                                LOG_ERROR(linkedResponse.message);
+                            },
+                            error: function (error_message) {
+                                linkedResponse.success = false;
+                                linkedResponse.message = bad_request_message;
+                                LOG_ERROR(linkedResponse.message);
+                            }
+                        });
+                    }
+                }
+            }
+
+            return response;
+        }
+    }
+
+
+
+    function IntegrateUserIntoSystem(profiles) {
+        member = profiles.values[0];
+        var id = member.id;
+        var firstName = member.firstName;
+        var headline = member.headline;
+        var lastName = member.lastName;
+        var pictureUrl = member.pictureUrl;
+
+        var linkedAccountExists = false;
+        var emailExists = false;
+
+        if(!linkedAccountExists){
+            if(!emailExists){
+
+                //set user email on form
+                $('#sign-up-username').val(USER_EMAIL);
+                $('#sign-up-username').attr('disabled',true);
+
+                if(pictureUrl != undefined){
+                    //set user picture
+                    var profileImage = $('#usr-profile-image');
+                    profileImage.attr('src',pictureUrl);
+                    profileImage.show();
+                }
+                if(firstName != undefined){
+                    var firstNameDiv = $('#firstName');
+                    firstNameDiv.text(firstName);
+                }
+                if(lastName != undefined){
+                    var lastNameDiv = $('#lastName');
+                    lastNameDiv.text(lastName);
+                }
+                //registration form
+                $('#RegistrationForm').modal('show');
+
+                $('#register-new-account').click(function(){
+                    registrationForm.onClick(id, firstName, headline, lastName, pictureUrl);
+                });
+
+            } else {
+
+            }
+        }
+    }
+    function ImportConnections(connections){
+    }
+
+    $(document).ready(function(){
+    });
+</script>
+
+
+
+<div id="CreateAccount">
+    <!-- Register Modal -->
+    <div class="modal fade" id="RegistrationForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Register New Account</h4>
+                </div>
+                <div id="register-modal-body" class="modal-body">
+                    <div id="error-messages" style="color: rgb(179, 40, 40);margin-right: 25px;position: absolute;top: 10px;right: 0px;" class="field-validation-error">
+                    </div>
+                    <form id="reg-form" role="form" class="login-form-input">
+                        <div class="form-group float-label-control">
+                            <label for="">Username</label>
+                            <input id="sign-up-username" type="email" class="form-control" name="email" placeholder="Username">
+                        </div>
+                        <div class="form-group float-label-control">
+                            <label for="">Password</label>
+                            <input id="sign-up-password" type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                        <div class="form-group float-label-control">
+                            <label for="">Confirm Password</label>
+                            <input id="sign-up-confirm-password" type="password" class="form-control" name="confirm-password" placeholder="Confirm Password">
+                        </div>
+                    </form>
+                    <div class="user-bio">
+                        <img id="usr-profile-image" style="display:none; float: right; position: relative;margin-top: -230px;margin-right: 20px;border: 1px solid rgb(205, 205, 205);" src="#">
+                        <div id="firstName" class="user-cred" style="margin-top:-140px;"></div>
+                        <div id="lastName" class="user-cred" style="margin-top:-126px;"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <a href="#terms-conditions" style="margin-top: 14px;" class="pull-left">Terms</a>
+                    <a href="#instructions" style="margin-left: 55px;margin-top: 14px;" class="pull-left">Instructions</a>
+
+                    <button id="register-new-account" type="button" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="LinkAccount">
+</div>
+<div id="CreateConnections">
+</div>
+

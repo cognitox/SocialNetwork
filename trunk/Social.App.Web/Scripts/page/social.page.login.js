@@ -1,7 +1,7 @@
 ﻿var LoginForm = (function ($) {
 
     var page = {
-        init: function(){
+        preloadLoginCredentials: function () {
             //get a cookie if it is defined, then allow the user to set the primary accounts
             var loginCookie = CookieService.getLoginCookie();
             if (loginCookie != '') {
@@ -16,6 +16,32 @@
                 //should be able to live and coexist with one another,
                 //based on currently set settings
             }
+        },
+        loadExternalProviders: function () {
+            var ul = $('#external-provider-list');
+
+            var status = ExternalProviderService.GetExternalProviders();
+            if (status.success) {
+                for (var p in status.message) {
+                    var provider = status.message[p];
+                    var type = provider.Name;
+                    var url = provider.Url;
+                    var state = provider.State;
+                    if (type == 'LinkedIn') {
+                        console.log(url);
+
+                        //append the link
+                        var li = '<li>'
+                                    + ' <a id="linkedin-external-signup"  onclick="WindowProviderService.OpenLinkedInAuthWindow(); return false;" href="' + HOST.BASE_URL + url + '"><i class="fa fa-linkedin"></i></a>'
+                                + '</li>';
+                        ul.append(li);
+                    }
+                }
+            }
+        },
+        init: function () {
+            this.preloadLoginCredentials();
+            this.loadExternalProviders();
         }
     }
 
@@ -71,7 +97,7 @@
             pane.empty().append(status.message)
 
             if (status.success) {
-               location.href = '/';
+                location.href = '/';
             }
 
         }

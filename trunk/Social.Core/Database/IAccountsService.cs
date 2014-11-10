@@ -7,5 +7,7 @@ namespace Social.Core.Services.Database
     {
         Account CreateOrUpdateFreeStandardAccount(String username);
         Account CreateFreeStandardAccount(string loweredUsername);
+        Account GetAccountByEmail(string email);
+        Account GetAccountByID(Guid accountID);
     }
 }

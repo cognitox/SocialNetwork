@@ -18,10 +18,17 @@ namespace Social.Core.Services.Database.Implementation
             SetContext(unitOfWork);
         }
 
-        public Boolean SyncSystemAccountWithLinkedIn(String pictureUrl)
+        public AccountMetaData GetAccountMetaDataByAccountID(Guid accountID)
         {
-
-            return false;
+            var repository = _unitOfWork.AccountMetaDatasRepository;
+            var retVal = repository.Where(a => a.AccountID == accountID);
+            return retVal.FirstOrDefault();
+        }
+        public AccountMetaData Update(AccountMetaData model)
+        {
+            var repository = _unitOfWork.AccountMetaDatasRepository;
+            var retVal = repository.Update(model);
+            return retVal;
         }
 
     }

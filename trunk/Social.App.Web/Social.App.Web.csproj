@@ -375,6 +375,7 @@
     <Content Include="Scripts\api\social.common.js" />
     <Content Include="Scripts\api\social.services.js" />
     <Content Include="Scripts\api\social.entities.js" />
+    <Content Include="Scripts\auth\social.auth.linkedin.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\page\social.page.login.js" />
     <Content Include="Scripts\api\social.settings.js" />

@@ -14,5 +14,15 @@ namespace Social.Data.WebAPI.Controllers
 
             return View();
         }
+
+        /// <summary>
+        /// The child window once the external provider
+        /// has successfully authenticated the user.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult LinkedInSuccessLogin()
+        {
+            return View();
+        }
     }
 }
